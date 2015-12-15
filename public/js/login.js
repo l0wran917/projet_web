@@ -4,36 +4,38 @@ $(window).load(function(){
 
   $(".login .iconPrevious").on("click", previousSubmit);
 
-})
+});
 
 
 function nextSubmit(){
 
   var mail = $("#inputEmail").val();
   var prenomDotNom = mail.split("@")[0];
-  var prenom = prenomDotNom.split(".")[0];
-  var nom = prenomDotNom.split(".")[1];
 
-  prenom = prenom[0].toUpperCase() + prenom.slice(1);
-  nom = nom[0].toUpperCase() + nom.slice(1);
+  if (mail.split("@")[1]=="u-psud.fr" && prenomDotNom.indexOf(".")!=-1){
+    var prenom = prenomDotNom.split(".")[0];
+    var nom = prenomDotNom.split(".")[1];
+    prenom = prenom[0].toUpperCase() + prenom.slice(1);
+    nom = nom[0].toUpperCase() + nom.slice(1);
 
-  $(".login .first-panel").css({
-    'transition': '100ms linear',
-    'transform': 'translate(-150%, 0)'
-  });
+    $(".login .first-panel").css({
+      'transition': '100ms linear',
+      'transform': 'translate(-150%, 0)'
+    });
 
-  $(".login .second-panel").css({
-    'transition': '100ms linear',
-    'transform': 'translate(0%, -100%)'
-  });
+    $(".login .second-panel").css({
+      'transition': '100ms linear',
+      'transform': 'translate(0%, -100%)'
+    });
 
-  $(".login .iconPrevious").css({
-    'display' : 'block'
-  });
+    $(".login .iconPrevious").css({
+      'display' : 'block'
+    });
 
-  $('.login .prenom').text(prenom);
-  $('.login .nom').text(nom);
+    $('.login .prenom').text(prenom);
+    $('.login .nom').text(nom);
 
+  }
 }
 
 function previousSubmit(){
