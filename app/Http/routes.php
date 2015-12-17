@@ -13,8 +13,10 @@
 
 Route::get('/', 'LoginController@index');
 
+Route::get('/home', 'DashboardController@index');
 
 Route::get('/dev', 'LoginController@test');
+
 
 
 // Route::get('/test', 'controllerAccueil');
