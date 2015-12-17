@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'LoginController@index');
+
+
+Route::get('/dev', 'LoginController@test');
 
 
 // Route::get('/test', 'controllerAccueil');
