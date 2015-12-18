@@ -16,7 +16,7 @@ html{
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   padding-bottom: 30px;
   overflow: hidden;
-  height: 350px;
+  min-height: 350px;
   margin-top: 20px;
 }
 
@@ -67,4 +67,15 @@ h3{
 .infoUser{
   text-align: center;
   margin-bottom: 15px;
+}
+
+.panel-alert{
+  max-height: 0;
+  /*padding-top: 10px;*/
+  overflow: hidden;
+  transition: max-height 200ms cubic-bezier(0.58, 0.32, 0.86, 0.18) 0s;
+}
+
+.alert{
+  margin-top: -10px;
 }

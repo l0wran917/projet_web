@@ -47,7 +47,12 @@
                 <div class="first-panel">
                   <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
-                      <input type="text" class="form-control input-lg" name="inputEmail" id="inputEmail" value="" placeholder="prenom.nom@u-psud.fr">
+                      <input type="text" class="form-control input-lg" name="inputEmail" id="inputEmail" value="" placeholder="prenom.nom@u-psud.fr" autofocus>
+                      <div class="panel-alert">
+                        <div class="alert alert-danger" role="alert">
+                          Humm, there is something wrong
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="row">
@@ -60,7 +65,7 @@
                 <div class="second-panel">
                   <div class="row">
                     <div class="col-xs-10 col-xs-offset-1">
-                      <input type="password" class="form-control input-lg" name="password" value="" placeholder="***********">
+                      <input type="password" class="form-control input-lg" name="inputPassword" id="inputPassword" value="" placeholder="***********">
                     </div>
                   </div>
                   <div class="row">
