@@ -29,6 +29,7 @@ function nextSubmit(){
     var nom = prenomDotNom.split(".")[1];
     prenom = prenom[0].toUpperCase() + prenom.slice(1).toLowerCase();
     nom = nom[0].toUpperCase() + nom.slice(1).toLowerCase();
+    lienImg = "img/etudiants/" + prenom.toLowerCase() + "." + nom.toLowerCase() + ".jpg";
 
     $(".panel-alert").css({
       'max-height':'0px',
@@ -51,6 +52,8 @@ function nextSubmit(){
 
     $("#inputPassword").focus();
     $("#inputPassword").val("");
+
+    $(".personalPicture img").attr("src", lienImg)
 
     $('.login .prenom').text(prenom);
     $('.login .nom').text(nom);
@@ -79,6 +82,11 @@ function previousSubmit(){
   $(".login .iconPrevious").css({
     'display' : 'none'
   });
+
+  $("#inputEmail").focus();
+
+  $(".personalPicture img").attr("src", "img/testImg.png")
+
 
   $('.login .prenom').text("");
   $('.login .nom').text("");

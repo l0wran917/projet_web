@@ -34,6 +34,8 @@ html{
 .personalPicture img{
   height: 100px;
   width: 100px;
+  border-radius: 100px;
+  transition: 0s;
 }
 
 h1{
