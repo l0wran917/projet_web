@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'LoginController@index');
+Route::post('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
 
 
 Route::get('/dev', 'LoginController@test');

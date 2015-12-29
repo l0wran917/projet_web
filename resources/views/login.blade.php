@@ -44,36 +44,40 @@
                   </div>
                 </div>
 
-                <div class="first-panel">
-                  <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                      <input type="text" class="form-control input-lg" name="inputEmail" id="inputEmail" value="" placeholder="prenom.nom@u-psud.fr" autofocus>
-                      <div class="panel-alert">
-                        <div class="alert alert-danger" role="alert">
-                          Humm, there is something wrong
+                <form class="" action="{{ route('login') }}" method="post">
+                  <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                  <div class="first-panel">
+                    <div class="row">
+                      <div class="col-xs-10 col-xs-offset-1">
+                        <input type="text" class="form-control input-lg" name="inputEmail" id="inputEmail" value="" placeholder="prenom.nom@u-psud.fr" autofocus>
+                        <div class="panel-alert transparent">
+                          <div class="alert alert-danger" role="alert">
+                            Humm, there is something wrong
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2">
-                      <input type="button" class="form-control btn btn-primary btn-block" id="nextLogin" value="Suivant" >
+                    <div class="row">
+                      <div class="col-xs-8 col-xs-offset-2">
+                        <input type="button" class="form-control btn btn-primary btn-block" id="nextLogin" value="Suivant" >
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div class="second-panel">
-                  <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1">
-                      <input type="password" class="form-control input-lg" name="inputPassword" id="inputPassword" value="" placeholder="***********">
+                  <div class="second-panel">
+                    <div class="row">
+                      <div class="col-xs-10 col-xs-offset-1">
+                        <input type="password" class="form-control input-lg" name="inputPassword" id="inputPassword" value="" placeholder="***********">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-8 col-xs-offset-2">
+                        <input type="button" class="form-control btn btn-primary btn-block" id="submitLogin" value="Valider" >
+                      </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-xs-8 col-xs-offset-2">
-                      <input type="button" class="form-control btn btn-primary btn-block" id="submitLogin" value="Valider" >
-                    </div>
-                  </div>
-                </div>
+                </form>
+
               </div>
             </div>
           </div>

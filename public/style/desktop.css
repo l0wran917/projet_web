@@ -71,7 +71,7 @@ h3{
   margin-bottom: 15px;
 }
 
-.panel-alert{
+.panel-alert.transparent{
   max-height: 0;
   /*padding-top: 10px;*/
   overflow: hidden;

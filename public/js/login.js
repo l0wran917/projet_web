@@ -4,16 +4,20 @@ $(window).load(function(){
 
   $(".login .iconPrevious").on("click", previousSubmit);
 
-  $("#inputEmail").keydown(function(event){
+  $("#inputEmail").on('keyup keypress', function(event){
     if(event.keyCode == 13){
-        $("#nextLogin").click();
+      $("#nextLogin").click();
     }
   });
 
-  $("#inputPassword").keydown(function(event){
-    if(event.keyCode == 13){
-        $("#submitLogin").click();
+  $("#inputPassword").keyup(function(event){
+    if(event.keyCode == 13 && $("#inputPassword").val().length != 0){
+        $(".login form").submit();
     }
+  });
+
+  $("#submitLogin").click(function(){
+    $(".login form").submit();
   });
 
 });
@@ -59,7 +63,8 @@ function nextSubmit(){
     $('.login .nom').text(nom);
 
   }else{
-    $(".panel-alert").css({
+
+    $(".panel-alert.transparent").css({
       'display':'block',
       'max-height':'500px',
       'padding-top':'10px'

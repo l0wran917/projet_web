@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Http\Requests\LoginRequest;
+
+use App\Utilisateur;
+use Hash;
+
 class LoginController extends Controller
 {
     /**
@@ -18,6 +23,24 @@ class LoginController extends Controller
     {
         return view('login');
     }
+
+    public function login(LoginRequest $request){
+
+      $user = Utilisateur::where('email', 'laurent.bassin@u-psud.fr')->first();
+
+      if(Hash::check($request->input('inputPassword'), $user->password)){
+        session(['uid' => $user->id]);
+        session(['prenom' => $user->prenom]);
+        session(['nom' => $user->nom]);
+        session(['email' => $user->email]);
+      }else{
+        session()->flush();
+        return "Nope little boy";
+      }
+
+      return $user;
+    }
+
     public function test()
     {
         return view('login');
