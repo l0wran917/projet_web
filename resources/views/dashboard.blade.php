@@ -13,13 +13,23 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-xs-3 text-center dashboard-menu">
-            <div class="col-xs-12 text-center infoUser">
-dddd
+            <div class="row" id="infoUser">
+                <div class="col-xs-4" id="personalPicture">
+                  <div class="image">
+
+                  </div>
+                  <!-- <img src="img/etudiants/laurent.bassin.jpg" alt="Photo de l'etudiant" /> -->
+                  <!-- <img src="http://lorempixel.com/120/120" alt="Photo de l'etudiant" /> -->
+                </div>
+                <div class="col-xs-8 details">
+                  Bassin Laurent</br>
+                  laurent.bassin@u-psud.fr
+                </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-10 col-xs-offset-3 durouge">
+          <div class="col-xs-9 col-xs-offset-3 durouge">
             <!-- -->
           </div>
         </div>

@@ -11,6 +11,7 @@ use App\Http\Requests\LoginRequest;
 
 use App\Utilisateur;
 use Hash;
+use Redirect;
 
 class LoginController extends Controller
 {
@@ -33,12 +34,14 @@ class LoginController extends Controller
         session(['prenom' => $user->prenom]);
         session(['nom' => $user->nom]);
         session(['email' => $user->email]);
+
+        return Redirect::route('dashboard');
       }else{
         session()->flush();
         return "Nope little boy";
       }
 
-      return $user;
+      return "Error.";
     }
 
     public function test()
