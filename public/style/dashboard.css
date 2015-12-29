@@ -1,0 +1,19 @@
+.personalPicture{
+  height: 150px;
+  width: 100%;
+  text-align: center;
+  line-height: 150px;
+}
+.dashboard-menu{
+  background-color: grey;
+  position: fixed;
+  height: 100%;
+  padding :0;
+}
+.durouge{
+  background-color: red;
+  height: 1500px;
+}
+.infoUser{
+  background-color: blue;
+}
