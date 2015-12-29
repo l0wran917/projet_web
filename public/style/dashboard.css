@@ -1,12 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One|Raleway);
+
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
 .dashboard-menu{
-  background-color: grey;
+  background-color: #313443;
   position: fixed;
   height: 100%;
   padding :0;
 }
 
-.durouge{
-  background-color: red;
+#panel{
+  background-color: #F6F6F6;
   height: 1500px;
 }
 
@@ -28,9 +34,11 @@
   background: url('../img/etudiants/laurent.bassin.jpg') no-repeat 0px 0px;
   background-position: center center;
   background-size: 100%;
+  /*border: 1px solid #fff;*/
 }
 
 #infoUser .details{
   height: 120px;
-  background-color: green;
+  color: #fff;
+  font-size: 1.4em;
 }

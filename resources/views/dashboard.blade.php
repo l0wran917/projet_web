@@ -12,7 +12,7 @@
     <body>
       <div class="container-fluid">
         <div class="row">
-          <div class="col-xs-3 text-center dashboard-menu">
+          <div class="col-xs-3 dashboard-menu">
             <div class="row" id="infoUser">
                 <div class="col-xs-4" id="personalPicture">
                   <div class="image">
@@ -22,14 +22,14 @@
                   <!-- <img src="http://lorempixel.com/120/120" alt="Photo de l'etudiant" /> -->
                 </div>
                 <div class="col-xs-8 details">
-                  Bassin Laurent</br>
+                  <b>Bassin Laurent</b></br>
                   laurent.bassin@u-psud.fr
                 </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-9 col-xs-offset-3 durouge">
+          <div class="col-xs-9 col-xs-offset-3" id="panel">
             <!-- -->
           </div>
         </div>
