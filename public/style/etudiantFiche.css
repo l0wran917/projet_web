@@ -6,10 +6,18 @@
   border-color: #CCC;
 }
 
-.entreprise label{
+.entreprise label, .etudiant label{
   font-weight: normal;
 }
 
 .form-decalage-group{
   padding-left:2%;
+}
+
+.noPaddingLeft{
+  padding-left: 0;
+}
+
+.noPaddingRight{
+  padding-right: 0;
 }

@@ -16,13 +16,12 @@
         @include('dashboard.leftPanel')
         <div class="row">
           <div class="col-xs-9 col-xs-offset-3" id="panel">
-            <p>
+            
               @if($id == 1)
                 @include('etudiant.fiches.localisation')
               @else
                   Error.
               @endif
-            </p>
           </div>
         </div>
       </div>
