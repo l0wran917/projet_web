@@ -142,13 +142,14 @@ body{
   margin-left: -80px;
   border-radius: 100%;
   font-size: 2em;
-  text-shadow: 0 0 0.5em black;
 }
 
 #dashboard-menu .footer{
-  background-color: #F0F;
-  height: 150px;
+  /*background-color: #F0F;*/
+  height: auto;
   bottom: 0px;
   position: absolute;
   width: 100%;
+  padding-bottom: 2rem;
+
 }

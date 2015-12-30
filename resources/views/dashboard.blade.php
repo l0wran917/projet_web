@@ -63,29 +63,28 @@
               </div>
             </div>
 
-            <div class="row" id="zoneProgressBarTotal">
-              <div class="col-xs-8 col-xs-offset-2" >
-              <div class="col-xs-8 col-xs-offset-2" >
-                <div class='box' id="progressBarTotal">
-                	<div class='content'>
-                    <!-- Progress Bar SVG -->
-                    <div id="cont" data-pct="0">
-                      <svg id="svg" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin slice" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
-                        <text id="perc" x="60" y="115" fill="currentColor" stroke="transparent" font-size="50">0%</text>
-                        <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-                        <circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0" transform="rotate(-90 100 100)"></circle>
-                      </svg>
+            <div class="footer">
+              <div class="row" id="zoneProgressBarTotal">
+                <div class="col-xs-8 col-xs-offset-2" >
+                <div class="col-xs-8 col-xs-offset-2" >
+                  <div class='box' id="progressBarTotal">
+                  	<div class='content'>
+                      <!-- Progress Bar SVG -->
+                      <div id="cont" data-pct="0">
+                        <svg id="svg" viewBox="0 0 200 200" preserveAspectRatio="xMinYMin slice" version="1.1" xmlns="http://www.w3.org/2000/svg">
+
+                          <text id="perc" x="60" y="115" fill="currentColor" stroke="transparent" font-size="50">0%</text>
+                          <circle r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
+                          <circle id="bar" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0" transform="rotate(-90 100 100)"></circle>
+                        </svg>
+                      </div>
+                      <!--  -->
                     </div>
-                    <!--  -->
                   </div>
                 </div>
+                </div>
               </div>
-              </div>
-            </div>
-
-            <div class="footer" style="background-color: blue;height:150px;bottom:0;">
-              testt
             </div>
 
           </div>
