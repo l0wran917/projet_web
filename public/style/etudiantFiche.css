@@ -1,3 +1,15 @@
 #panel{
   color:black;
 }
+
+.page-header{
+  border-color: #CCC;
+}
+
+.entreprise label{
+  font-weight: normal;
+}
+
+.form-decalage-group{
+  padding-left:2%;
+}

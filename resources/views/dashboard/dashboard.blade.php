@@ -9,8 +9,6 @@
         <script src="{{asset('js/jquery/jquery.1.11.3.min.js')}}"></script>
         <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
 
-        <script src="{{asset('js/dashboard.js')}}"></script>
-
     </head>
     <body>
       <div class="container-fluid">
