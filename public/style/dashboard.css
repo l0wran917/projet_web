@@ -2,9 +2,10 @@
 
 body{
   font-family: 'Raleway', sans-serif;
+  color: #fff;
 }
 
-.dashboard-menu{
+#dashboard-menu{
   background-color: #313443;
   position: fixed;
   height: 100%;
@@ -18,20 +19,24 @@ body{
 
 #infoUser{
   background-color: #A48AD4;
-  height: 150px;
+  height: auto;
   padding: 15px;
+  margin-bottom: 25px;
 }
 
 #personalPicture{
-  /*background-color: #fff;*/
+  /*background-color: #0ff;*/
+  min-width: 130px;
 }
 
 #personalPicture .image{
+  margin: auto;
   height: 120px;
   width: 120px;
-  background-color: purple;
+  background-color: rgb(76, 187, 226);
   border-radius: 60px;
-  background: url('../img/etudiants/laurent.bassin.jpg') no-repeat 0px 0px;
+  /*background-image: url('../img/etudiants/laurent.bassin.jpg'); */
+  background-repeat: no-repeat;
   background-position: center center;
   background-size: 100%;
   /*border: 1px solid #fff;*/
@@ -41,4 +46,57 @@ body{
   height: 120px;
   color: #fff;
   font-size: 1.4em;
+  /*background-color: green;*/
+  line-height: 120px;
+}
+
+#infoUser .details p{
+  /*border: 1px solid #fff;*/
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+#infoUser .nomPrenom{
+  font-weight: bold;
+}
+
+#dashboard-menu .btn-menu{
+  /*background-color: red;*/
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#dashboard-menu #progressBarTotal{
+  /*background-color: purple;*/
+}
+
+#dashboard-menu #progressBarTotal .background{
+  background-color: #fff;
+  position: relative;
+  border-radius: 50%;
+  clip: rect(0px, 10px, 10px, 0px);
+}
+
+#dashboard-menu #progressBarTotal .background:before{
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+#dashboard-menu #progressBarTotal .status{
+  background-color: #313443;
+  position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+  border-radius: 50%;
+  margin: 15px;
+}
+
+#dashboard-menu #progressBarTotal .status:before{
+  content: "";
+  display: block;
+  padding-top: 100%;
 }

@@ -27,7 +27,7 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request){
 
-      $user = Utilisateur::where('email', 'laurent.bassin@u-psud.fr')->first();
+      $user = Utilisateur::where('email', $request->input('inputEmail'))->first();
 
       if(Hash::check($request->input('inputPassword'), $user->password)){
         session(['uid' => $user->id]);

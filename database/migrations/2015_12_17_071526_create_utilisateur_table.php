@@ -38,6 +38,18 @@ class CreateUtilisateurTable extends Migration
           'password' => Hash::make('password')
         ]
       );
+
+      DB::table('utilisateurs')->insert(
+        [
+          'nom' => 'boukari',
+          'prenom' => 'yedoubouam',
+          'email' => 'yedoubouam.boukari@u-psud.fr',
+          'dateNaissance' => '1996-01-01',
+          'adresse' => '1 Rue des patates',
+          'telPortable' => '0102030405',
+          'password' => Hash::make('password')
+        ]
+      );
     }
 
     /**
@@ -47,6 +59,6 @@ class CreateUtilisateurTable extends Migration
      */
     public function down()
     {
-        Schema::drop('utilisateur');
+        Schema::drop('utilisateurs');
     }
 }
