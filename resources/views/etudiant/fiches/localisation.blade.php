@@ -106,8 +106,8 @@
     <div class="page-header">
       <h1>Etudiant</h1>
     </div>
-    <div class="etudiant">
 
+    <div class="etudiant">
       <div class="row">
         <div class="form-group col-lg-7">
           <label for="inputTelEtudiantEntreprise">Numéro de télephone <small>(Où l'on peut vous joindre en entreprise)</small> : </label>
@@ -128,7 +128,27 @@
           <input type="text" name="emailEtudiantPerso" id="inputEmailEtudiantPerso" value="" class="form-control">
         </div>
       </div>
-
     </div>
+
+    <div class="stage">
+      <div class="page-header">
+        <h1>Stage</h1>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-lg-9">
+          <label for="inputTelEtudiantEntreprise">Sujet du stage : </label>
+          <textarea class="form-control" rows="2" id="comment"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-4 btn-primary">Valider</button>
+      </div>
+    </div>
+
+
   </div>
 </div>
