@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', 'LoginController@index');
-Route::post('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
-
-Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
-
-Route::get('/dev', 'LoginController@test');
+Route::get('/', ['as' => 'login', 'uses' => 'LoginController@index']);
+Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@index']);
+Route::post('/login', ['as' => 'loginPost', 'uses' => 'LoginController@login']);
 
 
+Route::group(['middleware' => ['auth']], function(){
+  Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);
 
-// Route::get('/test', 'controllerAccueil');
+
+  Route::group(['middleware' => ['etudiant']], function(){
+    Route::get('/dashboard/etudiant/fiche/{id}', ['as' => 'ficheEtudiant', 'uses' => function(){ return 'Etudiant'; }]);
+  });
+});

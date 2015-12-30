@@ -1,33 +1,43 @@
 <!--  Bouton du menu -->
-<div class="row btn-menu active">
-  <div class="col-xs-12">
-    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Dashboard
+<a href="{{ route('ficheEtudiant', ['id' => 1]) }}">
+  <div class="row btn-menu active">
+    <div class="col-xs-12">
+      <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Dashboard
+    </div>
   </div>
-</div>
+</a>
 
-<div class="row btn-menu">
-  <div class="col-xs-12">
-    <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Fiche de localisation
+<a href="{{ route('ficheEtudiant', ['id' => 1]) }}">
+  <div class="row btn-menu">
+    <div class="col-xs-12">
+      <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Fiche de localisation
+    </div>
   </div>
-</div>
+</a>
 
-<div class="row btn-menu">
-  <div class="col-xs-12">
-    <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Avis de l'étudiant sur son stage
+<a href="{{ route('ficheEtudiant', ['id' => 2]) }}">
+  <div class="row btn-menu">
+    <div class="col-xs-12">
+      <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Avis de l'étudiant sur son stage
+    </div>
   </div>
-</div>
+</a>
 
-<div class="row btn-menu">
-  <div class="col-xs-12">
-    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>Fiche d'appreciation du stagiaire
+<a href="{{ route('ficheEtudiant', ['id' => 3]) }}">
+  <div class="row btn-menu">
+    <div class="col-xs-12">
+      <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>Fiche d'appreciation du stagiaire
+    </div>
   </div>
-</div>
+</a>
 
-<div class="row btn-menu">
-  <div class="col-xs-12">
-    Document 4
+<a href="{{ route('ficheEtudiant', ['id' => 4]) }}">
+  <div class="row btn-menu">
+    <div class="col-xs-12">
+      Document 4
+    </div>
   </div>
-</div>
+</a>
 
 <div class="footer">
   <div class="row" id="zoneProgressBarTotal">

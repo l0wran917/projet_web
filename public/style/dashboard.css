@@ -165,3 +165,7 @@ body{
 .btn-menu .glyphicon{
   padding-right: 10px;
 }
+
+a > .btn-menu{
+  color: #fff;
+}

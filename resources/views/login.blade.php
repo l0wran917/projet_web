@@ -44,7 +44,7 @@
                   </div>
                 </div>
 
-                <form class="" action="{{ route('login') }}" method="post">
+                <form class="" action="{{ route('loginPost') }}" method="post">
                   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                   <div class="first-panel">
                     <div class="row">
