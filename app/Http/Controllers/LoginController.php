@@ -34,6 +34,8 @@ class LoginController extends Controller
         session(['prenom' => $user->prenom]);
         session(['nom' => $user->nom]);
         session(['email' => $user->email]);
+        session(['typeUtilisateur' => $user->type]); // Changer le type en fonction de l'Utilisateur (Etudiant, prof, ...)
+
 
         return Redirect::route('dashboard');
       }else{

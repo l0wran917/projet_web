@@ -9,8 +9,6 @@ $(window).load(function(){
 
   var pct = ((100-val)/100)*c;
 
-  console.log(pct);
-
   $circle.css({ strokeDashoffset: pct});
   $("svg #perc").text(val + "%");
 })

@@ -24,6 +24,7 @@ class CreateUtilisateurTable extends Migration
         $table->string('tel');
         $table->string('telPortable');
         $table->string('password');
+        $table->integer('type');
         $table->timestamps();
       });
 
@@ -35,7 +36,8 @@ class CreateUtilisateurTable extends Migration
           'dateNaissance' => '1996-08-14',
           'adresse' => '6 Allee Olivier Messiaen',
           'telPortable' => '0671420739',
-          'password' => Hash::make('password')
+          'password' => Hash::make('password'),
+          'type' => 1
         ]
       );
 
@@ -47,7 +49,8 @@ class CreateUtilisateurTable extends Migration
           'dateNaissance' => '1996-01-01',
           'adresse' => '1 Rue des patates',
           'telPortable' => '0102030405',
-          'password' => Hash::make('password')
+          'password' => Hash::make('password'),
+          'type' => 1
         ]
       );
     }
