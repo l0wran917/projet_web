@@ -1,6 +1,8 @@
+<!-- {{{ !isset($id) ? $id = 0 : ''}}} -->
+
 <!--  Bouton du menu -->
-<a href="{{ route('ficheEtudiant', ['id' => 1]) }}">
-  <div class="row btn-menu active">
+<a href="{{ route('dashboard') }}">
+  <div class="row btn-menu {{{ $id == 0 ? 'active' : ''}}}">
     <div class="col-xs-12">
       <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span> Dashboard
     </div>
@@ -8,7 +10,7 @@
 </a>
 
 <a href="{{ route('ficheEtudiant', ['id' => 1]) }}">
-  <div class="row btn-menu">
+  <div class="row btn-menu {{{ $id == 1 ? 'active' : ''}}}">
     <div class="col-xs-12">
       <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>Fiche de localisation
     </div>
@@ -16,7 +18,7 @@
 </a>
 
 <a href="{{ route('ficheEtudiant', ['id' => 2]) }}">
-  <div class="row btn-menu">
+  <div class="row btn-menu {{{ $id == 2 ? 'active' : ''}}}">
     <div class="col-xs-12">
       <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Avis de l'étudiant sur son stage
     </div>
@@ -24,7 +26,7 @@
 </a>
 
 <a href="{{ route('ficheEtudiant', ['id' => 3]) }}">
-  <div class="row btn-menu">
+  <div class="row btn-menu {{{ $id == 3 ? 'active' : ''}}}">
     <div class="col-xs-12">
       <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>Fiche d'appreciation du stagiaire
     </div>
@@ -32,9 +34,17 @@
 </a>
 
 <a href="{{ route('ficheEtudiant', ['id' => 4]) }}">
-  <div class="row btn-menu">
+  <div class="row btn-menu {{{ $id == 4 ? 'active' : ''}}}">
     <div class="col-xs-12">
-      Document 4
+      <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Compte Rendu de la visite
+    </div>
+  </div>
+</a>
+
+<a href="{{ route('ficheEtudiant', ['id' => 5]) }}">
+  <div class="row btn-menu {{{ $id == 5 ? 'active' : ''}}}">
+    <div class="col-xs-12">
+      <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Soutenance
     </div>
   </div>
 </a>

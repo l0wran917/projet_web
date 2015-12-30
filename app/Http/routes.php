@@ -21,6 +21,6 @@ Route::group(['middleware' => ['auth']], function(){
 
 
   Route::group(['middleware' => ['etudiant']], function(){
-    Route::get('/dashboard/etudiant/fiche/{id}', ['as' => 'ficheEtudiant', 'uses' => function(){ return 'Etudiant'; }]);
+    Route::get('/dashboard/etudiant/fiche/{id}', ['as' => 'ficheEtudiant', 'uses' => 'FicheEtudiantController@index'])->where(['id' => '[0-9]+']);
   });
 });

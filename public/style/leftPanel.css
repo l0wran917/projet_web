@@ -1,0 +1,175 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One|Raleway);
+
+body{
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  /*background-color: #313443;*/
+}
+
+#dashboard-menu{
+  background-color: #313443;
+  /*position: absolute;
+  top:0;
+  left:0;
+  min-height: 100%;*/
+  position: fixed;
+  height: 100%;
+  padding :0;
+  /*max-width: 400px;*/
+}
+
+#panel{
+  background-color: #F6F6F6;
+  height: 1500px;
+}
+
+#infoUser{
+  background-color: #A48AD4;
+  height: auto;
+  padding: 15px;
+  margin-bottom: 25px;
+}
+
+#personalPicture{
+  /*background-color: #0ff;*/
+  min-width: 130px;
+}
+
+#personalPicture .image{
+  margin: auto;
+  height: 120px;
+  width: 120px;
+  background-color: rgb(76, 187, 226);
+  border-radius: 60px;
+  /*background-image: url('../img/etudiants/laurent.bassin.jpg'); */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  /*border: 1px solid #fff;*/
+}
+
+#infoUser .details{
+  height: 120px;
+  color: #fff;
+  font-size: 1.4em;
+  /*background-color: green;*/
+  line-height: 120px;
+}
+
+#infoUser .details p{
+  /*border: 1px solid #fff;*/
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+#infoUser .nomPrenom{
+  font-weight: bold;
+}
+
+#dashboard-menu .btn-menu{
+  /*background-color: red;*/
+  text-align: left;
+  padding: 1.8rem;
+  padding-left: 5rem;
+  font-size: 1.1em;
+  /*height: 1.4em;*/
+}
+
+#zoneProgressBarTotal{
+  margin-top: 25px;
+}
+
+#progressBarTotal{
+	position: relative;
+  /*background-color: green;*/
+}
+
+#progressBarTotal:before{
+	content: "";
+	display: block;
+	padding-top: 100%; 	/* initial ratio of 1:1*/
+}
+
+#progressBarTotal .content{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#svg circle {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #666;
+  stroke-width: 1em;
+  height: 100%;
+  width: 100%;
+}
+
+#svg #bar {
+  stroke-dashoffset: 565.48;
+  transition: stroke-dashoffset 1s linear;
+  stroke: #666;
+  stroke-width: 1em;
+  height: 100%;
+  width: 100%;
+}
+
+#svg #bar {
+  stroke: #E94B4A;
+}
+
+#svg text{
+  color:#fff;
+}
+
+#cont {
+  display: block;
+  height: 100%;
+  width: 100%;
+  /*border-radius: 100%;*/
+  position: relative;
+}
+
+#cont:after {
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  left: 50%;
+  top: 50%;
+  /*content: attr(data-pct)"%";*/
+  margin-top: -80px;
+  margin-left: -80px;
+  border-radius: 100%;
+  font-size: 2em;
+}
+
+#dashboard-menu .footer{
+  /*background-color: #F0F;*/
+  height: auto;
+  bottom: 0px;
+  position: absolute;
+  width: 100%;
+  padding-bottom: 2rem;
+}
+
+.btn-menu.active{
+  background-color: #1E202C;
+  color: #fff;
+  font-weight: bold;
+}
+
+.btn-menu .glyphicon{
+  padding-right: 10px;
+}
+
+a > .btn-menu{
+  color: #fff;
+}
+
+.btn-menu:hover{
+  background-color: #1E202C;
+}
