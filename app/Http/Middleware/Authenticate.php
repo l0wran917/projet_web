@@ -50,4 +50,8 @@ class Authenticate
 
         return $next($request);
     }
+
+    public static function check(){
+        return (session()->has('uid'));
+    }
 }
