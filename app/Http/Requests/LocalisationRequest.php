@@ -29,7 +29,26 @@ class LocalisationRequest extends Request
     public function rules()
     {
         return [
-            //
+            'nomEtablissement' => 'required',
+            'adresseEtablissement' => 'required',
+            'villeEtablissement' => 'required',
+            'cpEtablissement' => 'required',
+            // 'planAcces' => 'required',
+            'civiliteReponsable' => 'required',
+            'nomResponsable' => 'required',
+            'numeroResponsable' => 'required',
+            'emailResponsable' => 'required',
+            'jourRencontre' => 'required',
+            'telEtudiantEntreprise' => 'required',
+            'telEtudiantPortable' => 'required',
+            'emailEtudiantPerso' => 'required',
+            'sujetStage' => 'required'
+        ];
+    }
+
+    public function messages(){
+        return [
+          'required' => 'Le champs :attribute est obligatoire'
         ];
     }
 }

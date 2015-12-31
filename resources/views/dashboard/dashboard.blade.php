@@ -15,7 +15,9 @@
         @include('dashboard.leftPanel')
         <div class="row">
           <div class="col-xs-9 col-xs-offset-3" id="panel">
-            <!-- -->
+            @if( Session::get('typeUtilisateur') == 1)
+              @include('dashboard.etudiant')
+            @endif
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@
         <div class="row">
           <div class="form-group col-lg-6">
             <label for="inputNomEtablissement">Nom de l'établissement :</label>
-            <input type="text" name="nomEtablissement" id="inputNomEtablissement" value="" class="form-control" required>
+            <input type="text" name="nomEtablissement" id="inputNomEtablissement" value="{{ old('nomEtablissement') }}" class="form-control" required>
           </div>
         </div>
 
@@ -21,18 +21,18 @@
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputAdresseEtablissement">Numéro et nom de rue :</label>
-              <input type="text" name="adresseEtablissement" id="inputAdresseEtablissement" value="" class="form-control" required>
+              <input type="text" name="adresseEtablissement" id="inputAdresseEtablissement" value="{{ old('adresseEtablissement') }}" class="form-control" required>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputVilleEtablissement">Ville de l'établissement :</label>
-              <input type="text" name="villeEtablissement" id="inputVilleEtablissement" value="" class="form-control" required>
+              <input type="text" name="villeEtablissement" id="inputVilleEtablissement" value="{{ old('villeEtablissement') }}" class="form-control" required>
             </div>
             <div class="form-group col-lg-2">
               <label for="inputCPEtablissement">Code postal :</label>
-              <input type="text" name="cpEtablissement" id="inputCPEtablissement" value="" class="form-control" required pattern="[0-9]{5}">
+              <input type="text" name="cpEtablissement" id="inputCPEtablissement" value="{{ old('cpEtablissement') }}" class="form-control" required pattern="[0-9]{5}">
             </div>
           </div>
 
@@ -49,28 +49,28 @@
           <div class="row">
             <div class="form-group col-lg-2">
               <label for="inputCiviliteResponsable">Civilité :</label>
-              <select class="form-control" name="civilite" id="inputCiviliteResponsable">
+              <select class="form-control" name="civiliteReponsable" id="inputCiviliteResponsable">
                 <option value="mr">Mr</option>
                 <option value="mme">Mme</option>
               </select>
             </div>
             <div class="form-group col-lg-4 ">
               <label for="inputNomResponsable">Nom : </label>
-              <input type="text" name="nomResponsable" id="inputNomResponsable" value="" class="form-control" required>
+              <input type="text" name="nomResponsable" id="inputNomResponsable" value="{{ old('nomResponsable') }}" class="form-control" required>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputNumeroResponsable">Numéro de télephone :</label>
-              <input type="text" name="numeroResponsable" id="inputNumeroResponsable" value="" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
+              <input type="text" name="numeroResponsable" id="inputNumeroResponsable" value="{{ old('numeroResponsable') }}" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputEmailResponsable">Email :</label>
-              <input type="email" name="emailResponsable" id="inputEmailResponsable" value="" class="form-control" required>
+              <input type="email" name="emailResponsable" id="inputEmailResponsable" value="{{ old('emailResponsable') }}" class="form-control" required>
             </div>
           </div>
 
@@ -113,21 +113,21 @@
         <div class="row">
           <div class="form-group col-lg-7">
             <label for="inputTelEtudiantEntreprise">Numéro de télephone <small>(Où l'on peut vous joindre en entreprise)</small> : </label>
-            <input type="text" name="telEtudiantEntreprise" id="inputTelEtudiantEntreprise" value="" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
+            <input type="text" name="telEtudiantEntreprise" id="inputTelEtudiantEntreprise" value="{{ old('telEtudiantEntreprise') }}" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-lg-7">
             <label for="inputTelEtudiantPortable">Numéro de télephone portable :</label>
-            <input type="text" name="telEtudiantPortable" id="inputTelEtudiantPortable" value="" class="form-control" required pattern="^0(6|7)([-. ]?[0-9]{2}){4}$">
+            <input type="text" name="telEtudiantPortable" id="inputTelEtudiantPortable" value="{{ old('telEtudiantPortable') }}" class="form-control" required pattern="^0(6|7)([-. ]?[0-9]{2}){4}$">
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-lg-7">
             <label for="inputEmailEtudiantPerso">Email personnel :</label>
-            <input type="email" name="emailEtudiantPerso" id="inputEmailEtudiantPerso" value="" class="form-control" required>
+            <input type="email" name="emailEtudiantPerso" id="inputEmailEtudiantPerso" value="{{ old('emailEtudiantPerso') }}" class="form-control" required>
           </div>
         </div>
       </div>
@@ -140,14 +140,28 @@
         <div class="row">
           <div class="form-group col-lg-9">
             <label for="inputSujetStage">Sujet du stage : </label>
-            <textarea class="form-control" rows="2" name="sujetStage" id="inputSujetStage" required></textarea>
+            <textarea class="form-control" rows="2" name="sujetStage" id="inputSujetStage" required>{{ old('sujetStage') }}</textarea>
           </div>
         </div>
       </div>
 
+    @if(count($errors->all()) >= 1)
+          <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+              <div class="panel-alert transparent">
+                <div class="alert alert-danger" role="alert">
+                  @foreach ($errors->all() as $error)
+                     <div>{{ $error }}</div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          </div>
+    @endif
+
       <div class="row">
         <div class="col-lg-12">
-          <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-4 btn-primary">Valider</button>
+          <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-5 btn-primary">Valider</button>
         </div>
       </div>
 

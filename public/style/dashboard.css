@@ -1,0 +1,26 @@
+#panel{
+  padding-top: 2%;
+  padding-left: 3%;
+  color: #000;
+}
+
+#panel .panel{
+  margin-bottom: 5%;
+}
+
+#panel .recapitulatif label{
+  font-weight: normal;
+}
+
+#panel .recapitulatif .form-group{
+  margin-bottom: 5px;
+}
+
+.control-label{
+  text-align: right !important;
+}
+
+/*
+.form-control-static{
+  background-color: cyan;
+}*/
