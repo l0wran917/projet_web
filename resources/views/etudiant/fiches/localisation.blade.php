@@ -161,11 +161,12 @@
 
       <div class="row">
         <div class="col-lg-12">
-          <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-5 btn-primary">Valider</button>
+          <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-5 btn-primary" id="submitLocalisation">Valider</button>
         </div>
       </div>
-
 
     </div>
   </form>
 </div>
+
+<script src="{{asset('js/localisation.js')}}"></script>

@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Requests\LocalisationRequest;
+use App\Http\Requests\CorrespondanteRequest;
 use App\Http\Controllers\Controller;
 
 use App\Entreprise;
+use App\Tuteur;
 
 class FicheEtudiantController extends Controller
 {
@@ -24,48 +26,130 @@ class FicheEtudiantController extends Controller
         return view('etudiant.fiche')->with(['id'=>$id]);
     }
 
-    public function post($id = 0, LocalisationRequest $request)
+    public function submitFiche($id = 0, LocalisationRequest $request)
     {
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
-          $entreprisesIdentique = $this->entrepriseExisteInDB($request);
-
-          if(count($entreprisesIdentique) > 0){
-
-            foreach ($entreprisesIdentique as $entreprise) {
-              echo $entreprise->nom . '</br>';
-            }
-
-            return 'Entreprise identique potentielle trouvée';
-          }else{
-            $entreprise = new Entreprise;
-
-            $entreprise->nom = $request->input('nomEtablissement');
-            $entreprise->rue = $request->input('adresseEtablissement');
-            $entreprise->cp = $request->input('cpEtablissement');
-            $entreprise->ville = $request->input('villeEtablissement');
-
-            $entreprise->save();
-
-            echo $request->input('nomEtablissement');
-          }
+          return $this->traitementSubmitLocalisation(FicheEtudiantController::$ID_FICHE_LOCALISATION, $request);
         }
 
-        return view('test');
-        return $request->input();
+        return 'Error.';
     }
 
+    private function traitementSubmitLocalisation($id, $request){
 
-    private function entrepriseExisteInDB($request){
+      // Stocke les infos du formulaire en session
+      session(['requestFicheLocalisation' => $request->all()]);
+
+      // Cherche les entreprises qui peuvent correspondre
+      $entreprisesIdentique = $this->entrepriseExisteInDBByCP($request->input('nomEtablissement'), $request->input('cpEtablissement'));
+
+      if(count($entreprisesIdentique) > 0){
+        // Retourne la vue de selection parmi les entreprises dont le nom ressemble et sont dans la même ville
+        return view('etudiant.entrepriseCorrespondante')->with(['entreprises' => $entreprisesIdentique, 'id' => $id]);
+        // La vue envoi les infos à la fct : traitementSubmitLocalisationEntreprise
+      }else{
+        // Aucune entreprise identique, continue le traitement
+        $this->traitementSubmitLocalisationEntreprise($id, new CorrespondanteRequest());
+      }
+    }
+
+    public function traitementSubmitLocalisationEntreprise($id, CorrespondanteRequest $request){
+
+      // Nouvelle entreprise
+      if($request->input('inputCorrespondante') == null || $request->input('inputCorrespondante') == 0){
+
+        // Recupere les infos du formulaire
+        $requestFicheLocalisation = session('requestFicheLocalisation');
+
+        // Créer une entreprise avec les bonnes infos
+        $entreprise = new Entreprise;
+
+        $entreprise->nom = $requestFicheLocalisation['nomEtablissement'];
+        $entreprise->rue = $requestFicheLocalisation['adresseEtablissement'];
+        $entreprise->cp = $requestFicheLocalisation['cpEtablissement'];
+        $entreprise->ville = $requestFicheLocalisation['villeEtablissement'];
+
+        // Enregistre l'entreprise puis stocke en session l'id
+        $entreprise->save();
+        $requestFicheLocalisation['idEntreprise'] = $entreprise->id;
+
+        session(['requestFicheLocalisation' => $requestFicheLocalisation]);
+
+        // echo 'Enterprise créée';
+      }else{ // Entreprise dans la liste
+
+        // Recupere les infos du formulaire
+        $requestFicheLocalisation = session('requestFicheLocalisation');
+
+        // Recupere les entreprises listés
+        $entreprisesIdentique = $this->entrepriseExisteInDBByCP($requestFicheLocalisation['nomEtablissement'], $requestFicheLocalisation['cpEtablissement']);
+
+        // Stocke en session l'id de l'entreprise
+        $requestFicheLocalisation['idEntreprise'] = $entreprisesIdentique[$request->inputCorrespondante - 1]->id;
+        session(['requestFicheLocalisation' => $requestFicheLocalisation]);
+
+        // echo 'Entreprise récuperée';
+      }
+
+      // Suite du traitement vers tuteur
+      return $this->traitementVerifTuteur($id);
+    }
+
+    private function traitementVerifTuteur($id){
+      $tuteursIdentique = $this->tuteurExisteInDBByEntreprise(session('requestFicheLocalisation')['nomResponsable'], session('requestFicheLocalisation')['idEntreprise']);
+
+      if(count($tuteursIdentique) > 0){
+        // Retourne la vue de selection parmi les tuteurs dont le nom ressemble et sont dans l'entreprise
+        return view('etudiant.tuteurCorrespondant')->with(['tuteurs' => $tuteursIdentique, 'id' => $id]);
+        // La vue envoi les infos à la fct : traitementSubmitLocalisationEntreprise
+      }else{
+        // Aucune entreprise identique, continue le traitement
+        $this->traitementSubmitLocalisationTuteurs($id, new CorrespondanteRequest());
+      }
+    }
+
+    public function traitementSubmitLocalisationTuteurs($id, CorrespondanteRequest $request){
+      // Nouveau tuteur
+      if($request->input('inputCorrespondante') == null || $request->input('inputCorrespondante') == 0){
+
+        echo 'Tuteur doit etre créé';
+      }else{ // Ancien tuteur
+
+        echo 'Tuteur doit etre recuperé';
+      }
+    }
+
+    // Utilisataire (A bouger dans les models)
+
+    private function entrepriseExisteInDBByCP($nomEtablissement, $codePostal){
       $entreprisesIdentique = [];
 
-      $entreprises = Entreprise::where('cp', $request->input('cpEtablissement'))->get();//->whereRaw('upper(nom) SOUNDEX upper(?)', [$request->input('nomEtablissement')]);
+      // Order by est obligatoire !
+      // Si une entreprise est créer entre temps, cela n'infue pas les id dans les formulaires des autres
+      $entreprises = Entreprise::where('cp', $codePostal)->orderBy('id')->get();
 
       foreach ($entreprises as $entreprise) {
-        if(soundex($request->input('nomEtablissement')) == soundex($entreprise->nom)){
+        if(soundex($nomEtablissement) == soundex($entreprise->nom)){
           array_push($entreprisesIdentique, $entreprise);
         }
       }
 
       return $entreprisesIdentique;
+    }
+
+    private function tuteurExisteInDBByEntreprise($nomTuteur, $idEntreprise){
+      $tuteursIdentique = [];
+
+      // Order by est obligatoire !
+      // Si un tuteur est créer entre temps, cela n'infue pas les id dans les formulaires des autres
+      $tuteurs = Tuteur::where('idEntreprise', $idEntreprise)->orderBy('idUtilisateur')->get();
+
+      foreach ($tuteurs as $tuteur) {
+        if(soundex($nomTuteur) == soundex($tuteur->utilisateur->nom)){
+          array_push($tuteursIdentique, $tuteur);
+        }
+      }
+
+      return $tuteursIdentique;
     }
 }

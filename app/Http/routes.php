@@ -22,6 +22,17 @@ Route::group(['middleware' => ['auth']], function(){
 
   Route::group(['middleware' => ['etudiant']], function(){
     Route::get('/dashboard/etudiant/fiche/{id}', ['as' => 'ficheEtudiant', 'uses' => 'FicheEtudiantController@index'])->where(['id' => '[0-9]+']);
-    Route::post('/dashboard/etudiant/fiche/{id}', ['as' => 'ficheEtudiant', 'uses' => 'FicheEtudiantController@post'])->where(['id' => '[0-9]+']);
+    Route::post('/dashboard/etudiant/fiche/{id}', ['as' => 'ficheEtudiant', 'uses' => 'FicheEtudiantController@submitFiche'])->where(['id' => '[0-9]+']);
+
+    Route::post('/dashboard/etudiant/fiche/{id}/entreprise',
+                ['as' => 'ficheEtudiantLocalisationEntrepriseCorresp',
+                 'uses' => 'FicheEtudiantController@traitementSubmitLocalisationEntreprise'])
+                ->where(['id' => '[0-9]+']);
+
+    Route::post('/dashboard/etudiant/fiche/{id}/tuteur',
+                ['as' => 'ficheEtudiantLocalisationTuteurCorresp',
+                 'uses' => 'FicheEtudiantController@traitementSubmitLocalisationTuteurs'])
+                ->where(['id' => '[0-9]+']);
+
   });
 });

@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Dashboard</title>
+@include('template.head')
 
-        <link type="text/css" rel="stylesheet" href="{{asset('style/bootstrap.min.css')}}">
-        <link type="text/css" rel="stylesheet" href="{{asset('style/leftPanel.css')}}">
-        <link type="text/css" rel="stylesheet" href="{{asset('style/dashboard.css')}}">
-        <script src="{{asset('js/jquery/jquery.1.11.3.min.js')}}"></script>
-        <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
+  <link type="text/css" rel="stylesheet" href="{{asset('style/dashboard.css')}}">
 
-    </head>
-    <body>
-      <div class="container-fluid">
-        @include('dashboard.leftPanel')
-        <div class="row">
-          <div class="col-xs-9 col-xs-offset-3" id="panel">
-            @if( Session::get('typeUtilisateur') == 1)
-              @include('dashboard.etudiant')
-            @endif
-          </div>
-        </div>
-      </div>
-    </body>
-</html>
+  @if( Session::get('typeUtilisateur') == 1)
+    @include('dashboard.etudiant')
+  @endif
+
+@include('template.foot')

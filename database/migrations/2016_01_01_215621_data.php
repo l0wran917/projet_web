@@ -3,9 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-// use Hash;
-
-class CreateUtilisateurTable extends Migration
+class Data extends Migration
 {
     /**
      * Run the migrations.
@@ -14,21 +12,7 @@ class CreateUtilisateurTable extends Migration
      */
     public function up()
     {
-      Schema::create('utilisateurs', function (Blueprint $table) {
-        $table->increments('id');
-        $table->string('nom');
-        $table->string('prenom');
-        $table->string('email');
-        $table->date('dateNaissance');
-        $table->string('adresse');
-        $table->string('tel');
-        $table->string('telPortable');
-        $table->string('password');
-        $table->integer('type');
-        $table->timestamps();
-      });
-
-      DB::table('utilisateurs')->insert(
+      DB::table('utilisateur')->insert(
         [
           'nom' => 'bassin',
           'prenom' => 'laurent',
@@ -41,7 +25,7 @@ class CreateUtilisateurTable extends Migration
         ]
       );
 
-      DB::table('utilisateurs')->insert(
+      DB::table('utilisateur')->insert(
         [
           'nom' => 'boukari',
           'prenom' => 'yedoubouam',
@@ -53,6 +37,22 @@ class CreateUtilisateurTable extends Migration
           'type' => 1
         ]
       );
+
+      DB::table('entreprise')->insert(
+        [
+          'nom' => 'Mx Data',
+          'rue' => '19 rue du 4 septembre',
+          'cp' => '75002',
+          'ville' => 'Paris 2e'
+        ]
+      );
+
+      DB::table('tuteur')->insert(
+        [
+          'idUtilisateur' => '2',
+          'idEntreprise' => '1'
+        ]
+      );
     }
 
     /**
@@ -62,6 +62,6 @@ class CreateUtilisateurTable extends Migration
      */
     public function down()
     {
-        Schema::drop('utilisateurs');
+        //
     }
 }
