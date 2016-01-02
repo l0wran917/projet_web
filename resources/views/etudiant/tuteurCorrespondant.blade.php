@@ -17,12 +17,12 @@
             <div class="input-group">
               <span class="input-group-addon">
                 <input type="radio" name="inputCorrespondante" value="{{ $key+1 }}" id="tuteurCorrespondant{{ $key+1 }}"
-                  aria-label="{{ $tuteur->nom }}. {{ $tuteur->prenom }}. {{ $tuteur->email }}.">
+                  aria-label="{{ $tuteur->details->nom }}. {{ $tuteur->details->prenom }}. {{ $tuteur->details->email }}.">
               </span>
               <p class="form-control-static">
                 <label for="entrepriseCorrespondante{{ $key+1 }}">
-                  {{ $tuteur->nom }} {{ $tuteur->prenom }}</br>
-                  {{ $tuteur->email }}
+                  {{ $tuteur->details->nom }} {{ $tuteur->details->prenom }}</br>
+                  {{ $tuteur->details->email }}
                 </label>
               </p>
             </div>

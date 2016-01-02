@@ -26,6 +26,15 @@ class Tables extends Migration
         $table->timestamps();
       });
 
+      Schema::create('etudiant', function (Blueprint $table) {
+        $table->integer('idUtilisateur')->unsigned();
+        $table->string('tp');
+        $table->timestamps();
+
+        $table->primary('idUtilisateur');
+        $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
+      });
+
       Schema::create('entreprise', function (Blueprint $table) {
         $table->increments('id')->unsigned();
         $table->string('nom');
@@ -57,6 +66,7 @@ class Tables extends Migration
     {
       Schema::drop('tuteur');
       Schema::drop('entreprise');
+      Schema::drop('etudiant');
       Schema::drop('utilisateur');
 
     }

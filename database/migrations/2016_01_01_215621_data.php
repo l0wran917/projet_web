@@ -14,6 +14,7 @@ class Data extends Migration
     {
       DB::table('utilisateur')->insert(
         [
+          'id' => 1,
           'nom' => 'bassin',
           'prenom' => 'laurent',
           'email' => 'laurent.bassin@u-psud.fr',
@@ -27,14 +28,15 @@ class Data extends Migration
 
       DB::table('utilisateur')->insert(
         [
-          'nom' => 'boukari',
-          'prenom' => 'yedoubouam',
-          'email' => 'yedoubouam.boukari@u-psud.fr',
+          'id' => 2,
+          'nom' => 'morterol',
+          'prenom' => 'martin',
+          'email' => 'martin.morterol@u-psud.fr',
           'dateNaissance' => '1996-01-01',
           'adresse' => '1 Rue des patates',
           'telPortable' => '0102030405',
           'password' => Hash::make('password'),
-          'type' => 1
+          'type' => 2
         ]
       );
 
@@ -51,6 +53,13 @@ class Data extends Migration
         [
           'idUtilisateur' => '2',
           'idEntreprise' => '1'
+        ]
+      );
+
+      DB::table('etudiant')->insert(
+        [
+          'idUtilisateur' => '1',
+          'tp' => '1K'
         ]
       );
     }

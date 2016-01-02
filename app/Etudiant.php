@@ -4,17 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tuteur extends Model
+class Etudiant extends Model
 {
-    protected $table = 'tuteur';
+    protected $table = 'etudiant';
     protected $primaryKey = 'idUtilisateur';
     public $timestamps = true;
 
     public function details(){
       return $this->hasOne('App\Utilisateur', 'id', 'idUtilisateur');
+      // return $this->hasOne();
     }
-
-    // public function save(){
-    //   echo 'oui';
-    // }
 }

@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 
 use App\Entreprise;
 use App\Tuteur;
+use App\Etudiant;
+use App\Utilisateur;
 
 class FicheEtudiantController extends Controller
 {
@@ -109,14 +111,56 @@ class FicheEtudiantController extends Controller
     }
 
     public function traitementSubmitLocalisationTuteurs($id, CorrespondanteRequest $request){
+
+      // Recupere les infos du formulaire
+      $requestFicheLocalisation = session('requestFicheLocalisation');
+
       // Nouveau tuteur
       if($request->input('inputCorrespondante') == null || $request->input('inputCorrespondante') == 0){
 
-        echo 'Tuteur doit etre créé';
+        $utilisateur = new Utilisateur;
+
+        $utilisateur->nom = $requestFicheLocalisation['nomResponsable'];
+        $utilisateur->prenom = $requestFicheLocalisation['prenomResponsable'];
+        $utilisateur->email = $requestFicheLocalisation['emailResponsable'];
+
+        $telResponsable = $requestFicheLocalisation['telResponsable'];
+        if(substr($telResponsable, 0, 2) == "06" || substr($telResponsable, 0, 2) == "07"){
+          $utilisateur->telPortable = $requestFicheLocalisation['telResponsable'];
+        }else{
+          $utilisateur->tel = $requestFicheLocalisation['telResponsable'];
+        }
+
+        $utilisateur->type = 2;
+
+        $utilisateur->save();
+
+        $tuteur = new Tuteur;
+
+        $tuteur->idUtilisateur = $utilisateur->id;
+        $tuteur->idEntreprise = $requestFicheLocalisation['idEntreprise'];
+
+        $tuteur->save();
+
+        // echo 'Tuteur créé';
       }else{ // Ancien tuteur
 
-        echo 'Tuteur doit etre recuperé';
+        // Recupere les tuteurs listés
+        $tuteursIdentique = $this->tuteurExisteInDBByEntreprise($requestFicheLocalisation['nomResponsable'], $requestFicheLocalisation['idEntreprise']);
+
+        // Stocke en session l'id utilisateur du tuteur
+        $requestFicheLocalisation['idTuteur'] = $tuteursIdentique[$request->inputCorrespondante - 1]->idUtilisateur;
+        session(['requestFicheLocalisation' => $requestFicheLocalisation]);
+
+        // echo 'Tuteur récuperé';
       }
+
+      // Suite du traitement vers tuteur
+      return $this->traitementVerifStage($id);
+    }
+
+    public function traitementVerifStage($id){
+      return 'oui';
     }
 
     // Utilisataire (A bouger dans les models)
@@ -145,7 +189,7 @@ class FicheEtudiantController extends Controller
       $tuteurs = Tuteur::where('idEntreprise', $idEntreprise)->orderBy('idUtilisateur')->get();
 
       foreach ($tuteurs as $tuteur) {
-        if(soundex($nomTuteur) == soundex($tuteur->utilisateur->nom)){
+        if(soundex($nomTuteur) == soundex($tuteur->details->nom)){
           array_push($tuteursIdentique, $tuteur);
         }
       }

@@ -58,12 +58,16 @@
               <label for="inputNomResponsable">Nom : </label>
               <input type="text" name="nomResponsable" id="inputNomResponsable" value="{{ old('nomResponsable') }}" class="form-control" required>
             </div>
+            <div class="form-group col-lg-4 ">
+              <label for="inputNomResponsable">Prénom : </label>
+              <input type="text" name="prenomResponsable" id="inputPrenomResponsable" value="{{ old('prenomResponsable') }}" class="form-control" required>
+            </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
-              <label for="inputNumeroResponsable">Numéro de télephone :</label>
-              <input type="text" name="numeroResponsable" id="inputNumeroResponsable" value="{{ old('numeroResponsable') }}" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
+              <label for="inputTelResponsable">Numéro de télephone :</label>
+              <input type="text" name="telResponsable" id="inputTelResponsable" value="{{ old('telResponsable') }}" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
             </div>
           </div>
 
