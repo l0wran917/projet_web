@@ -10,7 +10,13 @@
         <div class="row">
           <div class="form-group col-lg-6">
             <label for="inputNomEtablissement">Nom de l'établissement :</label>
-            <input type="text" name="nomEtablissement" id="inputNomEtablissement" value="{{ old('nomEtablissement') }}" class="form-control" required>
+            <input type="text" name="nomEtablissement" id="inputNomEtablissement"
+              @if(old('nomEtablissement') != '')
+                value="{{ old('nomEtablissement') }}"
+              @elseif( isset($data['stage']) )
+                value="{{ $data['stage']->nomEntreprise }}"
+              @endif
+              class="form-control" required>
           </div>
         </div>
 
@@ -21,18 +27,36 @@
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputAdresseEtablissement">Numéro et nom de rue :</label>
-              <input type="text" name="adresseEtablissement" id="inputAdresseEtablissement" value="{{ old('adresseEtablissement') }}" class="form-control" required>
+              <input type="text" name="adresseEtablissement" id="inputAdresseEtablissement"
+                @if(old('adresseEtablissement') != '')
+                  value="{{ old('adresseEtablissement') }}"
+                @elseif( isset($data['stage']) )
+                  value="{{ $data['stage']->rueEntreprise }}"
+                @endif
+              class="form-control" required>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputVilleEtablissement">Ville de l'établissement :</label>
-              <input type="text" name="villeEtablissement" id="inputVilleEtablissement" value="{{ old('villeEtablissement') }}" class="form-control" required>
+              <input type="text" name="villeEtablissement" id="inputVilleEtablissement"
+              @if(old('villeEtablissement') != '')
+                value="{{ old('villeEtablissement') }}"
+              @elseif( isset($data['stage']) )
+                value="{{ $data['stage']->villeEntreprise }}"
+              @endif
+              class="form-control" required>
             </div>
             <div class="form-group col-lg-2">
               <label for="inputCPEtablissement">Code postal :</label>
-              <input type="text" name="cpEtablissement" id="inputCPEtablissement" value="{{ old('cpEtablissement') }}" class="form-control" required pattern="[0-9]{5}">
+              <input type="text" name="cpEtablissement" id="inputCPEtablissement"
+              @if(old('cpEtablissement') != '')
+                value="{{ old('cpEtablissement') }}"
+              @elseif( isset($data['stage']) )
+                value="{{ $data['stage']->codePostalEntreprise }}"
+              @endif
+              class="form-control" required pattern="[0-9]{5}">
             </div>
           </div>
 
@@ -56,25 +80,51 @@
             </div>
             <div class="form-group col-lg-4 ">
               <label for="inputNomResponsable">Nom : </label>
-              <input type="text" name="nomResponsable" id="inputNomResponsable" value="{{ old('nomResponsable') }}" class="form-control" required>
+              <input type="text" name="nomResponsable" id="inputNomResponsable"
+              @if(old('nomResponsable') != '')
+                value="{{ old('nomResponsable') }}"
+              @elseif( isset($data['stage']) )
+                value="{{ $data['stage']->nomTuteur }}"
+              @endif
+              class="form-control" required>
             </div>
             <div class="form-group col-lg-4 ">
               <label for="inputNomResponsable">Prénom : </label>
-              <input type="text" name="prenomResponsable" id="inputPrenomResponsable" value="{{ old('prenomResponsable') }}" class="form-control" required>
+              <input type="text" name="prenomResponsable" id="inputPrenomResponsable"
+              @if(old('prenomResponsable') != '')
+                value="{{ old('prenomResponsable') }}"
+              @elseif( isset($data['stage']) )
+                value="{{ $data['stage']->prenomTuteur }}"
+              @endif
+              class="form-control" required>
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputTelResponsable">Numéro de télephone :</label>
-              <input type="text" name="telResponsable" id="inputTelResponsable" value="{{ old('telResponsable') }}" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
+              <input type="text" name="telResponsable" id="inputTelResponsable"
+              @if(old('telResponsable') != '')
+                value="{{ old('telResponsable') }}"
+              @elseif( isset($data['stage']) && $data['stage']->telPortableTuteur != "")
+                value="{{ $data['stage']->telPortableTuteur }}"
+              @elseif( isset($data['stage']) && $data['stage']->telTuteur != "")
+                value="{{ $data['stage']->telTuteur }}"
+              @endif
+              class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
             </div>
           </div>
 
           <div class="row">
             <div class="form-group col-lg-6">
               <label for="inputEmailResponsable">Email :</label>
-              <input type="email" name="emailResponsable" id="inputEmailResponsable" value="{{ old('emailResponsable') }}" class="form-control" required>
+              <input type="email" name="emailResponsable" id="inputEmailResponsable"
+              @if(old('emailResponsable') != '')
+                value="{{ old('emailResponsable') }}"
+              @elseif( isset($data['stage']) )
+                value="{{ $data['stage']->emailTuteur }}"
+              @endif
+              class="form-control" required>
             </div>
           </div>
 
@@ -117,21 +167,39 @@
         <div class="row">
           <div class="form-group col-lg-7">
             <label for="inputTelEtudiantEntreprise">Numéro de télephone <small>(Où l'on peut vous joindre en entreprise)</small> : </label>
-            <input type="text" name="telEtudiantEntreprise" id="inputTelEtudiantEntreprise" value="{{ old('telEtudiantEntreprise') }}" class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
+            <input type="text" name="telEtudiantEntreprise" id="inputTelEtudiantEntreprise"
+            @if(old('telEtudiantEntreprise') != '')
+              value="{{ old('telEtudiantEntreprise') }}"
+            @elseif( isset($data['stage']) )
+              value="{{ $data['etudiant']->telEntrepriseEtudiant }}"
+            @endif
+            class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-lg-7">
             <label for="inputTelEtudiantPortable">Numéro de télephone portable :</label>
-            <input type="text" name="telEtudiantPortable" id="inputTelEtudiantPortable" value="{{ old('telEtudiantPortable') }}" class="form-control" required pattern="^0(6|7)([-. ]?[0-9]{2}){4}$">
+            <input type="text" name="telEtudiantPortable" id="inputTelEtudiantPortable"
+            @if(old('telEtudiantPortable') != '')
+              value="{{ old('telEtudiantPortable') }}"
+            @elseif( isset($data['stage']) )
+              value="{{ $data['etudiant']->telPortable }}"
+            @endif
+            class="form-control" required pattern="^0(6|7)([-. ]?[0-9]{2}){4}$">
           </div>
         </div>
 
         <div class="row">
           <div class="form-group col-lg-7">
             <label for="inputEmailEtudiantPerso">Email personnel :</label>
-            <input type="email" name="emailEtudiantPerso" id="inputEmailEtudiantPerso" value="{{ old('emailEtudiantPerso') }}" class="form-control" required>
+            <input type="email" name="emailEtudiantPerso" id="inputEmailEtudiantPerso"
+            @if(old('emailEtudiantPerso') != '')
+              value="{{ old('emailEtudiantPerso') }}"
+            @elseif( isset($data['stage']) )
+              value="{{ $data['etudiant']->emailPerso }}"
+            @endif
+            class="form-control" required>
           </div>
         </div>
       </div>
@@ -144,7 +212,9 @@
         <div class="row">
           <div class="form-group col-lg-9">
             <label for="inputSujetStage">Sujet du stage : </label>
-            <textarea class="form-control" rows="2" name="sujetStage" id="inputSujetStage" required>{{ old('sujetStage') }}</textarea>
+            <!-- NE SURTOUT PAS METTRE D'ESPACE ! Ils sont affichés dans la vue -->
+            <textarea class="form-control" rows="2" name="sujetStage" id="inputSujetStage"
+              required>@if(old('sujetStage') != ''){{ old('sujetStage') }}@elseif( isset($data['stage']) ){{ $data['stage']->sujet }}@endif</textarea>
           </div>
         </div>
       </div>
@@ -163,6 +233,7 @@
         </div>
     @endif
 
+    @if(session()->has('registred'))
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
             <div class="panel-alert-success transparent">
@@ -172,6 +243,7 @@
             </div>
           </div>
         </div>
+    @endif
 
       <div class="row">
         <div class="col-lg-12">

@@ -29,6 +29,8 @@ class Tables extends Migration
       Schema::create('etudiant', function (Blueprint $table) {
         $table->integer('idUtilisateur')->unsigned();
         $table->string('tp');
+        $table->string('telEntrepriseEtudiant');
+        $table->string('emailPerso');
         $table->timestamps();
 
         $table->primary('idUtilisateur');
@@ -58,7 +60,8 @@ class Tables extends Migration
       Schema::create('stage', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('idEtudiant')->unsigned();
-        $table->integer('idTuteur')->unsigned();
+        $table->integer('idTuteur')->unsigned();;
+        $table->string('sujet');
         $table->timestamps();
 
         $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');

@@ -21,16 +21,24 @@ class FicheEtudiantController extends Controller
 {
 
     public static $ID_FICHE_LOCALISATION = 1;
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    // Point entrée GET des étudiants
     public function index($id = 0)
     {
-        return view('etudiant.fiche')->with(['id'=>$id]);
+        $data = [];
+
+        if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
+          $stage = Stage::infos(session('uid'));
+          $data['stage'] = $stage;
+
+          $etudiant = Etudiant::infos(session('uid'));
+          $data['etudiant'] = $etudiant;
+        }
+
+        return view('etudiant.fiche')->with(['id' => $id, 'data' => $data]);
     }
 
+    // Entrée POST des étudiants
     public function submitFiche($id = 0, LocalisationRequest $request)
     {
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
@@ -167,6 +175,10 @@ class FicheEtudiantController extends Controller
     }
 
     public function traitementVerifStage($id){
+      // Recupere les infos du formulaire
+      $requestFicheLocalisation = session('requestFicheLocalisation');
+
+      // Recupere le stage
       $stage =  Stage::where('idEtudiant', session('uid'))->first();
 
       // Aucun stage existant, on en créer un
@@ -177,10 +189,23 @@ class FicheEtudiantController extends Controller
       // Renseigne les infos (update ou init, peu importe)
       $stage->idEtudiant = session('uid');
       $stage->idTuteur = session('requestFicheLocalisation')['idTuteur'];
+      $stage->sujet = $requestFicheLocalisation['sujetStage'];
       $stage->save();
 
-      session(['idStage' => $stage->id]);
+      // Recupere l'Etudiant et l'utilisation correspondant
+      $etudiant = Etudiant::where('idUtilisateur', session('uid'))->first();
+      $utilisateurEtudiant = Utilisateur::where('id', session('uid'))->first();
 
+      // Mets à jour les infos
+      $etudiant->telEntrepriseEtudiant = $requestFicheLocalisation['telEtudiantEntreprise'];
+      $etudiant->emailPerso = $requestFicheLocalisation['emailEtudiantPerso'];
+      $utilisateurEtudiant->telPortable = $requestFicheLocalisation['telEtudiantPortable'];
+
+      // update
+      $utilisateurEtudiant->save();
+      $etudiant->save();
+
+      // Vide les infos du formulaire de la session + signal ok pour vue
       session()->forget('requestFicheLocalisation');
       session()->flash('registred', true);
 

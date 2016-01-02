@@ -13,17 +13,14 @@ use App\Stage;
 
 class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function index()
     {
       $dashboardInfos = [];
 
       if(session('typeUtilisateur') == Utilisateur::$ETUDIANT){
-        $etudiant = Etudiant::infos_v(session('uid'));
+        $etudiant = Etudiant::infos(session('uid'));
         $dashboardInfos['etudiant'] = $etudiant;
 
         $stage = Stage::infos(session('uid'));

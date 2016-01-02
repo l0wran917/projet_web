@@ -19,10 +19,12 @@ class Views extends Migration
                             u.nom as nom,
                             u.prenom as prenom,
                             u.email as email,
+                            et.emailPerso as emailPerso,
                             u.dateNaissance as dateNaissance,
                             u.adresse as adresse,
                             u.tel as tel,
                             u.telPortable as telPortable,
+                            et.telEntrepriseEtudiant as telEntrepriseEtudiant,
                             1 as typeUtilisateur,
                             u.created_at as createdDateUser
                      FROM etudiant et, utilisateur u
@@ -30,6 +32,7 @@ class Views extends Migration
 
       DB::statement("CREATE VIEW stage_v AS
                       SELECT  st.idEtudiant as idEtudiant,
+                              st.id as idStage,
                               u.nom as nomTuteur,
                               u.prenom as prenomTuteur,
                               u.email as emailTuteur,
@@ -38,7 +41,8 @@ class Views extends Migration
                               e.nom as nomEntreprise,
                               e.rue as rueEntreprise,
                               e.cp as codePostalEntreprise,
-                              e.ville as villeEntreprise
+                              e.ville as villeEntreprise,
+                              st.sujet as sujet
                       FROM stage st, tuteur t, entreprise e, utilisateur u
                       WHERE st.idTuteur = t.idUtilisateur
                       AND t.idEntreprise = e.id
