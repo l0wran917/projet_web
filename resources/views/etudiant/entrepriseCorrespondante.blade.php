@@ -33,7 +33,7 @@
           <div class="page-header"></div>
           <div class="input-group">
             <span class="input-group-addon">
-              <input type="radio" name="inputEntrepriseCorrespondante" value="0" id="entrepriseCorrespondante0"
+              <input type="radio" name="inputCorrespondante" value="0" id="entrepriseCorrespondante0"
                 aria-label="Aucune des ces entreprises.">
             </span>
             <p class="form-control-static">

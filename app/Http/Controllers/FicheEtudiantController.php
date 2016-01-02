@@ -46,7 +46,7 @@ class FicheEtudiantController extends Controller
       session(['requestFicheLocalisation' => $request->all()]);
 
       // Cherche les entreprises qui peuvent correspondre
-      $entreprisesIdentique = $this->entrepriseExisteInDBByCP($request->input('nomEtablissement'), $request->input('cpEtablissement'));
+      $entreprisesIdentique = Entreprise::existeInDBByCP($request->input('nomEtablissement'), $request->input('cpEtablissement'));
 
       if(count($entreprisesIdentique) > 0){
         // Retourne la vue de selection parmi les entreprises dont le nom ressemble et sont dans la même ville
@@ -87,7 +87,7 @@ class FicheEtudiantController extends Controller
         $requestFicheLocalisation = session('requestFicheLocalisation');
 
         // Recupere les entreprises listés
-        $entreprisesIdentique = $this->entrepriseExisteInDBByCP($requestFicheLocalisation['nomEtablissement'], $requestFicheLocalisation['cpEtablissement']);
+        $entreprisesIdentique = Entreprise::existeInDBByCP($requestFicheLocalisation['nomEtablissement'], $requestFicheLocalisation['cpEtablissement']);
 
         // Stocke en session l'id de l'entreprise
         $requestFicheLocalisation['idEntreprise'] = $entreprisesIdentique[$request->inputCorrespondante - 1]->id;
@@ -101,7 +101,7 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementVerifTuteur($id){
-      $tuteursIdentique = $this->tuteurExisteInDBByEntreprise(session('requestFicheLocalisation')['nomResponsable'], session('requestFicheLocalisation')['idEntreprise']);
+      $tuteursIdentique = Tuteur::existeInDBByEntreprise(session('requestFicheLocalisation')['nomResponsable'], session('requestFicheLocalisation')['idEntreprise']);
 
       if(count($tuteursIdentique) > 0){
         // Retourne la vue de selection parmi les tuteurs dont le nom ressemble et sont dans l'entreprise
@@ -145,11 +145,15 @@ class FicheEtudiantController extends Controller
 
         $tuteur->save();
 
+        // Stocke en session l'id utilisateur du tuteur
+        $requestFicheLocalisation['idTuteur'] = $utilisateur->id;
+        session(['requestFicheLocalisation' => $requestFicheLocalisation]);
+
         // echo 'Tuteur créé';
       }else{ // Ancien tuteur
 
         // Recupere les tuteurs listés
-        $tuteursIdentique = $this->tuteurExisteInDBByEntreprise($requestFicheLocalisation['nomResponsable'], $requestFicheLocalisation['idEntreprise']);
+        $tuteursIdentique = Tuteur::existeInDBByEntreprise($requestFicheLocalisation['nomResponsable'], $requestFicheLocalisation['idEntreprise']);
 
         // Stocke en session l'id utilisateur du tuteur
         $requestFicheLocalisation['idTuteur'] = $tuteursIdentique[$request->inputCorrespondante - 1]->idUtilisateur;
@@ -181,37 +185,4 @@ class FicheEtudiantController extends Controller
       return redirect()->route('ficheEtudiant', ['id' => $id, 'submitted' => true ]);
     }
 
-    // Utilisataire (A bouger dans les models)
-
-    private function entrepriseExisteInDBByCP($nomEtablissement, $codePostal){
-      $entreprisesIdentique = [];
-
-      // Order by est obligatoire !
-      // Si une entreprise est créer entre temps, cela n'infue pas les id dans les formulaires des autres
-      $entreprises = Entreprise::where('cp', $codePostal)->orderBy('id')->get();
-
-      foreach ($entreprises as $entreprise) {
-        if(soundex($nomEtablissement) == soundex($entreprise->nom)){
-          array_push($entreprisesIdentique, $entreprise);
-        }
-      }
-
-      return $entreprisesIdentique;
-    }
-
-    private function tuteurExisteInDBByEntreprise($nomTuteur, $idEntreprise){
-      $tuteursIdentique = [];
-
-      // Order by est obligatoire !
-      // Si un tuteur est créer entre temps, cela n'infue pas les id dans les formulaires des autres
-      $tuteurs = Tuteur::where('idEntreprise', $idEntreprise)->orderBy('idUtilisateur')->get();
-
-      foreach ($tuteurs as $tuteur) {
-        if(soundex($nomTuteur) == soundex($tuteur->details->nom)){
-          array_push($tuteursIdentique, $tuteur);
-        }
-      }
-
-      return $tuteursIdentique;
-    }
 }

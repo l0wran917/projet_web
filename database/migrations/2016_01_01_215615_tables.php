@@ -75,6 +75,7 @@ class Tables extends Migration
      */
     public function down()
     {
+      Schema::drop('stage');
       Schema::drop('tuteur');
       Schema::drop('entreprise');
       Schema::drop('etudiant');

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Utilisateur;
+
 class DashboardController extends Controller
 {
     /**
@@ -16,6 +18,10 @@ class DashboardController extends Controller
      */
     public function index()
     {
+      if(session('typeUtilisateur') == Utilisateur::$ETUDIANT){
+        // echo 'oui';
+      }
+
       return view("dashboard.dashboard");
     }
 }
