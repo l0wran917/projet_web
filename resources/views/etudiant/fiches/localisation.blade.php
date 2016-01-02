@@ -163,6 +163,16 @@
         </div>
     @endif
 
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel-alert-success transparent">
+              <div class="alert alert-success" role="alert">
+                 <div><strong>Succès.</strong> Votre fiche est bien enregistrée</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <div class="row">
         <div class="col-lg-12">
           <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-5 btn-primary" id="submitLocalisation">Valider</button>

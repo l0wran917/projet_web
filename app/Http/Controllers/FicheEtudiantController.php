@@ -54,7 +54,7 @@ class FicheEtudiantController extends Controller
         // La vue envoi les infos à la fct : traitementSubmitLocalisationEntreprise
       }else{
         // Aucune entreprise identique, continue le traitement
-        $this->traitementSubmitLocalisationEntreprise($id, new CorrespondanteRequest());
+        return $this->traitementSubmitLocalisationEntreprise($id, new CorrespondanteRequest());
       }
     }
 
@@ -109,7 +109,7 @@ class FicheEtudiantController extends Controller
         // La vue envoi les infos à la fct : traitementSubmitLocalisationTuteurs
       }else{
         // Aucun tuteur identique, continue le traitement
-        $this->traitementSubmitLocalisationTuteurs($id, new CorrespondanteRequest());
+        return $this->traitementSubmitLocalisationTuteurs($id, new CorrespondanteRequest());
       }
     }
 
@@ -167,7 +167,7 @@ class FicheEtudiantController extends Controller
     }
 
     public function traitementVerifStage($id){
-      $stage =  Stage::where('idUtilisateur', session('uid'))->first();
+      $stage =  Stage::where('idEtudiant', session('uid'))->first();
 
       // Aucun stage existant, on en créer un
       if(count($stage) == 0){
@@ -175,14 +175,17 @@ class FicheEtudiantController extends Controller
       }
 
       // Renseigne les infos (update ou init, peu importe)
-      $stage->idUtilisateur = session('uid');
+      $stage->idEtudiant = session('uid');
       $stage->idTuteur = session('requestFicheLocalisation')['idTuteur'];
       $stage->save();
 
       session(['idStage' => $stage->id]);
 
+      session()->forget('requestFicheLocalisation');
+      session()->flash('registred', true);
+
       // redirection vers formulaire avec msg succes
-      return redirect()->route('ficheEtudiant', ['id' => $id, 'submitted' => true ]);
+      return redirect()->route('ficheEtudiant', ['id' => $id]);
     }
 
 }

@@ -2,49 +2,43 @@
 
   <div class="col-lg-5">
     <div class="panel panel-default">
-      <div class="panel-heading">Récapitulif sur l'étudiant et son stage</div>
+      <div class="panel-heading">Récapitulif sur l'étudiant</div>
       <div class="panel-body recapitulatif">
         <form class="form-horizontal">
 
           <div class="form-group">
             <label class="col-sm-5 control-label">TP :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">1K</p>
+              <p class="form-control-static">{{ $dashboardInfos['etudiant']->tp or 'null' }}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Etudiant :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">Bassin Laurent</p>
+              <p class="form-control-static">{{ ucfirst($dashboardInfos['etudiant']->nom) }} {{ ucfirst($dashboardInfos['etudiant']->prenom) }}</p>
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="col-sm-5 control-label">Tutrice / Tuteur :</label>
-            <div class="col-sm-7">
-              <p class="form-control-static">Morterol Martin</p>
-            </div>
-          </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Adresse personnelle :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">6 Allée Olivier Messiaen</br>91700 - Sainte Genevieve Des Bois</p>
+              <p class="form-control-static">{{ $dashboardInfos['etudiant']->adresse}}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Courriel IUT :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">laurent.bassin@u-psud.fr</p>
+              <p class="form-control-static">{{ $dashboardInfos['etudiant']->email }}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Telephone :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">06 71 52 00 02</p>
+              <p class="form-control-static">{{ $dashboardInfos['etudiant']->telPortable}}</p>
             </div>
           </div>
 
@@ -60,35 +54,35 @@
           <div class="form-group">
             <label class="col-sm-5 control-label">Nom :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">Mx Data</p>
+              <p class="form-control-static">{{ $dashboardInfos['stage']->nomEntreprise }}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Responsable :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">Lacaille Loïc</p>
+              <p class="form-control-static">{{ $dashboardInfos['stage']->nomTuteur }} {{ $dashboardInfos['stage']->prenomTuteur }} </p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Télephone :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">06 05 04 03 02</p>
+              <p class="form-control-static">{{ ($dashboardInfos['stage']->telPortableTuteur != '') ? $dashboardInfos['stage']->telPortableTuteur : $dashboardInfos['stage']->telTuteur }}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Email :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">llacaille@mxdata.fr</p>
+              <p class="form-control-static">{{ $dashboardInfos['stage']->emailTuteur }}</p>
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-sm-5 control-label">Adresse :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">19 Rue du Quatre Septembre</br>75002 - Paris 2e</p>
+              <p class="form-control-static">{{ $dashboardInfos['stage']->rueEntreprise }} </br> {{ $dashboardInfos['stage']->codePostalEntreprise }} {{ $dashboardInfos['stage']->villeEntreprise }}</p>
             </div>
           </div>
 

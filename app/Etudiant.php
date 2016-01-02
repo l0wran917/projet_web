@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
 
 class Etudiant extends Model
 {
@@ -13,6 +14,13 @@ class Etudiant extends Model
 
     public function details(){
       return $this->hasOne('App\Utilisateur', 'id', 'idUtilisateur');
-      // return $this->hasOne();
+    }
+ 
+    // public static function infos_fv($id){
+    //   return DB::table('etudiant_fv')->where('idEtudiant', $id)->first();
+    // }
+
+    public static function infos_v($id){
+      return DB::table('etudiant_v')->where('idEtudiant', $id)->first();
     }
 }

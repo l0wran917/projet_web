@@ -57,13 +57,12 @@ class Tables extends Migration
 
       Schema::create('stage', function (Blueprint $table) {
         $table->increments('id');
-        $table->integer('idUtilisateur')->unsigned();
+        $table->integer('idEtudiant')->unsigned();
         $table->integer('idTuteur')->unsigned();
         $table->timestamps();
 
-        $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
+        $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
         $table->foreign('idTuteur')->references('idUtilisateur')->on('tuteur');
-
       });
 
     }
