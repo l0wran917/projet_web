@@ -6,8 +6,8 @@
       <div class="panel-heading">Entreprises correspondantes</div>
       <div class="panel-body recapitulatif">
         <p>
-          Une ou plusieurs entreprises correspondent potentiellement à votre saisie.</br>
-          Selectionnez dans la liste votre entreprise, ou la dernière option si aucune ne correspond.
+          Un ou plusieurs tuteurs correspondent potentiellement à votre saisie.</br>
+          Selectionnez dans la liste votre tuteur, ou la dernière option si aucun ne correspond.
         </p>
         <form action="{{ route('ficheEtudiantLocalisationTuteurCorresp', ['id' => $id]) }}" method="post">
           <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -20,7 +20,7 @@
                   aria-label="{{ $tuteur->details->nom }}. {{ $tuteur->details->prenom }}. {{ $tuteur->details->email }}.">
               </span>
               <p class="form-control-static">
-                <label for="entrepriseCorrespondante{{ $key+1 }}">
+                <label for="tuteurCorrespondant{{ $key+1 }}">
                   {{ $tuteur->details->nom }} {{ $tuteur->details->prenom }}</br>
                   {{ $tuteur->details->email }}
                 </label>
@@ -32,11 +32,11 @@
           <div class="input-group">
             <span class="input-group-addon">
               <input type="radio" name="inputCorrespondante" value="0" id="tuteurCorrespondant0"
-                aria-label="Mx Data. 19 Rue du quatre septembre. 75002. Paris 2e">
+                aria-label="Aucun de ces tuteurs.">
             </span>
             <p class="form-control-static">
-              <label for="entrepriseCorrespondante0">
-                Aucune des ces entreprises.
+              <label for="tuteurCorrespondant0">
+                Aucun de ces tuteurs.
               </label>
             </p>
           </div>

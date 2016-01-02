@@ -13,6 +13,9 @@ use App\Entreprise;
 use App\Tuteur;
 use App\Etudiant;
 use App\Utilisateur;
+use App\Stage;
+
+use Route;
 
 class FicheEtudiantController extends Controller
 {
@@ -103,9 +106,9 @@ class FicheEtudiantController extends Controller
       if(count($tuteursIdentique) > 0){
         // Retourne la vue de selection parmi les tuteurs dont le nom ressemble et sont dans l'entreprise
         return view('etudiant.tuteurCorrespondant')->with(['tuteurs' => $tuteursIdentique, 'id' => $id]);
-        // La vue envoi les infos à la fct : traitementSubmitLocalisationEntreprise
+        // La vue envoi les infos à la fct : traitementSubmitLocalisationTuteurs
       }else{
-        // Aucune entreprise identique, continue le traitement
+        // Aucun tuteur identique, continue le traitement
         $this->traitementSubmitLocalisationTuteurs($id, new CorrespondanteRequest());
       }
     }
@@ -160,7 +163,22 @@ class FicheEtudiantController extends Controller
     }
 
     public function traitementVerifStage($id){
-      return 'oui';
+      $stage =  Stage::where('idUtilisateur', session('uid'))->first();
+
+      // Aucun stage existant, on en créer un
+      if(count($stage) == 0){
+        $stage = new Stage;
+      }
+
+      // Renseigne les infos (update ou init, peu importe)
+      $stage->idUtilisateur = session('uid');
+      $stage->idTuteur = session('requestFicheLocalisation')['idTuteur'];
+      $stage->save();
+
+      session(['idStage' => $stage->id]);
+
+      // redirection vers formulaire avec msg succes
+      return redirect()->route('ficheEtudiant', ['id' => $id, 'submitted' => true ]);
     }
 
     // Utilisataire (A bouger dans les models)

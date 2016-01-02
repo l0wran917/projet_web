@@ -150,17 +150,17 @@
       </div>
 
     @if(count($errors->all()) >= 1)
-          <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-              <div class="panel-alert transparent">
-                <div class="alert alert-danger" role="alert">
-                  @foreach ($errors->all() as $error)
-                     <div>{{ $error }}</div>
-                  @endforeach
-                </div>
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel-alert transparent">
+              <div class="alert alert-danger" role="alert">
+                @foreach ($errors->all() as $error)
+                   <div>{{ $error }}</div>
+                @endforeach
               </div>
             </div>
           </div>
+        </div>
     @endif
 
       <div class="row">
