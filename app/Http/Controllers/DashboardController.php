@@ -26,6 +26,14 @@ class DashboardController extends Controller
         $stage = Stage::infos(session('uid'));
         if(count($stage) == 0){
           $stage = new Stage;
+          $stage->nomEntreprise = '-';
+          $stage->nomTuteur = '-';
+          $stage->prenomTuteur = '';
+          $stage->telPortableTuteur = '-';
+          $stage->emailTuteur = '-';
+          $stage->rueEntreprise = '-';
+          $stage->codePostalEntreprise = '';
+          $stage->villeEntreprise = '';
         }
         $dashboardInfos['stage'] = $stage;
 
