@@ -38,7 +38,7 @@ class DashboardController extends Controller
         $dashboardInfos['stage'] = $stage;
 
       }
-      return view('test');
+      // return view('test');
 
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
     }

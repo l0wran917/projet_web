@@ -21,6 +21,7 @@ class Tables extends Migration
         $table->string('adresse');
         $table->string('tel');
         $table->string('telPortable');
+        $table->enum('civilite', ['0', '1', '2']);
         $table->string('password');
         $table->integer('type');
         $table->timestamps();
@@ -49,6 +50,7 @@ class Tables extends Migration
       Schema::create('tuteur', function (Blueprint $table) {
         $table->integer('idUtilisateur')->unsigned();
         $table->integer('idEntreprise')->unsigned();
+        $table->integer('joursDispoRencontre');
         $table->timestamps();
 
         $table->primary('idUtilisateur');

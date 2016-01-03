@@ -33,6 +33,7 @@ class Views extends Migration
       DB::statement("CREATE VIEW stage_v AS
                       SELECT  st.idEtudiant as idEtudiant,
                               st.id as idStage,
+                              u.civilite as civilite,
                               u.nom as nomTuteur,
                               u.prenom as prenomTuteur,
                               u.email as emailTuteur,
@@ -43,7 +44,8 @@ class Views extends Migration
                               e.cp as codePostalEntreprise,
                               e.ville as villeEntreprise,
                               st.sujet as sujet,
-                              st.planAcces as planAcces
+                              st.planAcces as planAcces,
+                              t.joursDispoRencontre as joursDispoRencontre
                       FROM stage st, tuteur t, entreprise e, utilisateur u
                       WHERE st.idTuteur = t.idUtilisateur
                       AND t.idEntreprise = e.id

@@ -96,8 +96,8 @@
             <div class="form-group col-lg-2">
               <label for="inputCiviliteResponsable">Civilité :</label>
               <select class="form-control" name="civiliteReponsable" id="inputCiviliteResponsable">
-                <option value="mr">Mr</option>
-                <option value="mme">Mme</option>
+                <option value="1" {{ $data['stage']->civilite == '1' ? 'selected' : '' }}>Mr</option>
+                <option value="2" {{ $data['stage']->civilite == '2' ? 'selected' : '' }}>Mme</option>
               </select>
             </div>
             <div class="form-group col-lg-4 ">
@@ -154,22 +154,22 @@
             <div class="form-group col-lg-12">
               <label for="inputJourRencontre">Jours de la semaine où il est possible de le rencontrer :</label></br>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="option1"> Lundi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="1" {{ ($data['stage']->joursDispoRencontre ) % 2 == 1 ? 'checked' : '' }}> Lundi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="option2"> Mardi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="2" {{ ($data['stage']->joursDispoRencontre / 2 ) % 2 == 1 ? 'checked' : '' }}> Mardi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="option3"> Mercredi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="4" {{ ($data['stage']->joursDispoRencontre / 2 / 2 ) % 2 == 1 ? 'checked' : '' }}> Mercredi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="option1"> Jeudi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="8" {{ ($data['stage']->joursDispoRencontre / 2 / 2 / 2 ) % 2 == 1 ? 'checked' : '' }}> Jeudi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="option2"> Vendredi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="16" {{ ($data['stage']->joursDispoRencontre / 2 / 2 / 2 / 2) % 2 == 1 ? 'checked' : '' }}> Vendredi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="option3"> Samedi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="32" {{ ($data['stage']->joursDispoRencontre / 2 / 2 / 2 / 2 / 2) % 2 == 1 ? 'checked' : '' }}> Samedi
                 </label>
             </div>
           </div>

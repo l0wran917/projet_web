@@ -159,6 +159,7 @@ class FicheEtudiantController extends Controller
         }
 
         $utilisateur->type = 2;
+        $utilisateur->civilite = $requestFicheLocalisation['civiliteReponsable'];
 
         $utilisateur->save();
 
@@ -166,8 +167,6 @@ class FicheEtudiantController extends Controller
 
         $tuteur->idUtilisateur = $utilisateur->id;
         $tuteur->idEntreprise = $requestFicheLocalisation['idEntreprise'];
-
-        $tuteur->save();
 
         // Stocke en session l'id utilisateur du tuteur
         $requestFicheLocalisation['idTuteur'] = $utilisateur->id;
@@ -181,10 +180,25 @@ class FicheEtudiantController extends Controller
 
         // Stocke en session l'id utilisateur du tuteur
         $requestFicheLocalisation['idTuteur'] = $tuteursIdentique[$request->inputCorrespondante - 1]->idUtilisateur;
+
+        $tuteur = Tuteur::where('idUtilisateur', $requestFicheLocalisation['idTuteur'])->first();
+        $utilisateur = Utilisateur::where('id', $requestFicheLocalisation['idTuteur'])->first();
+
+        $utilisateur->civilite = $requestFicheLocalisation['civiliteReponsable'];
+        $utilisateur->save();
+
         session(['requestFicheLocalisation' => $requestFicheLocalisation]);
 
         // echo 'Tuteur récuperé';
       }
+
+      $joursDispo = 0;
+      foreach($requestFicheLocalisation['jourRencontre'] as $jour){
+          $joursDispo += $jour;
+      }
+      $tuteur->joursDispoRencontre = $joursDispo;
+
+      $tuteur->save();
 
       // Suite du traitement vers tuteur
       return $this->traitementVerifStage($id);
