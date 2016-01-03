@@ -48,7 +48,7 @@
               @endif
               class="form-control" required>
             </div>
-            <div class="form-group col-lg-2">
+            <div class="form-group col-lg-3">
               <label for="inputCPEtablissement">Code postal :</label>
               <input type="text" name="cpEtablissement" id="inputCPEtablissement"
               @if(old('cpEtablissement') != '')
@@ -93,7 +93,7 @@
         <h3>Responsable</h3>
         <div class="form-decalage-group">
           <div class="row">
-            <div class="form-group col-lg-2">
+            <div class="form-group col-lg-3">
               <label for="inputCiviliteResponsable">Civilité :</label>
               <select class="form-control" name="civiliteReponsable" id="inputCiviliteResponsable">
                 <option value="1" {{ $data['stage']->civilite == '1' ? 'selected' : '' }}>Mr</option>

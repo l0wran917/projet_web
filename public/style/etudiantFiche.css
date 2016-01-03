@@ -8,6 +8,7 @@
 
 .entreprise label, .etudiant label, .stage label{
   font-weight: normal;
+  min-width: 88px;
 }
 
 .form-decalage-group{
