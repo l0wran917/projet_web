@@ -42,6 +42,7 @@ class FicheEtudiantController extends Controller
     public function submitFiche($id = 0, LocalisationRequest $request)
     {
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
+
           return $this->traitementSubmitLocalisation(FicheEtudiantController::$ID_FICHE_LOCALISATION, $request);
         }
 
@@ -50,8 +51,23 @@ class FicheEtudiantController extends Controller
 
     private function traitementSubmitLocalisation($id, $request){
 
+      // Stockage du plan acces => Image non serializable dans session
+      if($request->hasFile('planAcces')){
+        $nomFichierPlan = md5_file($request->file('planAcces'));
+        $request->file('planAcces')->move(public_path() . "/uploads/plan", $nomFichierPlan);
+      }
+
       // Stocke les infos du formulaire en session
-      session(['requestFicheLocalisation' => $request->all()]);
+      session(['requestFicheLocalisation' => $request->except('planAcces')]);
+
+      if(isset($nomFichierPlan)){
+        // Recupere les infos du formulaire pour y ajouter le nom du fichier du plan
+        $requestFicheLocalisation = session('requestFicheLocalisation');
+        $requestFicheLocalisation['nomPlanAcces'] = $nomFichierPlan;
+
+        // Stocke les infos du formulaire en session
+        session(['requestFicheLocalisation' => $requestFicheLocalisation]);
+      }
 
       // Cherche les entreprises qui peuvent correspondre
       $entreprisesIdentique = Entreprise::existeInDBByCP($request->input('nomEtablissement'), $request->input('cpEtablissement'));
@@ -190,6 +206,11 @@ class FicheEtudiantController extends Controller
       $stage->idEtudiant = session('uid');
       $stage->idTuteur = session('requestFicheLocalisation')['idTuteur'];
       $stage->sujet = $requestFicheLocalisation['sujetStage'];
+
+      if(isset($requestFicheLocalisation['nomPlanAcces'])){
+        $stage->planAcces = $requestFicheLocalisation['nomPlanAcces'];
+      }
+
       $stage->save();
 
       // Recupere l'Etudiant et l'utilisation correspondant

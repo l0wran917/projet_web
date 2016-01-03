@@ -1,5 +1,5 @@
 <div class="row">
-  <form class="" action="" method="post">
+  <form class="" action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     <div class="col-lg-6">
       <div class="page-header">
@@ -61,11 +61,33 @@
           </div>
 
           <div class="row ">
+            @if(isset($data['stage']->planAcces) && $data['stage']->planAcces != '')
+              <div class="form-group col-lg-12">
+                <label>Plan d'accès</label>
+                <div class="row">
+                  <div class="col-lg-5" >
+                    <button type="button" class="btn btn-m btn-default" data-toggle="modal" data-target="#popupPlan">
+                      Voir le plan deja envoyé
+                    </button>
+                  </div>
+                </div>
+                <div class="" style="margin:1%;"> </div>
+
+                <div class="row">
+                  <div class="col-lg-5">
+                    <label for="inputPlanAcces" class="btn btn-s btn-default">En selectionner un autre</label>
+                    <input type="file" name="planAcces" accept="image/*" id="inputPlanAcces" style="display:none">
+                  </div>
+                </div>
+              </div>
+              @else
               <div class="form-group col-lg-8">
                 <label for="inputPlanAcces">Plan d'accès</label>
                 <input type="file" name="planAcces" id="inputPlanAcces">
               </div>
+              @endif
           </div>
+
         </div>
 
         <h3>Responsable</h3>
@@ -254,5 +276,28 @@
     </div>
   </form>
 </div>
+
+@if(isset($data['stage']->planAcces))
+<!-- Plan -->
+<div class="modal fade" id="popupPlan" tabindex="-1" role="dialog" aria-labelledby="visualisationDuPlan">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="visualisationDuPlan">Plan Accés</h4>
+      </div>
+      <div class="modal-body">
+        <!-- <img src="http://127.0.0.1/Web/projet/public/uploads/plan/0dddfad9ac0dfe36251d69f4317c36d8" alt="" /> -->
+        <object data="{{asset('uploads/plan')}}/{{$data['stage']->planAcces}}" width="100%" height="100%">
+                 Plan : <a href="{{asset('uploads/plan')}}/{{$data['stage']->planAcces}}">planAcces.pdf</a>
+        </object>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
 
 <script src="{{asset('js/localisation.js')}}"></script>

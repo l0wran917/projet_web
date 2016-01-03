@@ -42,7 +42,8 @@ class Views extends Migration
                               e.rue as rueEntreprise,
                               e.cp as codePostalEntreprise,
                               e.ville as villeEntreprise,
-                              st.sujet as sujet
+                              st.sujet as sujet,
+                              st.planAcces as planAcces
                       FROM stage st, tuteur t, entreprise e, utilisateur u
                       WHERE st.idTuteur = t.idUtilisateur
                       AND t.idEntreprise = e.id

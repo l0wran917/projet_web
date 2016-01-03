@@ -62,6 +62,7 @@ class Tables extends Migration
         $table->integer('idEtudiant')->unsigned();
         $table->integer('idTuteur')->unsigned();;
         $table->string('sujet');
+        $table->string('planAcces');
         $table->timestamps();
 
         $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
