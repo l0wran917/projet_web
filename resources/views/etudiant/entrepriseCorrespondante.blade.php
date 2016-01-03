@@ -43,12 +43,15 @@
             </p>
           </div>
 
-          <input type="submit" name="name" class="btn btn-primary col-xs-8 col-xs-offset-2" value="Valider">
+          <input type="submit" name="name" class="btn btn-primary col-xs-8 col-xs-offset-2" value="Valider" disabled>
 
         </form>
 
       </div>
     </div>
   </div>
+
+  <script src="{{asset('js/inputCorrespondant.js')}}"></script>
+
 
 @include('template.foot')
