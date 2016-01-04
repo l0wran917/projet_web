@@ -28,6 +28,20 @@ class Data extends Migration
 
       DB::table('utilisateur')->insert(
         [
+          'id' => 3,
+          'nom' => 'boukari',
+          'prenom' => 'ydeoubouam',
+          'email' => 'yedoubouam.boukari@u-psud.fr',
+          'dateNaissance' => '1996-08-14',
+          'adresse' => '6 Allee Olivier Messiaen',
+          'telPortable' => '0671420739',
+          'password' => Hash::make('password'),
+          'type' => 1
+        ]
+      );
+
+      DB::table('utilisateur')->insert(
+        [
           'id' => 2,
           'nom' => 'morterol',
           'prenom' => 'martin',
@@ -59,6 +73,13 @@ class Data extends Migration
       DB::table('etudiant')->insert(
         [
           'idUtilisateur' => '1',
+          'tp' => '1K'
+        ]
+      );
+
+      DB::table('etudiant')->insert(
+        [
+          'idUtilisateur' => '3',
           'tp' => '1K'
         ]
       );

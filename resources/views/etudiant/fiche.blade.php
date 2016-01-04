@@ -4,6 +4,8 @@
 
   @if($id == 1)
     @include('etudiant.fiches.localisation')
+  @elseif($id == 2)
+    @include('etudiant.fiches.avisEtudiant')
   @else
       Error.
   @endif
