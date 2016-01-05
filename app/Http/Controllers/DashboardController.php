@@ -18,8 +18,8 @@ class DashboardController extends Controller
     public function index()
     {
       $dashboardInfos = [];
-
       if(session('typeUtilisateur') == Utilisateur::$ETUDIANT){
+
         $etudiant = Etudiant::infos(session('uid'));
         $dashboardInfos['etudiant'] = $etudiant;
 

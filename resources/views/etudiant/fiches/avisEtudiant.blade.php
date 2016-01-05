@@ -13,12 +13,12 @@
               <label class="col-sm-5 control-label">Votre stage a-t-il été rémunéré ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Non
+                  <input type="radio" name="remenerationStage" class="inputRemuneration" value="0"> Non
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="1"> Oui
+                  <input type="radio" name="remenerationStage" class="inputRemuneration" id="inputRemunerationOui" value="1"> Oui
                 </label>
               </div>
               <div class="col-sm-3">
@@ -42,12 +42,12 @@
               <label class="col-sm-7 control-label">Avez vous été encadré par un informaticien ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Oui
+                  <input type="radio" name="encadrageInfomaticien" class="inputRemuneration" value="0"> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="1"> Non
+                  <input type="radio" name="encadrageInfomaticien" class="inputRemuneration" id="inputRemunerationOui" value="1"> Non
                 </label>
               </div>
             </div>
@@ -58,12 +58,12 @@
               <label class="col-sm-7 control-label">Pouviez-vous faire appel à un informaticien ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Oui
+                  <input type="radio" name="appelInformaticien" class="inputRemuneration" value="0"> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="1"> Non
+                  <input type="radio" name="appelInformaticien" class="inputRemuneration" id="inputRemunerationOui" value="1"> Non
                 </label>
               </div>
             </div>
@@ -80,12 +80,12 @@
               <label class="col-sm-7 control-label">Avec vous travaillé seul ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Oui
+                  <input type="radio" name="travailSeul" class="inputRemuneration" value="0"> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="1"> Non
+                  <input type="radio" name="travailSeul" class="inputRemuneration" id="inputRemunerationOui" value="1"> Non
                 </label>
               </div>
             </div>
@@ -95,7 +95,7 @@
             <div class="form-group text-left">
               <label class="col-sm-3 control-label" style="text-align:right !important;">Taille de l'equipe  :</label>
               <div class="col-sm-3">
-                  <input type="text" name="inlineRadioOptions" class="form-control" value="0">
+                  <input type="text" name="tailleEquipe" class="form-control" value="0">
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@
               <label class="col-sm-3 control-label">Type de matériel :</label>
               <div class="col-sm-1">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> PC
+                  <input type="radio" name="typeMateriel" class="inputRemuneration" value="0"> PC
                 </label>
               </div>
               <div class="col-sm-5">
@@ -124,7 +124,7 @@
                   <div class="form-group text-left">
                     <label class="col-sm-3 control-label" style="text-align:right !important;">Autres :</label>
                     <div class="col-sm-8">
-                        <input type="text" name="inlineRadioOptions" class="form-control" value="0">
+                        <input type="text" name="typeMateriel" class="form-control" value="0">
                     </div>
                   </div>
                 </div>
@@ -138,22 +138,22 @@
               <label class="col-sm-2 control-label">Système :</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Unix
+                  <input type="checkbox" name="typeSysteme[]" class="inputRemuneration" value="0"> Unix
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Linux
+                  <input type="checkbox" name="typeSysteme[]" class="inputRemuneration" value="0"> Linux
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> NT
+                  <input type="checkbox" name="typeSysteme[]" class="inputRemuneration" value="0"> NT
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="0"> Windows
+                  <input type="checkbox" name="typeSysteme[]" class="inputRemuneration" value="0"> Windows
                 </label>
               </div>
 
@@ -164,7 +164,7 @@
             <div class="form-group text-left">
               <label class="col-sm-1 col-sm-offset-2 control-label">Autres :</label>
               <div class="col-sm-3">
-                  <input type="text" name="inlineRadioOptions" class="form-control" value="0">
+                  <input type="text" name="autreSysteme" class="form-control" value="0">
               </div>
             </div>
           </div>
@@ -195,22 +195,22 @@
 
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="inlineRadioOptions" class="inputRemuneration" value="0"> Système
+                  <input type="checkbox" name="objetStage[]" class="inputRemuneration" value="0"> Système
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="inlineRadioOptions" class="inputRemuneration" value="0"> Multimédia
+                  <input type="checkbox" name="objetStage[]" class="inputRemuneration" value="0"> Multimédia
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="inlineRadioOptions" class="inputRemuneration" value="0"> Réseaux
+                  <input type="checkbox" name="objetStage[]" class="inputRemuneration" value="0"> Réseaux
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="inlineRadioOptions" class="inputRemuneration" value="0"> Dév Web
+                  <input type="checkbox" name="objetStage[]" class="inputRemuneration" value="0"> Dév Web
                 </label>
               </div>
 
@@ -220,12 +220,12 @@
 
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="inlineRadioOptions" class="inputRemuneration" value="0"> Autres dév
+                  <input type="checkbox" name="objetStage[]" class="inputRemuneration" value="0"> Autres dév
                 </label>
               </div>
               <div class="col-sm-4">
                 <label class="radio-inline">
-                  <input type="checkbox" name="inlineRadioOptions" class="inputRemuneration" value="0"> Bases de données
+                  <input type="checkbox" name="objetStage[]" class="inputRemuneration" value="0"> Bases de données
                 </label>
               </div>
 

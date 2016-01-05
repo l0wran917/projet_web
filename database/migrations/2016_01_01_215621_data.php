@@ -30,7 +30,7 @@ class Data extends Migration
         [
           'id' => 3,
           'nom' => 'boukari',
-          'prenom' => 'ydeoubouam',
+          'prenom' => 'yedoubouam',
           'email' => 'yedoubouam.boukari@u-psud.fr',
           'dateNaissance' => '1996-08-14',
           'adresse' => '6 Allee Olivier Messiaen',
