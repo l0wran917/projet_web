@@ -21,6 +21,7 @@ class FicheEtudiantController extends Controller
 {
 
     public static $ID_FICHE_LOCALISATION = 1;
+    public static $ID_FICHE_AVIS_STAGE = 2;
 
     // Point entrée GET des étudiants
     public function index($id = 0)
@@ -44,6 +45,9 @@ class FicheEtudiantController extends Controller
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
 
           return $this->traitementSubmitLocalisation(FicheEtudiantController::$ID_FICHE_LOCALISATION, $request);
+        }
+        else if($id == FicheEtudiantController::$ID_FICHE_AVIS_STAGE){
+          return $this->traitementSubmitAvis(FicheEtudiantController::$ID_FICHE_AVIS_STAGE, $request);
         }
 
         return 'Error.';
@@ -248,4 +252,7 @@ class FicheEtudiantController extends Controller
       return redirect()->route('ficheEtudiant', ['id' => $id]);
     }
 
+    private function traitementSubmitAvis($id, $request){
+      
+    }
 }
