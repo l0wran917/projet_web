@@ -26,7 +26,7 @@ class LocalisationRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public static function rules()
     {
         return [
             'nomEtablissement' => 'required',

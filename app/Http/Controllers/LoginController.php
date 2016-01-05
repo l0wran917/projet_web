@@ -41,6 +41,7 @@ class LoginController extends Controller
           return Redirect::route('dashboard');
         }else{
           session()->flush();
+
           return "Nope little boy";
         }
       }

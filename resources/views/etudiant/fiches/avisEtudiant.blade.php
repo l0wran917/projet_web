@@ -260,6 +260,7 @@
 
       <div class="row">
         <div class="col-lg-12">
+
           <div class="form-horizontal">
             <div class="form-group">
               <label class="col-sm-7 control-label">Etes vous totalement satisfait des conditions dans lesqelles ce sont déroulées votre stage ?</label>
@@ -275,6 +276,59 @@
               </div>
             </div>
           </div>
+
+          <div class="form-horizontal">
+            <div class="form-group text-left">
+              <label class="col-sm-2 col-sm-offset-1 control-label">Pourquoi ?</label>
+              <div class="col-sm-8">
+                  <textarea class="form-control" rows="2" name="sujetStage" id="inputSujetStage"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <h3>Objectifs du stage</h3>
+          <div class="col-lg-11" style="text-align:justify">
+             <p class="tabulation">D'abord, il vous introduit dans le monde du travail, dans une ambiance que le futur professionnel
+               de l'informatique doit connaître avec ses contraites de temps, de budget, de fonctionnement d'équipe, etc...</p>
+             <p class="tabulation">Il vous permet d'être confronté, non plus à des exercices scolaires dont l'intérêt est souvent purement
+               pédagogique, mais à des applications concrètes dans les domaines les plus variés.</p>
+             <p class="tabulation">Il vous permet, soit d'approfoncir les connaissances acquises à l'IUT en étant confronté à des problèmes
+               en vraie grandeur, soit de découvrir des environnements de travail, des méthodes d'analyse, des langages nouveaux.</p>
+          </div>
+
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-5 control-label">Ces objectifs ont-il été atteints ?</label>
+              <div class="col-sm-2">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="1"> Oui
+                </label>
+              </div>
+              <div class="col-sm-2">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="0"> Non
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <h3>Avis sur l'enseignement</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-7 control-label">Estimez-vous que certaines matières enseignées n'ont pas été assez développées ?</label>
+              <div class="col-sm-2">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="1"> Oui
+                </label>
+              </div>
+              <div class="col-sm-2">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="0"> Non
+                </label>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
