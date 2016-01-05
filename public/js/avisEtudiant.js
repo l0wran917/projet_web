@@ -9,7 +9,7 @@ $(document).ready(function(){
       $("#inputMontantRemuneration").css({'display':'block'});
     }else{
       $("#inputMontantRemuneration").css({'display':'none'});
-      $("#inputMontantRemuneration").val('0');
+      $("#inputMontantRemuneration").val('');
     }
   });
 

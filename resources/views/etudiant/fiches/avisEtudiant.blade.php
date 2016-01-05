@@ -1,8 +1,10 @@
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <div class="page-header">
       <h1>Avis sur le stage</h1>
     </div>
+  </div>
+  <div class="col-lg-6">
     <h3>Rémunération</h3>
     <div class="form-decalage-group">
 
@@ -22,7 +24,7 @@
                 </label>
               </div>
               <div class="col-sm-3">
-                <input type="text" class="form-control" name="montantRemuneration" id="inputMontantRemuneration" style="display:none">
+                <input type="text" class="form-control" name="montantRemuneration" id="inputMontantRemuneration" style="display:none" placeholder="Combien ?">
               </div>
             </div>
           </div>
@@ -242,15 +244,42 @@
               </div>
             </div>
 
+            </div>
           </div>
+
         </div>
 
+      </div> <!-- col -->
+    </div> <!-- Row -->
+
+  </div> <!-- decalage form -->
+
+  <div class="col-lg-6">
+    <h3>Avis de l'étudiant</h3>
+    <div class="form-decalage-group">
+
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-7 control-label">Etes vous totalement satisfait des conditions dans lesqelles ce sont déroulées votre stage ?</label>
+              <div class="col-sm-2">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" value="1"> Oui
+                </label>
+              </div>
+              <div class="col-sm-2">
+                <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" class="inputRemuneration" id="inputRemunerationOui" value="0"> Non
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </div> <!-- col -->
-  </div> <!-- Row -->
-
-</div> <!-- decalage form -->
+    </div>
+  </div>
 
   </div>
 </div>
