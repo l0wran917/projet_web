@@ -6,7 +6,7 @@
   border-color: #CCC;
 }
 
-.entreprise label, .etudiant label, .stage label{
+label{
   font-weight: normal;
   min-width: 88px;
 }
@@ -33,4 +33,13 @@
 
 .modal-lg{
   height: 90%;
+}
+
+.control-label{
+  text-align: left !important;
+}
+
+
+.red{
+  background-color: red;
 }
