@@ -40,7 +40,7 @@ class FicheEtudiantController extends Controller
     }
 
     // Entrée POST des étudiants
-    public function submitFiche($id = 0, LocalisationRequest $request)
+    public function submitFiche($id = 0, Request $request)
     {
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
 
@@ -54,7 +54,23 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementSubmitLocalisation($id, $request){
-
+      $this->validate($request,[
+        'nomEtablissement' => 'required',
+        'adresseEtablissement' => 'required',
+        'villeEtablissement' => 'required',
+        'cpEtablissement' => 'required',
+        // 'planAcces' => 'required',
+        'civiliteReponsable' => 'required',
+        'nomResponsable' => 'required',
+        'prenomResponsable' => 'required',
+        'telResponsable' => 'required',
+        'emailResponsable' => 'required',
+        'jourRencontre' => 'required',
+        'telEtudiantEntreprise' => 'required',
+        'telEtudiantPortable' => 'required',
+        'emailEtudiantPerso' => 'required',
+        'sujetStage' => 'required'
+      ]);
       // Stockage du plan acces => Image non serializable dans session
       if($request->hasFile('planAcces')){
         $nomFichierPlan = md5_file($request->file('planAcces'));
@@ -253,6 +269,22 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementSubmitAvis($id, $request){
-      
+      $this->validate($request,[
+        'remunerationStage' => 'required',
+        'encadrageInfomaticien' => 'required',
+        'appelInformaticien' => 'required',
+        'travailSeul' => 'required',
+        'typeMateriel' => 'required',
+        'typeSysteme' => 'required',
+        'objetStage' => 'required'
+      ]);
+      //Permet de connaitre les infos de la session
+      echo session('uid');
+
+      //$request->remunerationStage
+
+      $user=Utilisateur::where('id', session('uid'))->first();
+      if (count($user)==1)
+        return view('test');
     }
 }

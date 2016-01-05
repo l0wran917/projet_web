@@ -30,7 +30,7 @@ class avisEtudiantRequest extends Request
     public function rules()
     {
         return [
-            'remenerationStage' => 'required',
+            'remunerationStage' => 'required',
             //'montantRemuneration' => 'required',
             'encadrageInfomaticien' => 'required',
             'appelInformaticien' => 'required',
@@ -38,5 +38,6 @@ class avisEtudiantRequest extends Request
             'typeMateriel' => 'required',
             'typeSysteme[]' => 'required',
             'objetStage[]' => 'required'
+          ];
     }
 }
