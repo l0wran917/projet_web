@@ -163,7 +163,7 @@
               <label for="inputJourRencontre">Jours de la semaine où il est possible de le rencontrer :</label></br>
 
                 @if( isset($data['stage']) )
-                  {{ $joursDispo = $data['stage']->joursDispoRencontre }}
+                  <!-- {{ $joursDispo = $data['stage']->joursDispoRencontre }} -->
                 @else
                   <!-- {{ $joursDispo = 0 }} -->
                 @endif

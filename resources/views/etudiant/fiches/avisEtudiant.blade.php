@@ -153,7 +153,7 @@
                   <input type="checkbox" name="typeSysteme[]" class="inputRemuneration" value="0"> NT
                 </label>
               </div>
-              <div class="col-sm-2">
+              <div class="col-sm-3">
                 <label class="radio-inline">
                   <input type="checkbox" name="typeSysteme[]" class="inputRemuneration" value="0"> Windows
                 </label>
@@ -327,6 +327,23 @@
                 </label>
               </div>
             </div>
+          </div>
+
+          <h3>Apport du stage dans vos projets</h3>
+          <div class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-11 control-label">Precisez en quelques lignes comment le stage a enrichi ou modifié votre projet personnel et professionnel :</label>
+            </div>
+
+            <div class="form-group text-left">
+              <div class="col-sm-9 col-sm-offset-1">
+                  <textarea class="form-control" rows="2" name="sujetStage" id="inputSujetStage"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <button type="submit"  class="btn col-lg-2 col-lg-offset-5 col-sm-9 col-sm-offset-1 btn-primary" id="submitLocalisation">Valider</button>
           </div>
 
         </div>
