@@ -373,5 +373,5 @@
   </div>
 </div>
 
-
+<!--  -->
 <script src="{{asset('js/avisEtudiant.js')}}"></script>
