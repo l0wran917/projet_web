@@ -47,3 +47,7 @@ label{
 .tabulation{
   text-indent: 8%;
 }
+
+.dontshow{
+  display: none;
+}
