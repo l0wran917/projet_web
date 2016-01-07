@@ -1,3 +1,5 @@
+<form class="" action="" method="post" enctype="multipart/form-data">
+<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 <div class="row">
   <div class="col-lg-12">
     <div class="page-header">
@@ -130,6 +132,7 @@
               <div class="col-sm-4">
                 <label class="sr-only" for="inputMontantRemuneration">Autre matériel</label>
                 <input type="text" class="form-control dontshow" name="typeMateriel" id="inputTypeMaterielAutreDetails" placeholder="Ex : Papier">
+
               </div>
             </div>
           </div>
@@ -382,11 +385,22 @@
         </div>
       </div>
 
-    </div>
-  </div>
+    @if(count($errors->all()) >= 1)
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel-alert transparent">
+              <div class="alert alert-danger" role="alert">
+                @foreach ($errors->all() as $error)
+                   <div>{{ $error }}</div>
+                @endforeach
+              </div>
+            </div>
+          </div>
+        </div>
+    @endif
 
+    </div> <!-- decalage form -->
   </div>
-</div>
+</form>
 
-<!--  -->
 <script src="{{asset('js/avisEtudiant.js')}}"></script>

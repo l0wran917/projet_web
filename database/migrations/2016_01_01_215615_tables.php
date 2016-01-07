@@ -65,6 +65,16 @@ class Tables extends Migration
         $table->integer('idTuteur')->unsigned();;
         $table->string('sujet');
         $table->string('planAcces');
+        $table->boolean('remunerationStage');
+        $table->boolean('encadrageInfomaticien');
+        $table->boolean('appelInformaticien');
+        $table->boolean('travailSeul');
+        $table->integer('tailleEquipe');
+        //$table->boolean('typeMateriel');
+        $table->string('typeSysteme');
+        $table->string('langagesStage');
+        $table->integer('objetPrincipal');
+
         $table->timestamps();
 
         $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
