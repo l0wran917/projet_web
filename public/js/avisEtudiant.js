@@ -26,10 +26,6 @@ function displayWithChecked(input){
     if($(input).is(':checked')){
       // pour le check, on affiche div
       $("#"+$(input).attr('data-id-display')).css({'display':'block'});
-    }else{
-      // si on le decoche, on cache div et reset valeur
-      $("#"+$(input).attr('data-id-display')).css({'display':'none'});
-      $("#"+$(input).attr('data-id-display')).val('');
     }
   });
 
@@ -45,6 +41,8 @@ function hideWithChecked(input){
     if($(input).is(':checked')){
       // pour le check, on affiche div
       $("#"+$(input).attr('data-id-hide')).css({'display':'none'});
+      $("#"+$(input).attr('data-id-hide')).val('');
+
     }
   });
 

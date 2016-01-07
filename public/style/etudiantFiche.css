@@ -45,9 +45,13 @@ label{
 }
 
 .tabulation{
-  text-indent: 8%;
+  text-indent: 4%;
 }
 
 .dontshow{
   display: none;
+}
+
+.heightmax{
+  height: 35px;
 }
