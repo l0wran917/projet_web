@@ -44,7 +44,6 @@ class FicheEtudiantController extends Controller
     public function submitFiche($id = 0, Request $request)
     {
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
-
           return $this->traitementSubmitLocalisation(FicheEtudiantController::$ID_FICHE_LOCALISATION, $request);
         }
         else if($id == FicheEtudiantController::$ID_FICHE_AVIS_STAGE){
@@ -56,6 +55,7 @@ class FicheEtudiantController extends Controller
 
     private function traitementSubmitLocalisation($id, $request){
       $this->validate($request, LocalisationRequest::rules());
+
       // Stockage du plan acces => Image non serializable dans session
       if($request->hasFile('planAcces')){
         $nomFichierPlan = md5_file($request->file('planAcces'));
@@ -254,25 +254,10 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementSubmitAvis($id, $request){
-      // $this->validate($request,[
-      //   'remunerationStage' => 'required',
-      //   'encadrageInfomaticien' => 'required',
-      //   'appelInformaticien' => 'required',
-      //   'travailSeul' => 'required',
-      //   'typeMateriel' => 'required',
-      //   'typeSysteme' => 'required',
-      //   'objetStage' => 'required'
-      // ]);
-
       $this->validate($request, avisEtudiantRequest::rules());
 
-      //Permet de connaitre les infos de la session
-      echo session('uid');
+      dd($request->all());
 
-      //$request->remunerationStage
-
-      $user=Utilisateur::where('id', session('uid'))->first();
-      if (count($user)==1)
-        return view('test');
+      return view('test');
     }
 }

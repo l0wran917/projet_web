@@ -31,13 +31,24 @@ class avisEtudiantRequest extends Request
     {
         return [
             'remunerationStage' => 'required',
-            //'montantRemuneration' => 'required',
+            'montantRemuneration' => 'numeric',
             'encadrageInfomaticien' => 'required',
-            'appelInformaticien' => 'required',
+            // appelInformaticien required => Check en back end
             'travailSeul' => 'required',
+            // tailleEquipe required => Check en back end
             'typeMateriel' => 'required',
-            'typeSysteme[]' => 'required',
-            'objetStage[]' => 'required'
+            // typeMaterielAutreDetails required => Check en back end
+            'typeSysteme' => 'required',
+            // autreSysteme required => Check en back end
+            'objetStage' => 'required',
+            // autreSysteme required => Check en back end
+            'avisCondition' => 'required',
+            // pourquoiCondition required => Check en back end
+            'objectifsAtteints' => 'required',
+            // objectifsAtteintsPourquoi required => Check en back end
+            'matiereDeveloppe' => 'required',
+            // matiereDeveloppePrecision required => Check en back end
+            'enricheProjet' => 'required',
           ];
     }
 }

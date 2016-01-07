@@ -17,17 +17,20 @@
               <label class="col-sm-5 control-label">Votre stage a-t-il été rémunéré ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputRemunerationNon">
-                  <input type="radio" name="remenerationStage" id="inputRemunerationNon" data-id-hide="inputMontantRemuneration" value="0"> Non
+                  <input type="radio" name="remunerationStage" id="inputRemunerationNon" data-id-hide="inputMontantRemunerationForm" value="0" required> Non
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline"  for="inputRemunerationOui">
-                  <input type="radio" name="remenerationStage" id="inputRemunerationOui" data-id-display="inputMontantRemuneration" value="1"> Oui
+                  <input type="radio" name="remunerationStage" id="inputRemunerationOui" data-id-display="inputMontantRemunerationForm" value="1" required> Oui
                 </label>
               </div>
-              <div class="col-sm-3">
+              <div class="col-sm-3 dontshow" id="inputMontantRemunerationForm">
                 <label class="sr-only" for="inputMontantRemuneration">Combien ?</label>
-                <input type="text" class="form-control dontshow" name="montantRemuneration" id="inputMontantRemuneration" placeholder="Combien ?">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="montantRemuneration" id="inputMontantRemuneration" placeholder="Combien ?">
+                  <div class="input-group-addon">€</div>
+                </div>
               </div>
             </div>
           </div>
@@ -47,12 +50,12 @@
               <label class="col-sm-7 control-label">Avez vous été encadré par un informaticien ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputEncadreInformaticienOui">
-                  <input type="radio" name="encadrageInfomaticien" id="inputEncadreInformaticienOui" data-id-hide="appelInformaticienForm" value="1"> Oui
+                  <input type="radio" name="encadrageInfomaticien" id="inputEncadreInformaticienOui" data-id-hide="appelInformaticienForm" value="1" required> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputEncadreInformaticienNon">
-                  <input type="radio" name="encadrageInfomaticien" id="inputEncadreInformaticienNon" data-id-display="appelInformaticienForm" value="0"> Non
+                  <input type="radio" name="encadrageInfomaticien" id="inputEncadreInformaticienNon" data-id-display="appelInformaticienForm" value="0" required> Non
                 </label>
               </div>
             </div>
@@ -85,12 +88,12 @@
               <label class="col-sm-7 control-label">Avec vous travaillé seul ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTravailSeulOui">
-                  <input type="radio" name="travailSeul" id="inputTravailSeulOui" data-id-hide="tailleEquipeForm" value="1"> Oui
+                  <input type="radio" name="travailSeul" id="inputTravailSeulOui" data-id-hide="tailleEquipeForm" value="1" required> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTravailSeulNon">
-                  <input type="radio" name="travailSeul" id="inputTravailSeulNon" data-id-display="tailleEquipeForm" value="0"> Non
+                  <input type="radio" name="travailSeul" id="inputTravailSeulNon" data-id-display="tailleEquipeForm" value="0" required> Non
                 </label>
               </div>
             </div>
@@ -121,18 +124,17 @@
               <label class="col-sm-3 control-label">Type de matériel :</label>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTypeMateriel">
-                  <input type="radio" name="typeMateriel" id="inputTypeMateriel" data-id-hide="inputTypeMaterielAutreDetails" value="PC"> PC
+                  <input type="radio" name="typeMateriel" id="inputTypeMateriel" data-id-hide="inputTypeMaterielAutreDetails" value="PC" required> PC
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTypeMaterielAutre">
-                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="PC"> Autres
+                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="PC" required> Autres
                 </label>
               </div>
               <div class="col-sm-4">
                 <label class="sr-only" for="inputMontantRemuneration">Autre matériel</label>
-                <input type="text" class="form-control dontshow" name="typeMateriel" id="inputTypeMaterielAutreDetails" placeholder="Ex : Papier">
-
+                <input type="text" class="form-control dontshow" name="typeMaterielAutreDetails" id="inputTypeMaterielAutreDetails" placeholder="Ex : Papier">
               </div>
             </div>
           </div>
@@ -276,12 +278,12 @@
                 <label class="col-sm-7 control-label">Etes vous totalement satisfait des conditions dans lesqelles ce sont déroulées votre stage ?</label>
                 <div class="col-sm-2">
                   <label class="radio-inline">
-                    <input type="radio" name="avisCondition" id="inputAvisConditionOui" data-id-hide="avisConditionPourquoiForm" value="1"> Oui
+                    <input type="radio" name="avisCondition" id="inputAvisConditionOui" data-id-hide="avisConditionPourquoiForm" value="1" required> Oui
                   </label>
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-inline">
-                    <input type="radio" name="avisCondition" id="inputAvisConditionNon" data-id-display="avisConditionPourquoiForm"  value="0"> Non
+                    <input type="radio" name="avisCondition" id="inputAvisConditionNon" data-id-display="avisConditionPourquoiForm"  value="0" required> Non
                   </label>
                 </div>
               </div>
@@ -314,12 +316,12 @@
               <label class="col-sm-5 control-label">Ces objectifs ont-il été atteints ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputObjectifsAtteintsOui">
-                  <input type="radio" name="objectifsAtteints" id="inputObjectifsAtteintsOui" data-id-hide="inputObjectifsAtteintesPourquoiForm" value="1"> Oui
+                  <input type="radio" name="objectifsAtteints" id="inputObjectifsAtteintsOui" data-id-hide="inputObjectifsAtteintesPourquoiForm" value="1" required> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputObjectifsAtteintsNon">
-                  <input type="radio" name="objectifsAtteints" id="inputObjectifsAtteintsNon" data-id-display="inputObjectifsAtteintesPourquoiForm" value="0"> Non
+                  <input type="radio" name="objectifsAtteints" id="inputObjectifsAtteintsNon" data-id-display="inputObjectifsAtteintesPourquoiForm" value="0" required> Non
                 </label>
               </div>
             </div>
@@ -343,12 +345,12 @@
                 <label class="col-sm-7 control-label">Estimez-vous que certaines matières enseignées n'ont pas été assez développées ?</label>
                 <div class="col-sm-2">
                   <label class="radio-inline" for="inputMatiereDeveloppeOui">
-                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeOui" data-id-display="matiereDeveloppeForm" value="1"> Oui
+                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeOui" data-id-display="matiereDeveloppeForm" value="1" required> Oui
                   </label>
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-inline" for="inputMatiereDeveloppeNon">
-                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeNon" data-id-hide="matiereDeveloppeForm" value="0"> Non
+                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeNon" data-id-hide="matiereDeveloppeForm" value="0" required> Non
                   </label>
                 </div>
               </div>
@@ -373,10 +375,24 @@
 
               <div class="form-group text-left">
                 <div class="col-sm-9 col-sm-offset-1">
-                    <textarea class="form-control" rows="2" name="enricheProjet" id="inputEnricheProjet"></textarea>
+                    <textarea class="form-control" rows="2" name="enricheProjet" id="inputEnricheProjet" required></textarea>
                 </div>
               </div>
             </div>
+
+            @if(count($errors->all()) >= 1)
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">
+                    <div class="panel-alert transparent">
+                      <div class="alert alert-danger" role="alert">
+                        @foreach ($errors->all() as $error)
+                           <div>{{ $error }}</div>
+                        @endforeach
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            @endif
 
             <div class="col-lg-12">
               <button type="submit" class="btn col-lg-2 col-lg-offset-5 col-sm-9 col-sm-offset-1 btn-primary" id="submitAvisEtudiant">Valider</button>
@@ -384,20 +400,6 @@
           </div>
         </div>
       </div>
-
-    @if(count($errors->all()) >= 1)
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="panel-alert transparent">
-              <div class="alert alert-danger" role="alert">
-                @foreach ($errors->all() as $error)
-                   <div>{{ $error }}</div>
-                @endforeach
-              </div>
-            </div>
-          </div>
-        </div>
-    @endif
 
     </div> <!-- decalage form -->
   </div>
