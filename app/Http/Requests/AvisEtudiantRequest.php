@@ -27,7 +27,7 @@ class avisEtudiantRequest extends Request
      *
      * @return array
      */
-    public function rules()
+    public static function rules()
     {
         return [
             'remunerationStage' => 'required',

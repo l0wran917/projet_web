@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\LocalisationRequest;
 use App\Http\Requests\CorrespondanteRequest;
+use App\Http\Requests\AvisEtudiantRequest;
 use App\Http\Controllers\Controller;
 
 use App\Entreprise;
@@ -54,23 +55,7 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementSubmitLocalisation($id, $request){
-      $this->validate($request,[
-        'nomEtablissement' => 'required',
-        'adresseEtablissement' => 'required',
-        'villeEtablissement' => 'required',
-        'cpEtablissement' => 'required',
-        // 'planAcces' => 'required',
-        'civiliteReponsable' => 'required',
-        'nomResponsable' => 'required',
-        'prenomResponsable' => 'required',
-        'telResponsable' => 'required',
-        'emailResponsable' => 'required',
-        'jourRencontre' => 'required',
-        'telEtudiantEntreprise' => 'required',
-        'telEtudiantPortable' => 'required',
-        'emailEtudiantPerso' => 'required',
-        'sujetStage' => 'required'
-      ]);
+      $this->validate($request, LocalisationRequest::rules());
       // Stockage du plan acces => Image non serializable dans session
       if($request->hasFile('planAcces')){
         $nomFichierPlan = md5_file($request->file('planAcces'));
@@ -269,15 +254,18 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementSubmitAvis($id, $request){
-      $this->validate($request,[
-        'remunerationStage' => 'required',
-        'encadrageInfomaticien' => 'required',
-        'appelInformaticien' => 'required',
-        'travailSeul' => 'required',
-        'typeMateriel' => 'required',
-        'typeSysteme' => 'required',
-        'objetStage' => 'required'
-      ]);
+      // $this->validate($request,[
+      //   'remunerationStage' => 'required',
+      //   'encadrageInfomaticien' => 'required',
+      //   'appelInformaticien' => 'required',
+      //   'travailSeul' => 'required',
+      //   'typeMateriel' => 'required',
+      //   'typeSysteme' => 'required',
+      //   'objetStage' => 'required'
+      // ]);
+
+      $this->validate($request, avisEtudiantRequest::rules());
+
       //Permet de connaitre les infos de la session
       echo session('uid');
 
