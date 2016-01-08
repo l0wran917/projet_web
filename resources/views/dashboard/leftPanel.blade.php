@@ -18,7 +18,9 @@
     </div>
 
     @if( Session::get('typeUtilisateur') == 1)
-      @include('etudiant.menuEtudiant')
+      @include('etudiant.menu')
+    @elseif( Session::get('typeUtilisateur') == 2)
+      @include('tuteurEntreprise.menu')
     @endif
 
   </div>

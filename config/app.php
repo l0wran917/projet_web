@@ -196,6 +196,8 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Auth'      => App\Http\Middleware\Authenticate::class,
+        'etudiant'      => App\Http\Middleware\Etudiant::class,
+        'tuteurEntreprise'      => App\Http\Middleware\TuteurEntreprise::class,
     ],
 
 ];

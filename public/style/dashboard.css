@@ -20,7 +20,6 @@
   text-align: right !important;
 }
 
-/*
-.form-control-static{
-  background-color: cyan;
-}*/
+.red{
+  background-color: red;
+}
