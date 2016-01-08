@@ -6,8 +6,6 @@
     @include('etudiant.fiches.localisation')
   @elseif($id == 2)
     @include('etudiant.fiches.avisEtudiant')
-  @elseif($id == 3)
-    @include('tuteurEntreprise.fiches.appreciation')
   @else
       Error.
   @endif

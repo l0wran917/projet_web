@@ -35,4 +35,12 @@ Route::group(['middleware' => ['auth']], function(){
                 ->where(['id' => '[0-9]+']);
 
   });
+
+  Route::group(['middleware' => ['tuteurEntreprise']], function(){
+
+    Route::get('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEntre', 'uses' => 'FicheTuteurEntrController@index'])->where(['id' => '[0-9]+']);
+    Route::post('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEntre', 'uses' => 'FicheTuteurEntrController@submitFiche'])->where(['id' => '[0-9]+']);
+
+  });
+
 });
