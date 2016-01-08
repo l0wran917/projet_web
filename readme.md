@@ -1,4 +1,8 @@
 #TO DO
+## Login
+ - [ ] Cas où le mdp est erroné / Utilisateur n'exite pas
+ - [ ] Refaire le design ? (Respect de la charte graphique)
+
 ##Etudiant
  - [ ] Backend de la fiche avis sur stage
  - [ ] Visualisation (lecture seule) des fiches avis sur le stagiaire et compte rendu
