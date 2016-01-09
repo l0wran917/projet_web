@@ -9,3 +9,17 @@
 .red{
   background-color: red;
 }
+
+label{
+  font-weight: normal;
+}
+
+#panel .form-group{
+  margin-bottom: 5px;
+}
+
+.label{
+  float:right;
+  height: 19px;
+  line-height: 18px;
+}
