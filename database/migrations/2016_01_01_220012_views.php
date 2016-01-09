@@ -33,6 +33,7 @@ class Views extends Migration
       DB::statement("CREATE VIEW stage_v AS
                       SELECT  st.idEtudiant as idEtudiant,
                               st.id as idStage,
+                              t.idUtilisateur as idTuteurEntr,
                               u.civilite as civilite,
                               u.nom as nomTuteur,
                               u.prenom as prenomTuteur,
@@ -50,6 +51,23 @@ class Views extends Migration
                       WHERE st.idTuteur = t.idUtilisateur
                       AND t.idEntreprise = e.id
                       AND t.idUtilisateur = u.id ");
+
+      DB::statement("CREATE VIEW tuteur_v AS
+                      SELECT t.idUtilisateur as idUtilisateur,
+                  	         t.idEntreprise as idEntreprise,
+                             t.joursDispoRencontre as joursDispoRencontre,
+                             u.civilite as civiliteTuteur,
+                             u.nom as nomTuteur,
+                             u.prenom as prenomTuteur,
+                             u.email as emailTuteur,
+                             u.tel as telTuteur,
+                             u.telPortable as telPortableTuteur,
+                             e.nom as nomEntreprise,
+                             e.rue as rueEntreprise,
+                             e.ville as villeEntreprise,
+                             e.cp as codePostalEntreprise
+                      FROM tuteur t LEFT JOIN entreprise e ON e.id = t.idEntreprise, utilisateur u
+                      WHERE t.idUtilisateur = u.id");
 
   //  DB::statement("CREATE VIEW etudiant_fv AS
   //                SELECT u.id as idEtudiant,

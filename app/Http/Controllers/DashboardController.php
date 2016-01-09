@@ -9,36 +9,46 @@ use App\Http\Controllers\Controller;
 
 use App\Utilisateur;
 use App\Etudiant;
+use App\Tuteur;
 use App\Stage;
 
 class DashboardController extends Controller
 {
 
+    public function index(){
 
-    public function index()
+      if(session('typeUtilisateur') == Utilisateur::$ETUDIANT){
+        return $this->indexEtudiant();
+      }elseif(session('typeUtilisateur') == Utilisateur::$TUTEUR_ENTREPRISE){
+        return $this->indexTuteurEntr();
+      }else{
+        return 'Error.';
+      }
+
+    }
+
+    public function indexEtudiant()
     {
       $dashboardInfos = [];
-      if(session('typeUtilisateur') == Utilisateur::$ETUDIANT){
 
-        $etudiant = Etudiant::infos(session('uid'));
-        $dashboardInfos['etudiant'] = $etudiant;
+      $etudiant = Etudiant::infos(session('uid'));
+      $dashboardInfos['etudiant'] = $etudiant;
 
-        $stage = Stage::infos(session('uid'));
-        if(count($stage) == 0){
-          $stage = new Stage;
-          $stage->nomEntreprise = '-';
-          $stage->nomTuteur = '-';
-          $stage->prenomTuteur = '';
-          $stage->telPortableTuteur = '-';
-          $stage->emailTuteur = '-';
-          $stage->rueEntreprise = '-';
-          $stage->codePostalEntreprise = '';
-          $stage->villeEntreprise = '';
-        }
-        $dashboardInfos['stage'] = $stage;
+      $stage = Stage::infos(session('uid'));
+      $dashboardInfos['stage'] = $stage;
 
-      }
-      // return view('test');
+      return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
+    }
+
+    public function indexTuteurEntr(){
+
+      $dashboardInfos = [];
+
+      $tuteur = Tuteur::infos(session('uid'));
+      $dashboardInfos['tuteur'] = $tuteur;
+
+      $stages = Stage::infosByTuteur(session('uid'));
+      $dashboardInfos['nbStagiaire'] = $stages->count();
 
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
     }

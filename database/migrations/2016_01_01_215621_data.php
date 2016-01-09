@@ -43,9 +43,9 @@ class Data extends Migration
       DB::table('utilisateur')->insert(
         [
           'id' => 3,
-          'nom' => 'morterol',
-          'prenom' => 'martin',
-          'email' => 'martin.morterol@u-psud.fr',
+          'nom' => 'lacaille',
+          'prenom' => 'loic',
+          'email' => 'loic.lacaille@u-psud.fr',
           'dateNaissance' => '1996-01-01',
           'adresse' => '1 Rue des patates',
           'telPortable' => '0102030405',

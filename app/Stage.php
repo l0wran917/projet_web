@@ -11,6 +11,30 @@ class Stage extends Model
   public $timestamps = true;
 
   public static function infos($id){
-    return DB::table('stage_v')->where('idEtudiant', $id)->first();
+    $stage = DB::table('stage_v')->where('idEtudiant', $id)->first();
+    $stage = Stage::checkStageExiste($stage);
+
+    return $stage;
+  }
+
+  public static function infosByTuteur($id){
+    $stage = DB::table('stage_v')->where('idTuteurEntr', $id);
+
+    return $stage;
+  }
+
+  public static function checkStageExiste($stage){
+    if(count($stage) == 0){
+      $stage = new Stage;
+      $stage->nomEntreprise = '-';
+      $stage->nomTuteur = '-';
+      $stage->prenomTuteur = '';
+      $stage->telPortableTuteur = '-';
+      $stage->emailTuteur = '-';
+      $stage->rueEntreprise = '-';
+      $stage->codePostalEntreprise = '';
+      $stage->villeEntreprise = '';
+    }
+    return $stage;
   }
 }

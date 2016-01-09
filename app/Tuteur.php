@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use DB;
+
 class Tuteur extends Model
 {
     protected $table = 'tuteur';
@@ -12,6 +14,12 @@ class Tuteur extends Model
 
     public function details(){
       return $this->hasOne('App\Utilisateur', 'id', 'idUtilisateur');
+    }
+
+    public static function infos($id){
+      $tuteur = DB::table('tuteur_v')->where('idUtilisateur', $id)->first();
+
+      return $tuteur;
     }
 
     public static function existeInDBByEntreprise($nomTuteur, $idEntreprise){

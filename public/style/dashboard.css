@@ -12,14 +12,25 @@
   font-weight: normal;
 }
 
-#panel .recapitulatif .form-group{
+#panel .form-group{
   margin-bottom: 5px;
 }
 
 .control-label{
+}
+
+.text-right{
   text-align: right !important;
+}
+
+.text-left{
+  text-align: left !important;
 }
 
 .red{
   background-color: red;
+}
+
+label{
+  font-weight: normal;
 }
