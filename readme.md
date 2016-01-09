@@ -11,7 +11,7 @@
  - [ ] Afficher l'état du stage (Le tuteur a validé qu'il s'agissait bien de son stagiaire)
 
 ##Tuteur Entreprise
- - [ ] Dashboard
+ - [x] Dashboard
  - [ ] Fiche mes stagiaires + validation des stagiaires
  - [ ] Backend fiche avis sur le stagiaire
  - [ ] Si plusieurs stagiaires, demander lequel avant la fiche avis sur le stagiaire
