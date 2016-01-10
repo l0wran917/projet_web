@@ -31,10 +31,16 @@ class FicheTuteurEntrController extends Controller
 
       // Si fiche "Mes Stagiaires"
       if($id == FicheTuteurEntrController::$ID_STAGIAIRES){
-        $stages = Stage::infosByTuteur(session('uid'));
+        $stages = Stage::infosByTuteur(session('uid'))->get();
 
-        $data['nbStagiaires'] = $stages->count();
-        $data['stages'] = $stages->get();
+        if(count($stages) > 0){
+          $data['nbStagiaires'] = $stages->count();
+          $data['stages'] = $stages->get();
+
+          return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
+        }else{
+          return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
+        }
 
       // Si vue "Fiche d'appreciation du stagiaire"
       }else if($id == FicheTuteurEntrController::$ID_FICHE_AVIS_STAGIAIRE){
@@ -43,13 +49,16 @@ class FicheTuteurEntrController extends Controller
         // S'il y en a plus d'un, on fait choisir dans la liste
         if($nbStagiaires > 1){
           $stages = Stage::infosByTuteur(session('uid'))->get();
-
           return view('tuteurEntreprise.choixStagiaire')->with(['id' => $id, 'stages' => $stages, 'route' => 'dashboard']);
+        }else if($nbStagiaires == 0){
+          return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
         }
 
+      }else{
+          return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
       }
 
-      return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
+      return "Error.";
   }
 
   public function submitFiche($id){
