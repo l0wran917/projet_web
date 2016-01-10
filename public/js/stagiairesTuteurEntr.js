@@ -83,12 +83,12 @@ function changerStatusStage(statusStage){
   }).done(function(data){
     afficherDetailsEtudiant();
 
-    nomInputOption = $("#inputNomStagiaire option[value=1]").text().split("-");
+    nomInputOption = $("#inputNomStagiaire option[value=" + idStage + "]").text().split("-");
 
     if(statusStage == 1){
-      $("#inputNomStagiaire option[value=1]").text(nomInputOption[0] + "- Validé");
+      $("#inputNomStagiaire option[value=" + idStage + "]").text(nomInputOption[0] + "- Validé");
     }else{
-      $("#inputNomStagiaire option[value=1]").text(nomInputOption[0] + "- En attente");
+      $("#inputNomStagiaire option[value=" + idStage + "]").text(nomInputOption[0] + "- En attente");
     }
 
   }).fail(function(){
