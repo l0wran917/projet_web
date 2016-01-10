@@ -111,6 +111,8 @@ class FicheTuteurEntrController extends Controller
       $contactTA->save();
       $contactRE->save();
 
+      session()->forget('idEtudiantFocus');
+
       return redirect()->route('ficheTuteurEntre', ['id' => $id]);
     }
 
