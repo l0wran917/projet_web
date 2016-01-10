@@ -283,14 +283,14 @@ class FicheEtudiantController extends Controller
         }
       }
       $stage->langagesStage = $request->langages;
-      $stage->objetStage = 0;
+      $stage->objetPrincipal = 0;
       foreach ($request->objetStage as $value) {
         //Valeur pour autre
         if($value == 64){
             $stage->objetPrincipalAutre = $request->autreObjet;
         }
         else {
-            $stage->objetStage += $value;
+            $stage->objetPrincipal += $value;
         }
       }
       $stage->satisactionStage = $request->avisCondition;

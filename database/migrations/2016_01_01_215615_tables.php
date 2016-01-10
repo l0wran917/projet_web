@@ -73,7 +73,7 @@ class Tables extends Migration
         $table->integer('tailleEquipe');
         $table->string('typeMateriel');
         $table->integer('typeSysteme');
-        $table->string('typeSystemeAutre')
+        $table->string('typeSystemeAutre');
         $table->string('langagesStage');
         $table->integer('objetPrincipal');
         $table->string('objetPrincipalAutre');
