@@ -65,6 +65,9 @@ class FicheTuteurEntrController extends Controller
       session(['idEtudiantFocus' => Request::get('idStagiaire')]);
       return view('tuteurEntreprise.fiche')->with(['id' => $id]);
     }else{
+      $stage = Stage::where('idEtudiant', session('idEtudiantFocus'))->first();
+      dd($stage);
+
       dd(Request::All());
     }
 

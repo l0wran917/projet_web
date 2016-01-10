@@ -85,6 +85,19 @@ class Tables extends Migration
         $table->string('pourquoiCours');
         $table->string('apportStage');
 
+        $table->integer('niveauConnaissance');
+        $table->integer('niveauOrganisation');
+        $table->integer('niveauInitiatie');
+        $table->integer('niveauPerseverance');
+        $table->integer('niveauEfficacite');
+        $table->integer('niveauInteret');
+
+        $table->integer('niveauPresentation');
+        $table->integer('niveauPonctualite');
+        $table->integer('niveauAssiduite');
+        $table->integer('niveauExpression');
+        $table->integer('niveauSociabilite');
+        $table->integer('niveauCommunication');
 
         $table->boolean('tuteurValide')->default(0);
 
