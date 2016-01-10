@@ -35,13 +35,33 @@ class FicheTuteurEntrController extends Controller
       return 'ok';
     }
 
-    public function ajaxListeEtudiant(){
+    public function ajaxDetailEtudiant(){
       if(Request::ajax()){
         $data = Request::All();
 
         $stages = Stage::infosByTuteur(session('uid'))->where('idEtudiant', $data['id'])->get();
 
         return $stages;
+      }else{
+        return "Error.";
+      }
+    }
+
+    public function ajaxChangerStatusStage(){
+      if(Request::ajax()){
+        $data = Request::All();
+
+        $stage = Stage::where('idTuteur', session('uid'))->where('idEtudiant', $data['id'])->first();
+
+        if($data['status'] == "0"){
+          $stage->tuteurValide = false;
+        }else{
+          $stage->tuteurValide = true;
+        }
+
+        $stage->save();
+
+        return "1";
       }else{
         return "Error.";
       }

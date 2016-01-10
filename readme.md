@@ -12,7 +12,8 @@
 
 ##Tuteur Entreprise
  - [x] Dashboard
- - [ ] Fiche mes stagiaires + validation des stagiaires
+ - [X] Fiche mes stagiaires + validation des stagiaires
+ - [ ] Gestion du cas ou le stagiaire est refusé
  - [ ] Backend fiche avis sur le stagiaire
  - [ ] Si plusieurs stagiaires, demander lequel avant la fiche avis sur le stagiaire
  - [ ] Fiche compte rendu de visite (Peut il la modifié ?)

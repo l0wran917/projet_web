@@ -51,7 +51,8 @@ class Views extends Migration
                               e.ville as villeEntreprise,
                               st.sujet as sujet,
                               st.planAcces as planAcces,
-                              t.joursDispoRencontre as joursDispoRencontre
+                              t.joursDispoRencontre as joursDispoRencontre,
+                              st.tuteurValide as tuteurValide
                       FROM stage st, tuteur t, entreprise e, utilisateur u, utilisateur ue
                       WHERE st.idTuteur = t.idUtilisateur
                       AND t.idEntreprise = e.id
@@ -130,8 +131,8 @@ class Views extends Migration
     public function down()
     {
         DB::statement('DROP VIEW etudiant_v');
+        DB::statement('DROP VIEW tuteur_v');
         DB::statement('DROP VIEW stage_v');
         // DB::statement('DROP VIEW etudiant_fv');
-        // DB::statement('DROP VIEW tuteur_v');
     }
 }

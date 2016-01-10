@@ -75,6 +75,8 @@ class Tables extends Migration
         $table->string('langagesStage');
         $table->integer('objetPrincipal');
 
+        $table->boolean('tuteurValide')->default(0);
+
         $table->timestamps();
 
         $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');

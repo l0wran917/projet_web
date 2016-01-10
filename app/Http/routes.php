@@ -41,7 +41,8 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEntre', 'uses' => 'FicheTuteurEntrController@index'])->where(['id' => '[0-9]+']);
     Route::post('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEntre', 'uses' => 'FicheTuteurEntrController@submitFiche'])->where(['id' => '[0-9]+']);
 
-    Route::post('/dashboard/tuteur/entreprise/fiche/listeEtudiant', ['as' => 'listeEtudiant', 'uses' => 'FicheTuteurEntrController@ajaxListeEtudiant']);
+    Route::post('/dashboard/tuteur/entreprise/fiche/detailEtudiant', ['as' => 'detailEtudiant', 'uses' => 'FicheTuteurEntrController@ajaxDetailEtudiant']);
+    Route::post('/dashboard/tuteur/entreprise/fiche/changerStatusStage', ['as' => 'changerStatusStage', 'uses' => 'FicheTuteurEntrController@ajaxChangerStatusStage']);
   });
 
 });

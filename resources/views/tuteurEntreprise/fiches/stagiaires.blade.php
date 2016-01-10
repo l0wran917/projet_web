@@ -21,7 +21,7 @@
             <div class="col-xs-7">
               <select class="form-control" name="nomStagiaire" id="inputNomStagiaire">
                 @foreach($data['stages'] as $stage)
-                  <option value="{{ $stage->idEtudiant }}">{{ ucfirst($stage->nomEtudiant) }} {{ ucfirst($stage->prenomEtudiant) }} - En attente</option>
+                  <option value="{{ $stage->idEtudiant }}">{{ ucfirst($stage->nomEtudiant) }} {{ ucfirst($stage->prenomEtudiant) }} - {{ ucfirst($stage->tuteurValide) == 0 ? 'En attente' : 'Validé' }} </option>
                 @endforeach
                 <!-- <option value="1">Bassin Laurent - 1K</option>
                 <option value="2">Yeboubouam Boukari - 1F</option> -->
@@ -42,19 +42,21 @@
 
 <div class="row">
   <div class="col-lg-6">
-    <div class="panel panel-default">
+    <div class="panel panel-default" id="panelEtudiantDetails">
       <div class="panel-heading red">
-        Bassin Laurent <span class="label label-warning">En attente</span>
+        <span class="nomEtudiantDetails"></span> <span id="statusStageDetails" class="label"></span>
       </div>
       <div class="panel-body">
 
         <div class="form-horizontal">
 
+          <input type="hidden" name="idStage" id="idStage" value="0">
+
           <div class="form-group">
             <label class="control-label col-xs-3 text-right">Nom :</label>
             <div class="col-xs-6">
               <p class="form-control-static text-left">
-                Bassin Laurent
+                <span class="nomEtudiantDetails"></span>
               </p>
             </div>
           </div>
@@ -64,7 +66,7 @@
             <label class="control-label col-xs-3 text-right">Email :</label>
             <div class="col-xs-6">
               <p class="form-control-static text-left">
-                laurent.bassin@u-psud.fr
+                <span class="emailEtudiantDetails"></span>
               </p>
             </div>
           </div>
@@ -74,17 +76,17 @@
             <label class="control-label col-xs-3 text-right">Sujet du stage :</label>
             <div class="col-xs-8">
               <p class="form-control-static text-left text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <span class="sujetEtudiantDetails"></span>
               </p>
             </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" id="formValiderStage">
             <div class="col-xs-6">
-              <input type="button" class="form-control btn btn-success" name="name" value="Cet étudiant est bien mon stagiaire">
+              <input type="button" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Cet étudiant est bien mon stagiaire">
             </div>
             <div class="col-xs-6">
-              <input type="button" class="form-control btn btn-danger" name="name" value="Je ne connais pas cet étudiant">
+              <input type="button" class="form-control btn btn-danger" name="btnStatusStage" data-status=0 value="Je ne connais pas cet étudiant">
             </div>
           </div>
 
