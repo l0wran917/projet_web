@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Stage;
+use App\Contact;
+use App\Tuteur;
 
 use Request;
 use Input;
@@ -31,9 +33,9 @@ class FicheTuteurEntrController extends Controller
 
       // Si fiche "Mes Stagiaires"
       if($id == FicheTuteurEntrController::$ID_STAGIAIRES){
-        $stages = Stage::infosByTuteur(session('uid'))->get();
+        $stages = Stage::infosByTuteur(session('uid'));
 
-        if(count($stages) > 0){
+        if($stages->count() > 0){
           $data['nbStagiaires'] = $stages->count();
           $data['stages'] = $stages->get();
 
@@ -46,16 +48,19 @@ class FicheTuteurEntrController extends Controller
       }else if($id == FicheTuteurEntrController::$ID_FICHE_AVIS_STAGIAIRE){
         $nbStagiaires = Stage::infosByTuteur(session('uid'))->count();
 
-        // S'il y en a plus d'un, on fait choisir dans la liste
-        if($nbStagiaires > 1){
+        if($nbStagiaires > 1){ // S'il y en a plus d'un, on fait choisir dans la liste
           $stages = Stage::infosByTuteur(session('uid'))->get();
-          return view('tuteurEntreprise.choixStagiaire')->with(['id' => $id, 'stages' => $stages, 'route' => 'dashboard']);
-        }else if($nbStagiaires == 0){
+          return view('tuteurEntreprise.choixStagiaire')->with(['id' => $id, 'stages' => $stages]);
+        }else if($nbStagiaires == 1){ // S'il y a un unique stagiaire, on le prend par default
+          $idEtudiantFocus = Stage::infosByTuteur(session('uid'))->first()->idEtudiant;
+          session(['idEtudiantFocus' => $idEtudiantFocus]);
+          return view('tuteurEntreprise.fiche')->with(['id' => $id]);
+        }else if($nbStagiaires == 0){ // S'il n'y a aucun stagiaire => Erreur
           return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
         }
 
       }else{
-          return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
+          return view('tuteurEntreprise.fiche')->with(['id' => $id]);
       }
 
       return "Error.";
@@ -75,9 +80,38 @@ class FicheTuteurEntrController extends Controller
       return view('tuteurEntreprise.fiche')->with(['id' => $id]);
     }else{
       $stage = Stage::where('idEtudiant', session('idEtudiantFocus'))->first();
-      dd($stage);
 
-      dd(Request::All());
+      $stage->niveauConnaissance = Request::get('niveauConnaissance');
+      $stage->niveauOrganisation = Request::get('niveauOrganisation');
+      $stage->niveauInitiative = Request::get('niveauInitiative');
+      $stage->niveauPerseverance = Request::get('niveauPerseverance');
+      $stage->niveauEfficacite = Request::get('niveauEfficacite');
+      $stage->niveauInteret = Request::get('niveauInteret');
+
+      $stage->niveauPresentation = Request::get('niveauPresentation');
+      $stage->niveauPonctualite = Request::get('niveauPonctualite');
+      $stage->niveauAssiduite = Request::get('niveauAssiduite');
+      $stage->niveauExpression = Request::get('niveauExpression');
+      $stage->niveauSociabilite = Request::get('niveauSociabilite');
+      $stage->niveauCommunication = Request::get('niveauCommunication');
+
+      $stage->embaucheEtudiant = Request::get('embaucheEtudiant');
+      $stage->embauchePourquoi = Request::get('embauchePourquoi');
+      $stage->tuteurPresentSoutenance = Request::get('presentSoutenance');
+
+      $stage->save();
+
+      $tuteur = Tuteur::where('idUtilisateur', $stage->idTuteur)->first();
+
+      $contactRH = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>1, 'nom'=> Request::get('nomRH'), 'email'=> Request::get('emailRH'), 'telephone'=> Request::get('telRH')]);
+      $contactTA = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>2, 'nom'=> Request::get('nomTA'), 'email'=> Request::get('emailTA'), 'telephone'=> Request::get('telTA')]);
+      $contactRE = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>3, 'nom'=> Request::get('nomRE'), 'email'=> Request::get('emailRE'), 'telephone'=> Request::get('telRE')]);
+
+      $contactRH->save();
+      $contactTA->save();
+      $contactRE->save();
+
+      return redirect()->route('ficheTuteurEntre', ['id' => $id]);
     }
 
   }

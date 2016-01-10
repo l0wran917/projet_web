@@ -75,22 +75,22 @@
             </div>
             <div class="col-xs-2 text-center">
               <label class="radio-inline" for="inputNiveauInitiativeExcellent">
-                <input type="radio" name="niveauInitiave" id="inputNiveauInitiativeExcellent" value="4" required> Excellent
+                <input type="radio" name="niveauInitiative" id="inputNiveauInitiativeExcellent" value="4" required> Excellent
               </label>
             </div>
             <div class="col-xs-2 text-center">
               <label class="radio-inline" for="inputNiveauInitiativeBon">
-                <input type="radio" name="niveauInitiave" id="inputNiveauInitiativeBon" value="3" required> Bon
+                <input type="radio" name="niveauInitiative" id="inputNiveauInitiativeBon" value="3" required> Bon
               </label>
             </div>
             <div class="col-xs-2 text-center">
               <label class="radio-inline" for="inputNiveauInitiativeMoyen">
-                <input type="radio" name="niveauInitiave" id="inputNiveauInitiativeMoyen" value="2" required> Moyen
+                <input type="radio" name="niveauInitiative" id="inputNiveauInitiativeMoyen" value="2" required> Moyen
               </label>
             </div>
             <div class="col-xs-2 text-center">
               <label class="radio-inline" for="inputNiveauInitiativeInsuffisant">
-                <input type="radio" name="niveauInitiave" id="inputNiveauInitiativeInsuffisant" value="1" required> Insuffisant
+                <input type="radio" name="niveauInitiative" id="inputNiveauInitiativeInsuffisant" value="1" required> Insuffisant
               </label>
             </div>
           </div>
@@ -366,17 +366,17 @@
                 <div class="form-group">
                   <div class="col-sm-2">
                     <label class="radio-inline">
-                      <input type="radio" name="embaucheEtudiant" id="inputEmbaucheEtudiantOui" value="oui" required> Oui
+                      <input type="radio" name="embaucheEtudiant" id="inputEmbaucheEtudiantOui" value="2" required> Oui
                     </label>
                   </div>
                   <div class="col-sm-2">
                     <label class="radio-inline">
-                      <input type="radio" name="embaucheEtudiant" id="inputEmbaucheEtudiantPe" value="pe" required> Peut-etre
+                      <input type="radio" name="embaucheEtudiant" id="inputEmbaucheEtudiantPe" value="1" required> Peut-etre
                     </label>
                   </div>
                   <div class="col-sm-2">
                     <label class="radio-inline">
-                      <input type="radio" name="embaucheEtudiant" id="inputEmbaucheEtudiantNon" value="non" required> Non
+                      <input type="radio" name="embaucheEtudiant" id="inputEmbaucheEtudiantNon" value="0" required> Non
                     </label>
                   </div>
                 </div>
@@ -402,12 +402,12 @@
                 <div class="form-group">
                   <div class="col-sm-2">
                     <label class="radio-inline">
-                      <input type="radio" name="presentSoutenance" id="inputPresentSoutenanceOui" value="oui" required> Oui
+                      <input type="radio" name="presentSoutenance" id="inputPresentSoutenanceOui" value="1" required> Oui
                     </label>
                   </div>
                   <div class="col-sm-2">
                     <label class="radio-inline">
-                      <input type="radio" name="presentSoutenance" id="inputPresentSoutenanceNon" value="non" required> Non
+                      <input type="radio" name="presentSoutenance" id="inputPresentSoutenanceNon" value="0" required> Non
                     </label>
                   </div>
                 </div>
@@ -495,21 +495,21 @@
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputNomCE">Nom:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="nomCE" id="inputNomCE" placeholder="Ex : Mme Nemit" required>
+                      <input type="text" class="form-control" name="nomRE" id="inputNomCE" placeholder="Ex : Mme Nemit" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputEmailCE">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailCE" id="inputEmailCE" placeholder="Ex : nemit@regza.com" required>
+                      <input type="text" class="form-control" name="emailRE" id="inputEmailCE" placeholder="Ex : nemit@regza.com" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputTelCE">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telCE" id="inputTelCE" placeholder="Ex : 03 04 05 06 07" required>
+                      <input type="text" class="form-control" name="telRE" id="inputTelCE" placeholder="Ex : 03 04 05 06 07" required>
                     </div>
                   </div>
                 </div>
