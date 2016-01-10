@@ -14,8 +14,9 @@
  - [x] Dashboard
  - [X] Fiche mes stagiaires + validation des stagiaires
  - [ ] Gestion du cas ou le stagiaire est refusé
- - [ ] Backend fiche avis sur le stagiaire
- - [ ] Si plusieurs stagiaires, demander lequel avant la fiche avis sur le stagiaire
+ - [X] Backend fiche avis sur le stagiaire
+ - [X] Si plusieurs stagiaires, demander lequel avant la fiche avis sur le stagiaire
+ - [ ] Afficher les infos dans la fiche si la request est refusé ou quand elle est deja renseigné"
  - [ ] Fiche compte rendu de visite (Peut il la modifié ?)
  - [ ] Fiche soutenance
 
