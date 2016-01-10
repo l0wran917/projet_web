@@ -31,3 +31,11 @@ label{
 #panelEtudiantDetails{
   display: none;
 }
+
+.form-decalage-group{
+  padding-left:2%;
+}
+
+.control-label{
+  text-align: left !important;
+}

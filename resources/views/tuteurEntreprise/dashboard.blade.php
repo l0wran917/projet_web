@@ -83,7 +83,7 @@
               <div class="form-group">
                 <label class="col-sm-4 control-label text-left">Dont non validés :</label>
                 <div class="col-sm-7">
-                  <p class="form-control-static">x</p>
+                  <p class="form-control-static">{{ $dashboardInfos['nbStagiaire'] - $dashboardInfos['nbStagiaireValide'] }}</p>
                 </div>
               </div>
 

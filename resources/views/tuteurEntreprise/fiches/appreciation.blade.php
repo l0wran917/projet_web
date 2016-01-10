@@ -433,23 +433,23 @@
 
                 <div class="form-horizontal">
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputNomRH">Nom:</label>
+                    <label class="control-label col-xs-2" for="inputNomRH">Nom:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="nomRH" id="inputNomRH" placeholder="Ex : Mr Dupond">
+                      <input type="text" class="form-control" name="nomRH" id="inputNomRH" placeholder="Ex : Mr Dupond" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputEmailRH">Email:</label>
+                    <label class="control-label col-xs-2" for="inputEmailRH">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : dupond@orange.fr">
+                      <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : dupond@orange.fr" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputTelRH">Téléphone:</label>
+                    <label class="control-label col-xs-2" for="inputTelRH">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 01 02 03 04 05">
+                      <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 01 02 03 04 05" required>
                     </div>
                   </div>
                 </div>
@@ -463,23 +463,23 @@
 
                 <div class="form-horizontal">
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputNomRH">Nom:</label>
+                    <label class="control-label col-xs-2" for="inputNomTA">Nom:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="nomRH" id="inputNomRH" placeholder="Ex : Mr De Larue">
+                      <input type="text" class="form-control" name="nomTA" id="inputNomTA" placeholder="Ex : Mr De Larue" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputEmailRH">Email:</label>
+                    <label class="control-label col-xs-2" for="inputEmailTA">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : delarue@gmail.com">
+                      <input type="text" class="form-control" name="emailTA" id="inputEmailTA" placeholder="Ex : delarue@gmail.com" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputTelRH">Téléphone:</label>
+                    <label class="control-label col-xs-2" for="inputTelTA">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 02 03 04 05 06">
+                      <input type="text" class="form-control" name="telTA" id="inputTelTA" placeholder="Ex : 02 03 04 05 06" required>
                     </div>
                   </div>
                 </div>
@@ -493,23 +493,23 @@
 
                 <div class="form-horizontal">
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputNomCE">Nom:</label>
+                    <label class="control-label col-xs-2" for="inputNomCE">Nom:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="nomCE" id="inputNomCE" placeholder="Ex : Mme Nemit">
+                      <input type="text" class="form-control" name="nomCE" id="inputNomCE" placeholder="Ex : Mme Nemit" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputEmailCE">Email:</label>
+                    <label class="control-label col-xs-2" for="inputEmailCE">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailCE" id="inputEmailCE" placeholder="Ex : nemit@regza.com">
+                      <input type="text" class="form-control" name="emailCE" id="inputEmailCE" placeholder="Ex : nemit@regza.com" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
-                    <label class="control-label col-xs-1" for="inputTelCE">Téléphone:</label>
+                    <label class="control-label col-xs-2" for="inputTelCE">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telCE" id="inputTelCE" placeholder="Ex : 03 04 05 06 07">
+                      <input type="text" class="form-control" name="telCE" id="inputTelCE" placeholder="Ex : 03 04 05 06 07" required>
                     </div>
                   </div>
                 </div>

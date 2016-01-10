@@ -49,6 +49,7 @@ class DashboardController extends Controller
 
       $stages = Stage::infosByTuteur(session('uid'));
       $dashboardInfos['nbStagiaire'] = $stages->count();
+      $dashboardInfos['nbStagiaireValide'] = $stages->where('tuteurValide', "1")->count();
 
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
     }

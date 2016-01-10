@@ -14,6 +14,7 @@
         Choix de l'étudiant
       </div>
       <div class="panel-body">
+        
         <div class="form-horizontal col-xs-12">
           <div class="form-group">
             <label class="col-xs-2 control-label" for="inputNomStagiaire">Nom: </label>
