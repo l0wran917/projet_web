@@ -42,13 +42,13 @@ class avisEtudiantRequest extends Request
             // autreSysteme required => Check en back end
             'objetStage' => 'required',
             // autreSysteme required => Check en back end
-            'avisCondition' => 'required',
+            'satisactionStage' => 'required',
             // pourquoiCondition required => Check en back end
             'objectifsAtteints' => 'required',
             // objectifsAtteintsPourquoi required => Check en back end
-            'matiereDeveloppe' => 'required',
+            'satisactionCours' => 'required',
             // matiereDeveloppePrecision required => Check en back end
-            'enricheProjet' => 'required',
+            'apportStage' => 'required',
           ];
     }
 }

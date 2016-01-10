@@ -278,12 +278,12 @@
                 <label class="col-sm-7 control-label">Etes vous totalement satisfait des conditions dans lesqelles ce sont déroulées votre stage ?</label>
                 <div class="col-sm-2">
                   <label class="radio-inline">
-                    <input type="radio" name="avisCondition" id="inputAvisConditionOui" data-id-hide="avisConditionPourquoiForm" value="1" required> Oui
+                    <input type="radio" name="satisactionStage" id="inputAvisConditionOui" data-id-hide="avisConditionPourquoiForm" value="1" required> Oui
                   </label>
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-inline">
-                    <input type="radio" name="avisCondition" id="inputAvisConditionNon" data-id-display="avisConditionPourquoiForm"  value="0" required> Non
+                    <input type="radio" name="satisactionStage" id="inputAvisConditionNon" data-id-display="avisConditionPourquoiForm"  value="0" required> Non
                   </label>
                 </div>
               </div>
@@ -293,7 +293,7 @@
               <div class="form-group text-left">
                 <label class="col-sm-2 col-sm-offset-1 control-label" for="inputPourquoiCondition">Pourquoi ?</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" rows="2" name="pourquoiCondition" id="inputPourquoiCondition"></textarea>
+                    <textarea class="form-control" rows="2" name="pourquoiSatisaction" id="inputPourquoiCondition"></textarea>
                 </div>
               </div>
             </div>
@@ -345,12 +345,12 @@
                 <label class="col-sm-7 control-label">Estimez-vous que certaines matières enseignées n'ont pas été assez développées ?</label>
                 <div class="col-sm-2">
                   <label class="radio-inline" for="inputMatiereDeveloppeOui">
-                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeOui" data-id-display="matiereDeveloppeForm" value="1" required> Oui
+                    <input type="radio" name="satisactionCours" id="inputMatiereDeveloppeOui" data-id-display="matiereDeveloppeForm" value="1" required> Oui
                   </label>
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-inline" for="inputMatiereDeveloppeNon">
-                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeNon" data-id-hide="matiereDeveloppeForm" value="0" required> Non
+                    <input type="radio" name="satisactionCours" id="inputMatiereDeveloppeNon" data-id-hide="matiereDeveloppeForm" value="0" required> Non
                   </label>
                 </div>
               </div>
@@ -360,7 +360,7 @@
               <div class="form-group text-left">
                 <label class="col-sm-2 col-sm-offset-1 control-label" for="inputMatiereDeveloppePrecision">Lesquelles ?</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" rows="2" name="matiereDeveloppePrecision" id="inputMatiereDeveloppePrecision"></textarea>
+                    <textarea class="form-control" rows="2" name="pourquoiCours" id="inputMatiereDeveloppePrecision"></textarea>
                 </div>
               </div>
             </div>
@@ -375,7 +375,7 @@
 
               <div class="form-group text-left">
                 <div class="col-sm-9 col-sm-offset-1">
-                    <textarea class="form-control" rows="2" name="enricheProjet" id="inputEnricheProjet" required></textarea>
+                    <textarea class="form-control" rows="2" name="apportStage" id="inputEnricheProjet" required></textarea>
                 </div>
               </div>
             </div>

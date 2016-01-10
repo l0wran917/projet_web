@@ -262,9 +262,13 @@ class FicheEtudiantController extends Controller
       // Update les infos
       $stage->remunerationStage = $request->remunerationStage;
       $stage->montantRemuneration = $request->montantRemuneration;
+
       $stage->encadrageInfomaticien = $request->encadrageInfomaticien;
+      $stage->appelInformaticien = $request->appelInformaticien;
+
       $stage->travailSeul = $request->travailSeul;
       $stage->tailleEquipe = $request->tailleEquipe;
+
       if($request->typeMateriel=="PC")
       {
         $stage->typeMateriel = $request->typeMateriel;
@@ -272,6 +276,7 @@ class FicheEtudiantController extends Controller
       else {
         $stage->typeMateriel = $request->typeMaterielAutreDetails;
       }
+
       $stage->typeSysteme = 0;
       foreach ($request->typeSysteme as $value) {
         //Valeur pour autre
@@ -282,7 +287,9 @@ class FicheEtudiantController extends Controller
             $stage->typeSysteme += $value;
         }
       }
+
       $stage->langagesStage = $request->langages;
+
       $stage->objetPrincipal = 0;
       foreach ($request->objetStage as $value) {
         //Valeur pour autre
@@ -293,13 +300,18 @@ class FicheEtudiantController extends Controller
             $stage->objetPrincipal += $value;
         }
       }
-      $stage->satisactionStage = $request->avisCondition;
-      $stage->pourquoiSatisaction = $request->pourquoiCondition;
+
+      $stage->satisactionStage = $request->satisactionStage;
+      $stage->pourquoiSatisaction = $request->pourquoiSatisaction;
+
       $stage->satisactionObjectif = $request->objectifsAtteints;
       $stage->pourquoiObjectif = $request->objectifsAtteintsPourquoi;
-      $stage->satisactionCours = $request->matiereDeveloppe;
-      $stage->pourquoiCours = $request->matiereDeveloppePrecision;
-      $stage->apportStage = $request->enricheProjet;
+
+      $stage->satisactionCours = $request->satisactionCours;
+
+      $stage->pourquoiCours = $request->pourquoiCours;
+      $stage->apportStage = $request->apportStage;
+
       //Sauvegarde dans la base de données
       $stage->save();
       return view('test');
