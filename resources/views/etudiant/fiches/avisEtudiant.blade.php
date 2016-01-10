@@ -129,7 +129,7 @@
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTypeMaterielAutre">
-                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="PC" required> Autres
+                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="Autres" required> Autres
                 </label>
               </div>
               <div class="col-sm-4">
@@ -147,22 +147,22 @@
               <label class="col-sm-2 control-label" for="inputSysteme">Système:</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeUnix" value="unix"> Unix
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeUnix" value="1"> Unix
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeLinux" value="linux"> Linux
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeLinux" value="2"> Linux
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeNT" value="nt"> NT
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeNT" value="4"> NT
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeWindows" value="windows"> Windows
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeWindows" value="8"> Windows
                 </label>
               </div>
             </div>
@@ -172,7 +172,7 @@
             <div class="form-group text-left">
               <div class="col-sm-2 col-sm-offset-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeAutres" value="autre"> Autres:
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeAutres" value="16"> Autres:
                 </label>
               </div>
               <div class="col-sm-3">
@@ -208,22 +208,22 @@
 
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageSysteme" value="systeme"> Système
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageSysteme" value="1"> Système
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageMultimedia" value="multimedia"> Multimédia
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageMultimedia" value="2"> Multimédia
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageReseau" value="reseaux"> Réseaux
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageReseau" value="4"> Réseaux
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageDevWeb" value="devWeb"> Dév Web
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageDevWeb" value="8"> Dév Web
                 </label>
               </div>
 
@@ -233,12 +233,12 @@
 
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutreDev" value="autresDev"> Autres dév
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutreDev" value="16"> Autres dév
                 </label>
               </div>
               <div class="col-sm-4">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageBdd" value="daseDeDonnees"> Bases de données
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageBdd" value="32"> Bases de données
                 </label>
               </div>
 
@@ -247,12 +247,12 @@
             <div class="row" style="margin-top:1%;">
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutre" value="autre"> Autres:
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutre" value="64"> Autres:
                 </label>
               </div>
               <div class="col-sm-4">
                   <label class="sr-only" for="inputAutreSysteme">Autre systeme</label>
-                  <input type="text" name="autreSysteme" id="inputObjetStageAutreDetails" class="form-control" placeholder="Ex : Gestion de projet">
+                  <input type="text" name="autreObjet" id="inputObjetStageAutreDetails" class="form-control" placeholder="Ex : Gestion de projet">
               </div>
             </div>
 
@@ -278,12 +278,12 @@
                 <label class="col-sm-7 control-label">Etes vous totalement satisfait des conditions dans lesqelles ce sont déroulées votre stage ?</label>
                 <div class="col-sm-2">
                   <label class="radio-inline">
-                    <input type="radio" name="avisCondition" id="inputAvisConditionOui" data-id-hide="avisConditionPourquoiForm" value="1" required> Oui
+                    <input type="radio" name="satisactionStage" id="inputAvisConditionOui" data-id-hide="avisConditionPourquoiForm" value="1" required> Oui
                   </label>
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-inline">
-                    <input type="radio" name="avisCondition" id="inputAvisConditionNon" data-id-display="avisConditionPourquoiForm"  value="0" required> Non
+                    <input type="radio" name="satisactionStage" id="inputAvisConditionNon" data-id-display="avisConditionPourquoiForm"  value="0" required> Non
                   </label>
                 </div>
               </div>
@@ -293,7 +293,7 @@
               <div class="form-group text-left">
                 <label class="col-sm-2 col-sm-offset-1 control-label" for="inputPourquoiCondition">Pourquoi ?</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" rows="2" name="pourquoiCondition" id="inputPourquoiCondition"></textarea>
+                    <textarea class="form-control" rows="2" name="pourquoiSatisaction" id="inputPourquoiCondition"></textarea>
                 </div>
               </div>
             </div>
@@ -345,12 +345,12 @@
                 <label class="col-sm-7 control-label">Estimez-vous que certaines matières enseignées n'ont pas été assez développées ?</label>
                 <div class="col-sm-2">
                   <label class="radio-inline" for="inputMatiereDeveloppeOui">
-                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeOui" data-id-display="matiereDeveloppeForm" value="1" required> Oui
+                    <input type="radio" name="satisactionCours" id="inputMatiereDeveloppeOui" data-id-display="matiereDeveloppeForm" value="1" required> Oui
                   </label>
                 </div>
                 <div class="col-sm-2">
                   <label class="radio-inline" for="inputMatiereDeveloppeNon">
-                    <input type="radio" name="matiereDeveloppe" id="inputMatiereDeveloppeNon" data-id-hide="matiereDeveloppeForm" value="0" required> Non
+                    <input type="radio" name="satisactionCours" id="inputMatiereDeveloppeNon" data-id-hide="matiereDeveloppeForm" value="0" required> Non
                   </label>
                 </div>
               </div>
@@ -360,7 +360,7 @@
               <div class="form-group text-left">
                 <label class="col-sm-2 col-sm-offset-1 control-label" for="inputMatiereDeveloppePrecision">Lesquelles ?</label>
                 <div class="col-sm-8">
-                    <textarea class="form-control" rows="2" name="matiereDeveloppePrecision" id="inputMatiereDeveloppePrecision"></textarea>
+                    <textarea class="form-control" rows="2" name="pourquoiCours" id="inputMatiereDeveloppePrecision"></textarea>
                 </div>
               </div>
             </div>
@@ -375,7 +375,7 @@
 
               <div class="form-group text-left">
                 <div class="col-sm-9 col-sm-offset-1">
-                    <textarea class="form-control" rows="2" name="enricheProjet" id="inputEnricheProjet" required></textarea>
+                    <textarea class="form-control" rows="2" name="apportStage" id="inputEnricheProjet" required></textarea>
                 </div>
               </div>
             </div>

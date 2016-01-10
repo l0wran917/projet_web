@@ -66,14 +66,25 @@ class Tables extends Migration
         $table->string('sujet');
         $table->string('planAcces');
         $table->boolean('remunerationStage');
+        $table->float('montantRemuneration');
         $table->boolean('encadrageInfomaticien');
         $table->boolean('appelInformaticien');
         $table->boolean('travailSeul');
         $table->integer('tailleEquipe');
-        //$table->boolean('typeMateriel');
-        $table->string('typeSysteme');
+        $table->string('typeMateriel');
+        $table->integer('typeSysteme');
+        $table->string('typeSystemeAutre');
         $table->string('langagesStage');
         $table->integer('objetPrincipal');
+        $table->string('objetPrincipalAutre');
+        $table->boolean('satisactionStage');
+        $table->string('pourquoiSatisaction');
+        $table->boolean('satisactionObjectif');
+        $table->string('pourquoiObjectif');
+        $table->boolean('satisactionCours');
+        $table->string('pourquoiCours');
+        $table->string('apportStage');
+
 
         $table->boolean('tuteurValide')->default(0);
 

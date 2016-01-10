@@ -256,8 +256,64 @@ class FicheEtudiantController extends Controller
     private function traitementSubmitAvis($id, $request){
       $this->validate($request, avisEtudiantRequest::rules());
 
-      dd($request->all());
+      // Recupere le stage
+      $stage =  Stage::where('idEtudiant', session('uid'))->first();
 
+      // Update les infos
+      $stage->remunerationStage = $request->remunerationStage;
+      $stage->montantRemuneration = $request->montantRemuneration;
+
+      $stage->encadrageInfomaticien = $request->encadrageInfomaticien;
+      $stage->appelInformaticien = $request->appelInformaticien;
+
+      $stage->travailSeul = $request->travailSeul;
+      $stage->tailleEquipe = $request->tailleEquipe;
+
+      if($request->typeMateriel=="PC")
+      {
+        $stage->typeMateriel = $request->typeMateriel;
+      }
+      else {
+        $stage->typeMateriel = $request->typeMaterielAutreDetails;
+      }
+
+      $stage->typeSysteme = 0;
+      foreach ($request->typeSysteme as $value) {
+        //Valeur pour autre
+        if($value == 16){
+            $stage->typeSystemeAutre = $request->autreSysteme;
+        }
+        else {
+            $stage->typeSysteme += $value;
+        }
+      }
+
+      $stage->langagesStage = $request->langages;
+
+      $stage->objetPrincipal = 0;
+      foreach ($request->objetStage as $value) {
+        //Valeur pour autre
+        if($value == 64){
+            $stage->objetPrincipalAutre = $request->autreObjet;
+        }
+        else {
+            $stage->objetPrincipal += $value;
+        }
+      }
+
+      $stage->satisactionStage = $request->satisactionStage;
+      $stage->pourquoiSatisaction = $request->pourquoiSatisaction;
+
+      $stage->satisactionObjectif = $request->objectifsAtteints;
+      $stage->pourquoiObjectif = $request->objectifsAtteintsPourquoi;
+
+      $stage->satisactionCours = $request->satisactionCours;
+
+      $stage->pourquoiCours = $request->pourquoiCours;
+      $stage->apportStage = $request->apportStage;
+
+      //Sauvegarde dans la base de données
+      $stage->save();
       return view('test');
     }
 }
