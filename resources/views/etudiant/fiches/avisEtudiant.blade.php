@@ -129,7 +129,7 @@
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTypeMaterielAutre">
-                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="PC" required> Autres
+                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="Autres" required> Autres
                 </label>
               </div>
               <div class="col-sm-4">
@@ -147,22 +147,22 @@
               <label class="col-sm-2 control-label" for="inputSysteme">Système:</label>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeUnix" value="unix"> Unix
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeUnix" value="1"> Unix
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeLinux" value="linux"> Linux
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeLinux" value="2"> Linux
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeNT" value="nt"> NT
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeNT" value="4"> NT
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeWindows" value="windows"> Windows
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeWindows" value="8"> Windows
                 </label>
               </div>
             </div>
@@ -172,7 +172,7 @@
             <div class="form-group text-left">
               <div class="col-sm-2 col-sm-offset-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeAutres" value="autre"> Autres:
+                  <input type="checkbox" name="typeSysteme[]" id="inputSystemeAutres" value="16"> Autres:
                 </label>
               </div>
               <div class="col-sm-3">
@@ -208,22 +208,22 @@
 
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageSysteme" value="systeme"> Système
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageSysteme" value="1"> Système
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageMultimedia" value="multimedia"> Multimédia
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageMultimedia" value="2"> Multimédia
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageReseau" value="reseaux"> Réseaux
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageReseau" value="4"> Réseaux
                 </label>
               </div>
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageDevWeb" value="devWeb"> Dév Web
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageDevWeb" value="8"> Dév Web
                 </label>
               </div>
 
@@ -233,12 +233,12 @@
 
               <div class="col-sm-3">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutreDev" value="autresDev"> Autres dév
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutreDev" value="16"> Autres dév
                 </label>
               </div>
               <div class="col-sm-4">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageBdd" value="daseDeDonnees"> Bases de données
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageBdd" value="32"> Bases de données
                 </label>
               </div>
 
@@ -247,12 +247,12 @@
             <div class="row" style="margin-top:1%;">
               <div class="col-sm-2">
                 <label class="radio-inline">
-                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutre" value="autre"> Autres:
+                  <input type="checkbox" name="objetStage[]" id="inputObjetStageAutre" value="64"> Autres:
                 </label>
               </div>
               <div class="col-sm-4">
                   <label class="sr-only" for="inputAutreSysteme">Autre systeme</label>
-                  <input type="text" name="autreSysteme" id="inputObjetStageAutreDetails" class="form-control" placeholder="Ex : Gestion de projet">
+                  <input type="text" name="autreObjet" id="inputObjetStageAutreDetails" class="form-control" placeholder="Ex : Gestion de projet">
               </div>
             </div>
 
