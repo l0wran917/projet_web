@@ -54,6 +54,20 @@ class Data extends Migration
         ]
       );
 
+      DB::table('utilisateur')->insert(
+        [
+          'id' => 3,
+          'nom' => 'morterol',
+          'prenom' => 'martin',
+          'email' => 'martin.morterol@u-psud.fr',
+          'dateNaissance' => '1992-01-01',
+          'adresse' => '2 Rue des patates',
+          'telPortable' => '0102030405',
+          'password' => Hash::make('password'),
+          'type' => 3
+        ]
+      );
+
       DB::table('entreprise')->insert(
         [
           'nom' => 'Mx Data',

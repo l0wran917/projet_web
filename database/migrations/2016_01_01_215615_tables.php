@@ -123,9 +123,14 @@ class Tables extends Migration
         $table->foreign('idTuteur')->references('idUtilisateur')->on('tuteur');
       });
 
+      Schema::create('tuteurEntreprise', function (Blueprint $table) {
+        $table->integer('idUtilisateur')->unsigned();
+        $table->integer('joursDispoRencontre');
+        $table->timestamps();
 
-
-    }
+        $table->primary('idUtilisateur');
+        $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
+      });
 
     /**
      * Reverse the migrations.
