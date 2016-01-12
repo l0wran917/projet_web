@@ -77,7 +77,9 @@ class Views extends Migration
                       WHERE t.idUtilisateur = u.id");
 
       DB::statement(" CREATE VIEW avis_stagiaire_v AS
-                      SELECT 	st.niveauConnaissance  as connaissance,
+                      SELECT 	st.idEtudiant as idEtudiant,
+                              st.idTuteur as idTuteur,
+                              st.niveauConnaissance  as connaissance,
                           		st.niveauOrganisation  as organisation,
                               st.niveauInitiative    as initiative,
                               st.niveauPerseverance  as perseverance,
@@ -93,6 +95,16 @@ class Views extends Migration
                               st.embauchePourquoi	   as raisonEmbauche,
                               st.tuteurPresentSoutenance as tuteurPresentSoutenance
                           FROM stage st");
+
+      DB::statement("CREATE VIEW contact_idTuteur_v AS
+                      SELECT 	t.idEntreprise as idEntreprise,
+                          		t.idUtilisateur as idTuteur,
+                          		c.type as type,
+                          		c.nom as nom,
+                              c.email as email,
+                              c.telephone as telephone
+                      FROM contact c, tuteur t
+                      WHERE t.idEntreprise = c.idEntreprise");
 
   //  DB::statement("CREATE VIEW etudiant_fv AS
   //                SELECT u.id as idEtudiant,
@@ -119,7 +131,7 @@ class Views extends Migration
   //                AND st.idTuteur = t.idUtilisateur
   //                AND t.idUtilisateur = ut.id
   //                AND e.id = t.idEntreprise");
-   //
+  //
   //   DB::statement("CREATE VIEW tuteur_v AS
   //                  SELECT u.id as idUtilisateur,
   //                         u.nom as nom,
@@ -151,6 +163,7 @@ class Views extends Migration
         DB::statement('DROP VIEW etudiant_v');
         DB::statement('DROP VIEW tuteur_v');
         DB::statement('DROP VIEW stage_v');
-        // DB::statement('DROP VIEW etudiant_fv');
+        // DB::statement('DROP VIEW avis_stagiaire_v');
+        // DB::statement('DROP VIEW contact_idTuteur_v');
     }
 }

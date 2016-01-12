@@ -23,6 +23,12 @@ class Stage extends Model
     return $stage;
   }
 
+  public static function appreciationStagiaire($idEtudiant){
+    $appreciation = DB::table('avis_stagiaire_v')->where('idEtudiant', $idEtudiant)->first();
+
+    return $appreciation;
+  }
+
   public static function checkStageExiste($stage){
     if(count($stage) == 0){
       $stage = new Stage;
