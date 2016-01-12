@@ -12,7 +12,6 @@ class Stage extends Model
 
   public static function infos($id){
     $stage = DB::table('stage_v')->where('idEtudiant', $id)->first();
-    $stage = Stage::checkStageExiste($stage);
 
     return $stage;
   }

@@ -96,16 +96,6 @@ class Views extends Migration
                               st.tuteurPresentSoutenance as tuteurPresentSoutenance
                           FROM stage st");
 
-      DB::statement("CREATE VIEW contact_idTuteur_v AS
-                      SELECT 	t.idEntreprise as idEntreprise,
-                          		t.idUtilisateur as idTuteur,
-                          		c.type as type,
-                          		c.nom as nom,
-                              c.email as email,
-                              c.telephone as telephone
-                      FROM contact c, tuteur t
-                      WHERE t.idEntreprise = c.idEntreprise");
-
   //  DB::statement("CREATE VIEW etudiant_fv AS
   //                SELECT u.id as idEtudiant,
   //                       et.tp as tp,
@@ -163,7 +153,6 @@ class Views extends Migration
         DB::statement('DROP VIEW etudiant_v');
         DB::statement('DROP VIEW tuteur_v');
         DB::statement('DROP VIEW stage_v');
-        // DB::statement('DROP VIEW avis_stagiaire_v');
-        // DB::statement('DROP VIEW contact_idTuteur_v');
+        DB::statement('DROP VIEW avis_stagiaire_v');
     }
 }

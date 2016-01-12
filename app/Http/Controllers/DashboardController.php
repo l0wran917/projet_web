@@ -38,6 +38,8 @@ class DashboardController extends Controller
       $dashboardInfos['etudiant'] = $etudiant;
 
       $stage = Stage::infos(session('uid'));
+      $stage = Stage::checkStageExiste($stage);
+      
       $dashboardInfos['stage'] = $stage;
 
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
