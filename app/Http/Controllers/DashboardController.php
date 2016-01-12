@@ -57,7 +57,7 @@ class DashboardController extends Controller
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
     }
 
-    public indexTuteurEns(){
+    public function indexTuteurEns(){
 
     }
 }

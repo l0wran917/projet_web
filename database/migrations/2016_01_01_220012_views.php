@@ -76,6 +76,24 @@ class Views extends Migration
                       FROM tuteur t LEFT JOIN entreprise e ON e.id = t.idEntreprise, utilisateur u
                       WHERE t.idUtilisateur = u.id");
 
+      DB::statement(" CREATE VIEW avis_stagiaire_v AS
+                      SELECT 	st.niveauConnaissance  as connaissance,
+                          		st.niveauOrganisation  as organisation,
+                              st.niveauInitiative    as initiative,
+                              st.niveauPerseverance  as perseverance,
+                              st.niveauEfficacite    as efficacite,
+                              st.niveauInteret	     as interet,
+                              st.niveauPresentation  as presentation,
+                              st.niveauPonctualite   as ponctualite,
+                              st.niveauAssiduite	   as assiduite,
+                              st.niveauExpression	   as expression,
+                              st.niveauSociabilite   as sociabilite,
+                              st.niveauCommunication as communication,
+                              st.embaucheEtudiant	   as embauche,
+                              st.embauchePourquoi	   as raisonEmbauche,
+                              st.tuteurPresentSoutenance as tuteurPresentSoutenance
+                          FROM stage st");
+
   //  DB::statement("CREATE VIEW etudiant_fv AS
   //                SELECT u.id as idEtudiant,
   //                       et.tp as tp,

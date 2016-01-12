@@ -51,10 +51,13 @@ class FicheTuteurEntrController extends Controller
 
         if($nbStagiaires > 1){ // S'il y en a plus d'un, on fait choisir dans la liste
           $stages = Stage::infosByTuteur(session('uid'))->get();
+
           return view('tuteurEntreprise.choixStagiaire')->with(['id' => $id, 'stages' => $stages]);
         }else if($nbStagiaires == 1){ // S'il y a un unique stagiaire, on le prend par default
+
           $idEtudiantFocus = Stage::infosByTuteur(session('uid'))->first()->idEtudiant;
           session(['idEtudiantFocus' => $idEtudiantFocus]);
+
           return view('tuteurEntreprise.fiche')->with(['id' => $id]);
         }else if($nbStagiaires == 0){ // S'il n'y a aucun stagiaire => Erreur
           return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
