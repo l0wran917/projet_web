@@ -21,7 +21,10 @@ class DashboardController extends Controller
         return $this->indexEtudiant();
       }elseif(session('typeUtilisateur') == Utilisateur::$TUTEUR_ENTREPRISE){
         return $this->indexTuteurEntr();
-      }else{
+      }elseif(session('typeUtilisateur') == Utilisateur::$TUTEUR_ENSEIGNANT){
+        return $this->indexTuteurEns();
+      }
+      else{
         return 'Error.';
       }
 
@@ -52,5 +55,9 @@ class DashboardController extends Controller
       $dashboardInfos['nbStagiaireValide'] = $stages->where('tuteurValide', "1")->count();
 
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
+    }
+
+    public indexTuteurEns(){
+
     }
 }

@@ -71,6 +71,15 @@ class Tables extends Migration
 
       });
 
+      Schema::create('tuteurEnseignant', function (Blueprint $table) {
+        $table->integer('idUtilisateur')->unsigned();
+        $table->integer('joursDispoRencontre');
+        $table->timestamps();
+
+        $table->primary('idUtilisateur');
+        $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
+      });
+
       Schema::create('stage', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('idEtudiant')->unsigned();
@@ -122,15 +131,7 @@ class Tables extends Migration
         $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
         $table->foreign('idTuteur')->references('idUtilisateur')->on('tuteur');
       });
-
-      Schema::create('tuteurEntreprise', function (Blueprint $table) {
-        $table->integer('idUtilisateur')->unsigned();
-        $table->integer('joursDispoRencontre');
-        $table->timestamps();
-
-        $table->primary('idUtilisateur');
-        $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
-      });
+  }
 
     /**
      * Reverse the migrations.
@@ -140,9 +141,10 @@ class Tables extends Migration
     public function down()
     {
       Schema::drop('stage');
+      Schema::drop('tuteurEnseignant');
       Schema::drop('tuteur');
       Schema::drop('entreprise');
-      // Schema::drop('contact');
+      Schema::drop('contact');
       Schema::drop('etudiant');
       Schema::drop('utilisateur');
 

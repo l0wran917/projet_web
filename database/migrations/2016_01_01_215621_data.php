@@ -56,7 +56,7 @@ class Data extends Migration
 
       DB::table('utilisateur')->insert(
         [
-          'id' => 3,
+          'id' => 4,
           'nom' => 'morterol',
           'prenom' => 'martin',
           'email' => 'martin.morterol@u-psud.fr',
@@ -81,6 +81,13 @@ class Data extends Migration
         [
           'idUtilisateur' => '3',
           'idEntreprise' => '1'
+        ]
+      );
+
+
+      DB::table('tuteurEnseignant')->insert(
+        [
+            'idUtilisateur' => '4'
         ]
       );
 

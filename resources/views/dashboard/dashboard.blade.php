@@ -6,6 +6,8 @@
     @include('etudiant.dashboard')
   @elseif( Session::get('typeUtilisateur') == 2)
     @include('tuteurEntreprise.dashboard')
+  @elseif( Session::get('typeUtilisateur') == 3)
+    @include('tuteurEnseignant.dashboard')
   @endif
 
 @include('template.foot')
