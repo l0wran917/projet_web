@@ -16,12 +16,14 @@
  - [ ] Gestion du cas ou le stagiaire est refusé
  - [X] Backend fiche avis sur le stagiaire
  - [X] Si plusieurs stagiaires, demander lequel avant la fiche avis sur le stagiaire
- - [ ] Afficher les infos dans la fiche si la request est refusé ou quand elle est deja renseigné"
+ - [X] Afficher les infos dans la fiche si la request est refusé ou quand elle est deja renseigné"
  - [ ] Fiche compte rendu de visite (Peut il la modifié ?)
  - [ ] Fiche soutenance
 
 ##Tuteur IUT
-  - [ ] Tout
+ - [ ] Fiche compte rendu visible
+ - [ ] Demande appariement
   
 ##Secretariat
- - [ ] Tout
+ - [ ] Afficher fiches d'un etudiant choisi
+ - [ ] Voir planning
