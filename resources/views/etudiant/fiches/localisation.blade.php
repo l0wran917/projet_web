@@ -175,16 +175,16 @@
                   <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="2" {{ ($joursDispo / 2 ) % 2 == 1 ? 'checked' : '' }}> Mardi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="4" {{ ($joursDispo / 2 / 2 ) % 2 == 1 ? 'checked' : '' }}> Mercredi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="4" {{ ($joursDispo / 4 ) % 2 == 1 ? 'checked' : '' }}> Mercredi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="8" {{ ($joursDispo / 2 / 2 / 2 ) % 2 == 1 ? 'checked' : '' }}> Jeudi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="8" {{ ($joursDispo / 8 ) % 2 == 1 ? 'checked' : '' }}> Jeudi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="16" {{ ($joursDispo / 2 / 2 / 2 / 2) % 2 == 1 ? 'checked' : '' }}> Vendredi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="16" {{ ($joursDispo / 16 ) % 2 == 1 ? 'checked' : '' }}> Vendredi
                 </label>
                 <label class="checkbox-inline">
-                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="32" {{ ($joursDispo / 2 / 2 / 2 / 2 / 2) % 2 == 1 ? 'checked' : '' }}> Samedi
+                  <input type="checkbox" name="jourRencontre[]" id="inputJourRencontre" value="32" {{ ($joursDispo / 32 ) % 2 == 1 ? 'checked' : '' }}> Samedi
                 </label>
             </div>
           </div>
@@ -283,8 +283,8 @@
     @endif
 
       <div class="row">
-        <div class="col-lg-12">
-          <button type="submit" style="margin-top:50px;" class="btn col-lg-2 col-lg-offset-5 btn-primary" id="submitLocalisation">Valider</button>
+        <div class="col-xs-12">
+          <button type="submit" style="margin-top:50px;" class="btn col-xs-2 col-xs-offset-5 btn-primary" id="submitLocalisation">Valider</button>
         </div>
       </div>
 

@@ -32,7 +32,7 @@ class avisEtudiantRequest extends Request
         return [
             'remunerationStage' => 'required',
             'montantRemuneration' => 'numeric',
-            'encadrageInfomaticien' => 'required',
+            'encadrageInformaticien' => 'required',
             // appelInformaticien required => Check en back end
             'travailSeul' => 'required',
             // tailleEquipe required => Check en back end
