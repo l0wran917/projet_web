@@ -88,7 +88,7 @@ class Tables extends Migration
         $table->string('planAcces');
         $table->boolean('remunerationStage');
         $table->float('montantRemuneration');
-        $table->boolean('encadrageInfomaticien');
+        $table->boolean('encadrageInformaticien');
         $table->boolean('appelInformaticien');
         $table->boolean('travailSeul');
         $table->integer('tailleEquipe')->default(-1);
