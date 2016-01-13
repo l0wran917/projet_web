@@ -143,8 +143,8 @@ class Tables extends Migration
       Schema::drop('stage');
       Schema::drop('tuteurEnseignant');
       Schema::drop('tuteur');
-      Schema::drop('entreprise');
       Schema::drop('contact');
+      Schema::drop('entreprise');
       Schema::drop('etudiant');
       Schema::drop('utilisateur');
 
