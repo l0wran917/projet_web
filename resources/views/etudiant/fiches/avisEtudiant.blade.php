@@ -50,12 +50,12 @@
               <label class="col-sm-7 control-label">Avez vous été encadré par un informaticien ?</label>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputEncadreInformaticienOui">
-                  <input type="radio" name="encadrageInfomaticien" id="inputEncadreInformaticienOui" data-id-hide="appelInformaticienForm" value="1" {{ $data['stage']->encadrageInformaticien == '1' ? 'checked' : '' }} required> Oui
+                  <input type="radio" name="encadrageInformaticien" id="inputEncadreInformaticienOui" data-id-hide="appelInformaticienForm" value="1" {{ $data['stage']->encadrageInformaticien == '1' ? 'checked' : '' }} required> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputEncadreInformaticienNon">
-                  <input type="radio" name="encadrageInfomaticien" id="inputEncadreInformaticienNon" data-id-display="appelInformaticienForm" value="0" {{ $data['stage']->encadrageInformaticien == '0' ? 'checked' : '' }} required> Non
+                  <input type="radio" name="encadrageInformaticien" id="inputEncadreInformaticienNon" data-id-display="appelInformaticienForm" value="0" {{ $data['stage']->encadrageInformaticien == '0' ? 'checked' : '' }} required> Non
                 </label>
               </div>
             </div>
@@ -103,7 +103,7 @@
             <div class="form-group text-left">
               <label class="col-sm-3 control-label" style="text-align:right !important;" for="inputTailleEquipe">Taille de l'equipe  :</label>
               <div class="col-sm-3">
-                  <input type="text" name="tailleEquipe" id="inputTailleEquipe" class="form-control" value="{{ $data['stage']->tailleEquipe != '' ? $data['stage']->tailleEquipe : '' }}">
+                  <input type="text" name="tailleEquipe" id="inputTailleEquipe" class="form-control" value="{{ $data['stage']->tailleEquipe != '' ? ($data['stage']->tailleEquipe != -1 ? $data['stage']->tailleEquipe : '0')  : '' }}">
               </div>
             </div>
           </div>
@@ -129,7 +129,7 @@
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputTypeMaterielAutre">
-                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="Autres" {{ $data['stage']->typeMateriel != 'PC' ? 'checked' : '' }} required> Autres
+                  <input type="radio" name="typeMateriel" id="inputTypeMaterielAutre" data-id-display="inputTypeMaterielAutreDetails" value="Autres" {{ ($data['stage']->typeMateriel != 'PC') && ($data['stage']->typeMateriel != '') ? 'checked' : '' }} required> Autres
                 </label>
               </div>
               <div class="col-sm-4">

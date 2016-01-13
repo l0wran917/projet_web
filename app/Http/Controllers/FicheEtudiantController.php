@@ -37,6 +37,11 @@ class FicheEtudiantController extends Controller
           $data['etudiant'] = $etudiant;
         }else if($id == FicheEtudiantController::$ID_FICHE_AVIS_STAGE){
           $stage = Stage::where('idEtudiant', session('uid'))->first();
+
+          if($stage == null){
+            return view('etudiant.erreur.stageAbsent')->with(['id' => $id]);
+          }
+
           $data['stage'] = $stage;
         }
 
@@ -319,8 +324,6 @@ class FicheEtudiantController extends Controller
 
       //Sauvegarde dans la base de données
       $stage->save();
-      return view('test');
-      die();
 
       session()->flash('registred', true);
 
