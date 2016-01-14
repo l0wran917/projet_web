@@ -23,6 +23,7 @@
 ##Tuteur IUT
  - [ ] Fiche compte rendu visible
  - [ ] Demande appariement
+ - [ ] Distinger tuteur enseignant d'un enseignant normal
   
 ##Secretariat
  - [ ] Afficher fiches d'un etudiant choisi
