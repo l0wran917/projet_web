@@ -39,7 +39,7 @@ class DashboardController extends Controller
 
       $stage = Stage::infos(session('uid'));
       $stage = Stage::checkStageExiste($stage);
-      
+
       $dashboardInfos['stage'] = $stage;
 
       return view("dashboard.dashboard")->with('dashboardInfos', $dashboardInfos);
@@ -61,5 +61,8 @@ class DashboardController extends Controller
 
     public function indexTuteurEns(){
 
+      $dashboardInfos = [];
+
+      return view('dashboard.dashboard')->with('dashboardInfos', $dashboardInfos);
     }
 }

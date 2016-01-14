@@ -45,4 +45,10 @@ Route::group(['middleware' => ['auth']], function(){
     Route::post('/dashboard/tuteur/entreprise/fiche/changerStatusStage', ['as' => 'changerStatusStage', 'uses' => 'FicheTuteurEntrController@ajaxChangerStatusStage']);
   });
 
+  Route::group(['middleware' => ['tuteurEnseignant']], function(){
+
+    Route::get('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEns', 'uses' => 'FicheTuteurEnsController@index'])->where(['id' => '[0-9]+']);
+    Route::post('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEns', 'uses' => 'FicheTuteurEnsController@submitFiche'])->where(['id' => '[0-9]+']);
+  });
+
 });
