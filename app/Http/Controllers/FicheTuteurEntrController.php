@@ -58,7 +58,7 @@ class FicheTuteurEntrController extends Controller
 
           $idEtudiantFocus = Stage::infosByTuteur(session('uid'))->first()->idEtudiant;
           session(['idEtudiantFocus' => $idEtudiantFocus]);
-
+          
           return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $this->dataToAvisStagiaire()]);
         }else if($nbStagiaires == 0){ // S'il n'y a aucun stagiaire => Erreur
           return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
@@ -159,6 +159,13 @@ class FicheTuteurEntrController extends Controller
 
     $entreprise = Tuteur::where('idUtilisateur', session('uid'))->first(['idEntreprise']);
     $contact = Entreprise::contact($entreprise->idEntreprise);
+
+    if($contact->count() == 0){
+      $contact[0] = new Contact;
+      $contact[1] = new Contact;
+      $contact[2] = new Contact;
+    }
+
     $data['contact'] = $contact;
 
     return $data;
