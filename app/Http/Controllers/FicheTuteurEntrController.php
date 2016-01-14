@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Stage;
 use App\Contact;
 use App\Tuteur;
+use App\Entreprise;
 
 use Request;
 use Input;
@@ -19,6 +20,7 @@ use Input;
  * Les requests sont géré par la facade dans cette page (a cause des rqts ajax)
  *
 */
+//
 
 class FicheTuteurEntrController extends Controller
 {
@@ -50,11 +52,14 @@ class FicheTuteurEntrController extends Controller
 
         if($nbStagiaires > 1){ // S'il y en a plus d'un, on fait choisir dans la liste
           $stages = Stage::infosByTuteur(session('uid'))->get();
+
           return view('tuteurEntreprise.choixStagiaire')->with(['id' => $id, 'stages' => $stages]);
         }else if($nbStagiaires == 1){ // S'il y a un unique stagiaire, on le prend par default
+
           $idEtudiantFocus = Stage::infosByTuteur(session('uid'))->first()->idEtudiant;
           session(['idEtudiantFocus' => $idEtudiantFocus]);
-          return view('tuteurEntreprise.fiche')->with(['id' => $id]);
+
+          return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $this->dataToAvisStagiaire()]);
         }else if($nbStagiaires == 0){ // S'il n'y a aucun stagiaire => Erreur
           return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
         }
@@ -77,7 +82,7 @@ class FicheTuteurEntrController extends Controller
     // Viens de la vue choix du stagiaire
     if(Request::get('idStagiaire') != null){
       session(['idEtudiantFocus' => Request::get('idStagiaire')]);
-      return view('tuteurEntreprise.fiche')->with(['id' => $id]);
+      return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $this->dataToAvisStagiaire()]);
     }else{
       $stage = Stage::where('idEtudiant', session('idEtudiantFocus'))->first();
 
@@ -103,9 +108,36 @@ class FicheTuteurEntrController extends Controller
 
       $tuteur = Tuteur::where('idUtilisateur', $stage->idTuteur)->first();
 
-      $contactRH = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>1, 'nom'=> Request::get('nomRH'), 'email'=> Request::get('emailRH'), 'telephone'=> Request::get('telRH')]);
-      $contactTA = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>2, 'nom'=> Request::get('nomTA'), 'email'=> Request::get('emailTA'), 'telephone'=> Request::get('telTA')]);
-      $contactRE = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>3, 'nom'=> Request::get('nomRE'), 'email'=> Request::get('emailRE'), 'telephone'=> Request::get('telRE')]);
+      $contactRH = Contact::where('idEntreprise', $tuteur->idEntreprise)->where('type', 1);
+      if($contactRH->count() == 0){
+        $contactRH = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>1, 'nom'=> Request::get('nomRH'), 'email'=> Request::get('emailRH'), 'telephone'=> Request::get('telRH')]);
+      }else{
+        $contactRH = $contactRH->first();
+        $contactRH->nom = Request::get('nomRH');
+        $contactRH->email = Request::get('emailRH');
+        $contactRH->telephone = Request::get('telRH');
+      }
+
+      $contactTA = Contact::where('idEntreprise', $tuteur->idEntreprise)->where('type', 2);
+      if($contactTA->count() == 0){
+        $contactTA = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>2, 'nom'=> Request::get('nomTA'), 'email'=> Request::get('emailTA'), 'telephone'=> Request::get('telTA')]);
+      }else{
+        $contactTA = $contactTA->first();
+        $contactTA->nom = Request::get('nomTA');
+        $contactTA->email = Request::get('emailTA');
+        $contactTA->telephone = Request::get('telTA');
+      }
+
+      $contactRE = Contact::where('idEntreprise', $tuteur->idEntreprise)->where('type', 3);
+      if($contactRE->count() == 0){
+        $contactRE = new Contact(['idEntreprise'=>$tuteur->idEntreprise, 'type'=>3, 'nom'=> Request::get('nomRE'), 'email'=> Request::get('emailRE'), 'telephone'=> Request::get('telRE')]);
+      }else{
+        $contactRE = $contactRE->first();
+        $contactRE->nom = Request::get('nomRE');
+        $contactRE->email = Request::get('emailRE');
+        $contactRE->telephone = Request::get('telRE');
+      }
+
 
       $contactRH->save();
       $contactTA->save();
@@ -116,6 +148,20 @@ class FicheTuteurEntrController extends Controller
       return redirect()->route('ficheTuteurEntre', ['id' => $id]);
     }
 
+  }
+
+  public function dataToAvisStagiaire(){
+
+    $data = [];
+
+    $appreciationStagiaire = Stage::appreciationStagiaire(session('idEtudiantFocus'));
+    $data['appreciation'] = $appreciationStagiaire;
+
+    $entreprise = Tuteur::where('idUtilisateur', session('uid'))->first(['idEntreprise']);
+    $contact = Entreprise::contact($entreprise->idEntreprise);
+    $data['contact'] = $contact;
+
+    return $data;
   }
 
   public function ajaxDetailEtudiant(){

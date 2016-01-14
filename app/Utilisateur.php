@@ -8,6 +8,7 @@ class Utilisateur extends Model
 {
   public static $ETUDIANT = '1';
   public static $TUTEUR_ENTREPRISE = '2';
+  public static $TUTEUR_ENSEIGNANT = '3';
 
   protected $table = 'utilisateur';
   public $timestamps = true;

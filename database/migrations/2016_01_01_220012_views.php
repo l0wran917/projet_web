@@ -76,6 +76,26 @@ class Views extends Migration
                       FROM tuteur t LEFT JOIN entreprise e ON e.id = t.idEntreprise, utilisateur u
                       WHERE t.idUtilisateur = u.id");
 
+      DB::statement(" CREATE VIEW avis_stagiaire_v AS
+                      SELECT 	st.idEtudiant as idEtudiant,
+                              st.idTuteur as idTuteur,
+                              st.niveauConnaissance  as connaissance,
+                          		st.niveauOrganisation  as organisation,
+                              st.niveauInitiative    as initiative,
+                              st.niveauPerseverance  as perseverance,
+                              st.niveauEfficacite    as efficacite,
+                              st.niveauInteret	     as interet,
+                              st.niveauPresentation  as presentation,
+                              st.niveauPonctualite   as ponctualite,
+                              st.niveauAssiduite	   as assiduite,
+                              st.niveauExpression	   as expression,
+                              st.niveauSociabilite   as sociabilite,
+                              st.niveauCommunication as communication,
+                              st.embaucheEtudiant	   as embauche,
+                              st.embauchePourquoi	   as raisonEmbauche,
+                              st.tuteurPresentSoutenance as tuteurPresentSoutenance
+                          FROM stage st");
+
   //  DB::statement("CREATE VIEW etudiant_fv AS
   //                SELECT u.id as idEtudiant,
   //                       et.tp as tp,
@@ -101,7 +121,7 @@ class Views extends Migration
   //                AND st.idTuteur = t.idUtilisateur
   //                AND t.idUtilisateur = ut.id
   //                AND e.id = t.idEntreprise");
-   //
+  //
   //   DB::statement("CREATE VIEW tuteur_v AS
   //                  SELECT u.id as idUtilisateur,
   //                         u.nom as nom,
@@ -133,6 +153,6 @@ class Views extends Migration
         DB::statement('DROP VIEW etudiant_v');
         DB::statement('DROP VIEW tuteur_v');
         DB::statement('DROP VIEW stage_v');
-        // DB::statement('DROP VIEW etudiant_fv');
+        DB::statement('DROP VIEW avis_stagiaire_v');
     }
 }

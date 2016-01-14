@@ -21,6 +21,8 @@
       @include('etudiant.menu')
     @elseif( Session::get('typeUtilisateur') == 2)
       @include('tuteurEntreprise.menu')
+    @elseif( Session::get('typeUtilisateur') == 3)
+      @include('tuteurEnseignant.menu')
     @endif
 
   </div>

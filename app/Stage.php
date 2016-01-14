@@ -12,7 +12,6 @@ class Stage extends Model
 
   public static function infos($id){
     $stage = DB::table('stage_v')->where('idEtudiant', $id)->first();
-    $stage = Stage::checkStageExiste($stage);
 
     return $stage;
   }
@@ -21,6 +20,12 @@ class Stage extends Model
     $stage = DB::table('stage_v')->where('idTuteurEntr', $id);
 
     return $stage;
+  }
+
+  public static function appreciationStagiaire($idEtudiant){
+    $appreciation = DB::table('avis_stagiaire_v')->where('idEtudiant', $idEtudiant)->first();
+
+    return $appreciation;
   }
 
   public static function checkStageExiste($stage){

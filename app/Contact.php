@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Contact extends Model
 {
@@ -12,14 +13,32 @@ class Contact extends Model
 
   public function __construct($value = null, array $attributes = array())
   {
-      // $this->value = $value;
+    if($value != null){
       $this->idEntreprise = $value['idEntreprise'];
       $this->type = $value['type'];
       $this->nom = $value['nom'];
       $this->email = $value['email'];
       $this->telephone = $value['telephone'];
+    }
 
       parent::__construct($attributes);
+  }
+
+   /**
+   * Set the keys for a save update query.
+   * This is a fix for tables with composite keys
+   *
+   * @param  \Illuminate\Database\Eloquent\Builder  $query
+   * @return \Illuminate\Database\Eloquent\Builder
+   */
+  protected function setKeysForSaveQuery(Builder $query)
+  {
+      $query
+          //Put appropriate values for your keys here:
+          ->where('idEntreprise', '=', $this->idEntreprise)
+          ->where('type', '=', $this->type);
+
+      return $query;
   }
 
 }

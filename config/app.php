@@ -198,6 +198,7 @@ return [
         'Auth'      => App\Http\Middleware\Authenticate::class,
         'etudiant'      => App\Http\Middleware\Etudiant::class,
         'tuteurEntreprise'      => App\Http\Middleware\TuteurEntreprise::class,
+        'tuteurEnseignant'      => App\Http\Middleware\TuteurEnseignant::class,
     ],
 
 ];

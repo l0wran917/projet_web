@@ -86,11 +86,11 @@ class Tables extends Migration
         $table->integer('idTuteur')->unsigned();;
         $table->string('sujet');
         $table->string('planAcces');
-        $table->boolean('remunerationStage');
+        $table->integer('remunerationStage')->default(-1);
         $table->float('montantRemuneration');
-        $table->boolean('encadrageInfomaticien');
-        $table->boolean('appelInformaticien');
-        $table->boolean('travailSeul');
+        $table->integer('encadrageInformaticien')->default(-1);
+        $table->integer('appelInformaticien')->default(-1);
+        $table->integer('travailSeul')->default(-1);
         $table->integer('tailleEquipe')->default(-1);
         $table->string('typeMateriel');
         $table->integer('typeSysteme')->default(-1);
@@ -98,11 +98,11 @@ class Tables extends Migration
         $table->string('langagesStage');
         $table->integer('objetPrincipal')->default(-1);
         $table->string('objetPrincipalAutre');
-        $table->boolean('satisactionStage');
+        $table->integer('satisactionStage')->default(-1);
         $table->string('pourquoiSatisaction');
-        $table->boolean('satisactionObjectif');
+        $table->integer('satisactionObjectif')->default(-1);
         $table->string('pourquoiObjectif');
-        $table->boolean('satisactionCours');
+        $table->integer('satisactionCours')->default(-1);
         $table->string('pourquoiCours');
         $table->string('apportStage');
 
@@ -143,8 +143,8 @@ class Tables extends Migration
       Schema::drop('stage');
       Schema::drop('tuteurEnseignant');
       Schema::drop('tuteur');
-      Schema::drop('entreprise');
       Schema::drop('contact');
+      Schema::drop('entreprise');
       Schema::drop('etudiant');
       Schema::drop('utilisateur');
 

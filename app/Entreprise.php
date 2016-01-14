@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Contact;
+
 class Entreprise extends Model
 {
     protected $table = 'entreprise';
@@ -23,6 +25,12 @@ class Entreprise extends Model
       }
 
       return $entreprisesIdentique;
+    }
+
+    public static function contact($idEntreprise){
+      $contact = Contact::where('idEntreprise', $idEntreprise)->orderBy('type')->get();
+
+      return $contact;
     }
 
 }

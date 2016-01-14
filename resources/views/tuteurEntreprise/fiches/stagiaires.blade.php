@@ -14,7 +14,7 @@
         Choix de l'étudiant
       </div>
       <div class="panel-body">
-        
+
         <div class="form-horizontal col-xs-12">
           <div class="form-group">
             <label class="col-xs-2 control-label" for="inputNomStagiaire">Nom: </label>
@@ -22,7 +22,7 @@
             <div class="col-xs-7">
               <select class="form-control" name="nomStagiaire" id="inputNomStagiaire">
                 @foreach($data['stages'] as $stage)
-                  <option value="{{ $stage->idEtudiant }}">{{ ucfirst($stage->nomEtudiant) }} {{ ucfirst($stage->prenomEtudiant) }} - {{ ucfirst($stage->tuteurValide) == 0 ? 'En attente' : 'Validé' }} </option>
+                  <option value="{{ $stage->idEtudiant }}">{{ ucfirst($stage->nomEtudiant) }} {{ ucfirst($stage->prenomEtudiant) }} - {{ $stage->tuteurValide == 0 ? 'En attente' : 'Validé' }} </option>
                 @endforeach
                 <!-- <option value="1">Bassin Laurent - 1K</option>
                 <option value="2">Yeboubouam Boukari - 1F</option> -->

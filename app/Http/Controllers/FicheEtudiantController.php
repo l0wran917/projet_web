@@ -35,6 +35,14 @@ class FicheEtudiantController extends Controller
 
           $etudiant = Etudiant::infos(session('uid'));
           $data['etudiant'] = $etudiant;
+        }else if($id == FicheEtudiantController::$ID_FICHE_AVIS_STAGE){
+          $stage = Stage::where('idEtudiant', session('uid'))->first();
+
+          if($stage == null){
+            return view('etudiant.erreur.stageAbsent')->with(['id' => $id]);
+          }
+
+          $data['stage'] = $stage;
         }
 
         return view('etudiant.fiche')->with(['id' => $id, 'data' => $data]);
@@ -263,7 +271,7 @@ class FicheEtudiantController extends Controller
       $stage->remunerationStage = $request->remunerationStage;
       $stage->montantRemuneration = $request->montantRemuneration;
 
-      $stage->encadrageInfomaticien = $request->encadrageInfomaticien;
+      $stage->encadrageInformaticien = $request->encadrageInformaticien;
       $stage->appelInformaticien = $request->appelInformaticien;
 
       $stage->travailSeul = $request->travailSeul;
@@ -282,10 +290,10 @@ class FicheEtudiantController extends Controller
         //Valeur pour autre
         if($value == 16){
             $stage->typeSystemeAutre = $request->autreSysteme;
-        }
-        else {
             $stage->typeSysteme += $value;
         }
+        $stage->typeSysteme += $value;
+
       }
 
       $stage->langagesStage = $request->langages;
@@ -296,9 +304,8 @@ class FicheEtudiantController extends Controller
         if($value == 64){
             $stage->objetPrincipalAutre = $request->autreObjet;
         }
-        else {
-            $stage->objetPrincipal += $value;
-        }
+        $stage->objetPrincipal += $value;
+
       }
 
       $stage->satisactionStage = $request->satisactionStage;
@@ -312,8 +319,14 @@ class FicheEtudiantController extends Controller
       $stage->pourquoiCours = $request->pourquoiCours;
       $stage->apportStage = $request->apportStage;
 
+
+      // dd($stage);
+
       //Sauvegarde dans la base de données
       $stage->save();
-      return view('test');
+
+      session()->flash('registred', true);
+
+      return Redirect()->route('ficheEtudiant', ['id'=>$id]);
     }
 }
