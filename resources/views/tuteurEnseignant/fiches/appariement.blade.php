@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="col-xs-3">
-                  <input type="button" class="form-control btn btn-default" id="submitGetDetailsEtudiant" value="Valider" data-route-details="{{ route('detailEtudiant') }}">
+                  <input type="button" class="form-control btn btn-default" id="submitGetDetailsEtudiant" value="Valider" data-route-details="{{ route('detailsEtudiantByEtudiant') }}">
                 </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
   </div>
 
   <div class="col-lg-6">
-    <div class="panel panel-default" id="panelEtudiantDetailsA">
+    <div class="panel panel-default" id="panelEtudiantDetails">
       <div class="panel-heading red">
         <span class="nomEtudiantDetails"></span> <span id="statusStageDetails" class="label"></span>
       </div>
@@ -59,7 +59,7 @@
           <input type="hidden" name="idStage" id="idStage" value="0">
 
           <div class="form-group">
-            <label class="control-label col-xs-3 text-right">Nom :</label>
+            <label class="control-label col-xs-3 text-right">Etudiant :</label>
             <div class="col-xs-6">
               <p class="form-control-static text-left">
                 <span class="nomEtudiantDetails"></span>
@@ -82,6 +82,15 @@
             <div class="col-xs-6">
               <p class="form-control-static text-left">
                 <span class="entrepriseEtudiantDetails"></span>
+              </p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-3 text-right">Tuteur :</label>
+            <div class="col-xs-6">
+              <p class="form-control-static text-left">
+                <span class="tuteurEntrepriseDetails"></span>
               </p>
             </div>
           </div>
@@ -129,5 +138,4 @@
 </div>
 
 <meta name="csrf-token" content="{{ csrf_token() }}" />
-<script src="{{asset('js/getDetailsEtudiant.js')}}"></script>
 <script src="{{asset('js/demandeAppariement.js')}}"></script>

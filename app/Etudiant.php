@@ -26,5 +26,6 @@ class Etudiant extends Model
       }else{
         return DB::table('etudiant_v')->where('idEtudiant', $id)->first();
       }
+
     }
 }
