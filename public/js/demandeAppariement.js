@@ -23,16 +23,9 @@ $(document).ready(function(){
 
 });
 
-function ucfirst(texte){
-
-  texte = texte.charAt(0).toUpperCase() + texte.substr(1).toLowerCase();
-
-  return texte
-}
 
 // Affiche les infos du stage après requete ajax
 function afficherDetailsEtudiant(){
-
   $.ajax({
     type: "post",
     url: $("#submitGetDetailsEtudiant").attr('data-route-details'),
@@ -46,7 +39,6 @@ function afficherDetailsEtudiant(){
 
     // Affiche les details
     $("#idStage").val(data[0].idStage);
-    $("#idEtudiant").val(data[0].idEtudiant);
     $(".nomEtudiantDetails").text(ucfirst(data[0].nomEtudiant) + " " + ucfirst(data[0].prenomEtudiant));
     $(".emailEtudiantDetails").text(data[0].emailEtudiant);
     $(".sujetEtudiantDetails").text(data[0].sujet);
@@ -62,35 +54,6 @@ function afficherDetailsEtudiant(){
       $("#statusStageDetails").removeClass('label-warning');
       $("#statusStageDetails").addClass('label-success');
       $("#statusStageDetails").text("Validé");
-    }
-
-  }).fail(function(){
-    alert('Error');
-  });
-}
-
-// Valide le stage d'un étudiant
-function changerStatusStage(statusStage){
-
-  idStage = $("#idStage").val();
-  idEtudiant = $("#idEtudiant").val();
-
-  $.ajax({
-    type: "post",
-    url: "." + "/changerStatusStage",
-    data: {
-      id: idStage,
-      status: statusStage
-    }
-  }).done(function(data){
-    afficherDetailsEtudiant();
-
-    nomInputOption = $("#inputIdEtudiant option[value=" + idEtudiant + "]").text().split("-");
-
-    if(statusStage == 1){
-      $("#inputIdEtudiant option[value=" + idEtudiant + "]").text(nomInputOption[0] + "- Validé");
-    }else{
-      $("#inputIdEtudiant option[value=" + idEtudiant + "]").text(nomInputOption[0] + "- En attente");
     }
 
   }).fail(function(){

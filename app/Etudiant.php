@@ -20,7 +20,11 @@ class Etudiant extends Model
     //   return DB::table('etudiant_fv')->where('idEtudiant', $id)->first();
     // }
 
-    public static function infos($id){
-      return DB::table('etudiant_v')->where('idEtudiant', $id)->first();
+    public static function infos($id = null){
+      if($id == null){
+        return DB::table('etudiant_v');
+      }else{
+        return DB::table('etudiant_v')->where('idEtudiant', $id)->first();
+      }
     }
 }

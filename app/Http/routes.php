@@ -41,7 +41,6 @@ Route::group(['middleware' => ['auth']], function(){
     Route::get('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEntre', 'uses' => 'FicheTuteurEntrController@index'])->where(['id' => '[0-9]+']);
     Route::post('/dashboard/tuteur/entreprise/fiche/{id}', ['as' => 'ficheTuteurEntre', 'uses' => 'FicheTuteurEntrController@submitFiche'])->where(['id' => '[0-9]+']);
 
-    Route::post('/dashboard/tuteur/entreprise/fiche/detailEtudiant', ['as' => 'detailEtudiant', 'uses' => 'FicheTuteurEntrController@ajaxDetailEtudiant']);
     Route::post('/dashboard/tuteur/entreprise/fiche/changerStatusStage', ['as' => 'changerStatusStage', 'uses' => 'FicheTuteurEntrController@ajaxChangerStatusStage']);
   });
 
@@ -49,6 +48,9 @@ Route::group(['middleware' => ['auth']], function(){
 
     Route::get('/dashboard/tuteur/enseignant/fiche/{id}', ['as' => 'ficheTuteurEns', 'uses' => 'FicheTuteurEnsController@index'])->where(['id' => '[0-9]+']);
     Route::post('/dashboard/tuteur/enseignant/fiche/{id}', ['as' => 'ficheTuteurEns', 'uses' => 'FicheTuteurEnsController@submitFiche'])->where(['id' => '[0-9]+']);
+
   });
+
+  Route::post('/infos/detailEtudiant', ['as' => 'detailEtudiant', 'uses' => 'AjaxController@detailsEtudiant']);
 
 });

@@ -20,7 +20,7 @@
             <label class="col-xs-2 control-label" for="inputNomStagiaire">Nom: </label>
 
             <div class="col-xs-7">
-              <select class="form-control" name="nomStagiaire" id="inputNomStagiaire">
+              <select class="form-control" name="idEtudiant" id="inputIdEtudiant">
                 @foreach($data['stages'] as $stage)
                   <option value="{{ $stage->idEtudiant }}">{{ ucfirst($stage->nomEtudiant) }} {{ ucfirst($stage->prenomEtudiant) }} - {{ $stage->tuteurValide == 0 ? 'En attente' : 'Validé' }} </option>
                 @endforeach
@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-xs-3">
-              <input type="button" class="form-control btn btn-default" id="submitStagiaireList" value="Valider">
+              <input type="button" class="form-control btn btn-default" id="submitGetDetailsEtudiant" value="Valider" data-route-details="{{ route('detailEtudiant') }}">
             </div>
           </div>
         </div>
@@ -52,6 +52,7 @@
         <div class="form-horizontal">
 
           <input type="hidden" name="idStage" id="idStage" value="0">
+          <input type="hidden" name="idEtudiant" id="idEtudiant" value="0">
 
           <div class="form-group">
             <label class="control-label col-xs-3 text-right">Nom :</label>

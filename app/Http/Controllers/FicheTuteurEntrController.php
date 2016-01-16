@@ -58,7 +58,7 @@ class FicheTuteurEntrController extends Controller
 
           $idEtudiantFocus = Stage::infosByTuteur(session('uid'))->first()->idEtudiant;
           session(['idEtudiantFocus' => $idEtudiantFocus]);
-          
+
           return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $this->dataToAvisStagiaire()]);
         }else if($nbStagiaires == 0){ // S'il n'y a aucun stagiaire => Erreur
           return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
@@ -171,23 +171,11 @@ class FicheTuteurEntrController extends Controller
     return $data;
   }
 
-  public function ajaxDetailEtudiant(){
-    if(Request::ajax()){
-      $data = Request::All();
-
-      $stages = Stage::infosByTuteur(session('uid'))->where('idEtudiant', $data['id'])->get();
-
-      return $stages;
-    }else{
-      return "Error.";
-    }
-  }
-
   public function ajaxChangerStatusStage(){
     if(Request::ajax()){
       $data = Request::All();
 
-      $stage = Stage::where('idTuteur', session('uid'))->where('idEtudiant', $data['id'])->first();
+      $stage = Stage::where('idTuteur', session('uid'))->where('id', $data['id'])->first();
 
       if($data['status'] == "0"){
         $stage->tuteurValide = false;
