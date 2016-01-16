@@ -117,12 +117,9 @@
             </div>
           </div>
 
-          <div class="form-group" id="formValiderStage">
-            <div class="col-xs-6">
-              <input type="button" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Cet étudiant est bien mon stagiaire">
-            </div>
-            <div class="col-xs-6">
-              <input type="button" class="form-control btn btn-danger" name="btnStatusStage" data-status=0 value="Je ne connais pas cet étudiant">
+          <div class="form-group">
+            <div class="col-xs-6 col-xs-offset-3">
+              <input type="button" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Je veux cet étudiant !">
             </div>
           </div>
 
