@@ -67,9 +67,10 @@
       </div>
       <div class="panel-body">
 
-        <div class="form-horizontal">
+        <form class="form-horizontal" method="post">
+          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-          <input type="hidden" name="idStage" id="idStage" value="0">
+          <input type="hidden" name="idEtudiant" id="idEtudiant" value="0">
 
           <div class="form-group">
             <label class="control-label col-xs-3 text-right">Etudiant :</label>
@@ -119,11 +120,11 @@
 
           <div class="form-group">
             <div class="col-xs-6 col-xs-offset-3">
-              <input type="button" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Je veux cet étudiant !">
+              <input type="submit" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Je veux cet étudiant !">
             </div>
           </div>
 
-        </div> <!-- Form horizontal -->
+        </form> <!-- Form horizontal -->
 
       </div>
     </div> <!-- panel -->

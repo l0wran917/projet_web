@@ -83,7 +83,8 @@ class Tables extends Migration
       Schema::create('stage', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('idEtudiant')->unsigned();
-        $table->integer('idTuteur')->unsigned();;
+        $table->integer('idTuteur')->unsigned();
+        $table->integer('idEnseignant')->unsigned();
         $table->string('sujet');
         $table->string('planAcces');
         $table->integer('remunerationStage')->default(-1);
@@ -130,17 +131,18 @@ class Tables extends Migration
 
         $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
         $table->foreign('idTuteur')->references('idUtilisateur')->on('tuteur');
+        $table->foreign('idEnseignant')->references('idUtilisateur')->on('tuteurEnseignant');
       });
 
       Schema::create('demandeAppariement', function (Blueprint $table) {
-        $table->integer('idStage')->unsigned();
         $table->integer('idEnseignant')->unsigned();
+        $table->integer('idEtudiant')->unsigned();
         $table->integer('status')->default(-1);
         $table->timestamps();
 
-        $table->primary(['idStage', 'idEnseignant']);
-        $table->foreign('idStage')->references('id')->on('stage');
-        $table->foreign('idEnseignant')->references('idUtilisateur')->on('etudiant');
+        $table->primary(['idEnseignant', 'idEtudiant']);
+        $table->foreign('idEnseignant')->references('idUtilisateur')->on('tuteurEnseignant');
+        $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
       });
   }
 
@@ -151,6 +153,7 @@ class Tables extends Migration
      */
     public function down()
     {
+      Schema::drop('demandeAppariement');
       Schema::drop('stage');
       Schema::drop('tuteurEnseignant');
       Schema::drop('tuteur');

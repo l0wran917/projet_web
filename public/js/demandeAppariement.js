@@ -34,13 +34,11 @@ function afficherDetailsEtudiant(){
       date: Date().now
     }
   }).done(function(data){
-    console.log(data);
-    console.log(data.entreprise.nom);
-
+    
     $("#panelEtudiantDetails").css({'display':'block'});
 
     // Affiche les details
-    // $("#idStage").val(data->.idStage);
+    $("#idEtudiant").val(data.etudiant.idEtudiant);
     $(".nomEtudiantDetails").text(ucfirst(data.etudiant.nom)+ " " + ucfirst(data.etudiant.prenom));
     $(".emailEtudiantDetails").text(data.etudiant.email);
     $(".sujetEtudiantDetails").text(data.stage.sujet);
