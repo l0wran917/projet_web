@@ -45,6 +45,19 @@
         </div>
       </div>
     </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Mes demandes
+      </div>
+      <div class="panel-body">
+        <p>
+          <div class="alert alert-danger" role="alert">
+            Vous n'avez aucune demande
+          </div>
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="col-lg-6">
@@ -117,23 +130,6 @@
 
       </div>
     </div> <!-- panel -->
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Mes demandes
-      </div>
-      <div class="panel-body">
-        <p>
-          <div class="alert alert-danger" role="alert">
-            Vous n'avez aucune demande
-          </div>
-        </p>
-      </div>
-    </div>
   </div>
 </div>
 
