@@ -21,9 +21,7 @@
 
             <div class="col-xs-7">
               <select class="form-control" name="nomStagiaire" id="inputNomStagiaire">
-                @foreach($data['stages'] as $stage)
-                  <option value="{{ $stage->idEtudiant }}">{{ ucfirst($stage->nomEtudiant) }} {{ ucfirst($stage->prenomEtudiant) }} - {{ $stage->tuteurValide == 0 ? 'En attente' : 'Validé' }} </option>
-                @endforeach
+                  <option value="0">Bassin Laurent</option>
                 <!-- <option value="1">Bassin Laurent - 1K</option>
                 <option value="2">Yeboubouam Boukari - 1F</option> -->
               </select>
