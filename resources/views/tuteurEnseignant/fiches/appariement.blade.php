@@ -6,7 +6,6 @@
   </div>
 </div>
 
-
 <div class="row">
   <div class="col-lg-6">
     <div class="panel panel-default">
@@ -45,6 +44,19 @@
         </div>
       </div>
     </div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Mes demandes
+      </div>
+      <div class="panel-body">
+        <p>
+          <div class="alert alert-danger" role="alert">
+            Vous n'avez aucune demande
+          </div>
+        </p>
+      </div>
+    </div>
   </div>
 
   <div class="col-lg-6">
@@ -54,9 +66,10 @@
       </div>
       <div class="panel-body">
 
-        <div class="form-horizontal">
+        <form class="form-horizontal" method="post">
+          <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
-          <input type="hidden" name="idStage" id="idStage" value="0">
+          <input type="hidden" name="idEtudiant" id="idEtudiant" value="0">
 
           <div class="form-group">
             <label class="control-label col-xs-3 text-right">Etudiant :</label>
@@ -104,36 +117,16 @@
             </div>
           </div>
 
-          <div class="form-group" id="formValiderStage">
-            <div class="col-xs-6">
-              <input type="button" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Cet étudiant est bien mon stagiaire">
-            </div>
-            <div class="col-xs-6">
-              <input type="button" class="form-control btn btn-danger" name="btnStatusStage" data-status=0 value="Je ne connais pas cet étudiant">
+          <div class="form-group">
+            <div class="col-xs-6 col-xs-offset-3">
+              <input type="submit" class="form-control btn btn-success" name="btnStatusStage" data-status=1 value="Je veux cet étudiant !">
             </div>
           </div>
 
-        </div> <!-- Form horizontal -->
+        </form> <!-- Form horizontal -->
 
       </div>
     </div> <!-- panel -->
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-lg-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        Mes demandes
-      </div>
-      <div class="panel-body">
-        <p>
-          <div class="alert alert-danger" role="alert">
-            Vous n'avez aucune demande
-          </div>
-        </p>
-      </div>
-    </div>
   </div>
 </div>
 
