@@ -49,20 +49,20 @@
 
               <div class="col-sm-2">
                   <label class="radio-inline" for="inputRencontreNon">
-                      <input type="radio" class="control-label" name="inputRencontre" id="inputRencontreNon" value="0" required> Non
+                      <input type="radio" class="control-label" name="inputRencontre" data-id-hide="inputDateRencontreForm" id="inputRencontreNon" value="0" required> Non
                   </label>
               </div>
               <div class="col-sm-2">
                   <label class="radio-inline"  for="inputRencontreOui">
-                      <input type="radio" class="control-label" name="inputRencontre" id="inputRencontreOui" value="1" required> Oui
+                      <input type="radio" class="control-label" name="inputRencontre" data-id-display="inputDateRencontreForm" id="inputRencontreOui" value="1" required> Oui
                   </label>
               </div>
-              <div class="col-sm-8 dontshow">
+              <div class="col-sm-8 dontshow heightmax" id="inputDateRencontreForm">
                 <div class="form-horizontal">
                   <div class="form-group">
                     <label class="control-label col-xs-2" for"inputDateRencontre">Date:</label>
                     <div class="col-xs-4">
-                      <input type="date" class="form-control " name="dateRencontre" id="inputDateRencontre" placeholder="JJ/MM/AAAA">
+                      <input type="date" class="form-control  " name="dateRencontre" id="inputDateRencontre" placeholder="JJ/MM/AAAA">
                     </div>
                   </div>
                 </div>
@@ -273,7 +273,7 @@
                 </div>
                 <div class="col-xs-2 text-center">
                     <label class="radio-inline" for="inputTravailInsuffisant">
-                        <input type="radio" name="niveauTravail" id="inputTravailinsuffisant" value="1" required> Insuffisant
+                        <input type="radio" name="niveauTravail" id="inputTravailInsuffisant" value="1" required> Insuffisant
                     </label>
                 </div>
         </div>
@@ -296,12 +296,12 @@
                       <div class="form-group">
                         <div class="col-sm-2 col-xs-offset-1">
                           <label class="radio-inline" for="inputSatisfactionStagiaireOui">
-                            <input type="radio" name="satisactionStagiaire" id="inputSatisfactionStagiaireOui"  value="1" required> Oui
+                            <input type="radio" name="satisactionStagiaire" data-id-display="inputPourquoiSatisfactionForm" id="inputSatisfactionStagiaireOui"  value="1" required> Oui
                           </label>
                         </div>
                         <div class="col-sm-2">
                           <label class="radio-inline" for="inputSatisfactionStagiaireNon">
-                            <input type="radio" name="satisactionStagiaire" id="inputSatisfactionStagiaireNon" value="0" required> Non
+                            <input type="radio" name="satisactionStagiaire" data-id-hide="inputPourquoiSatisfactionForm" id="inputSatisfactionStagiaireNon" value="0" required> Non
                           </label>
                         </div>
                       </div>
@@ -312,7 +312,7 @@
                     <div class="col-xs-12">
                       <div class="form-horizontal dontshow" id="inputPourquoiSatisfactionForm">
                           <div class="form-group">
-                              <label class="col-sm-2 control-label" for="inputPourquoiSatisfaction">Pourquoi ?</label>
+                              <label class="col-sm-2 control-label" for="inputPourquoiSatisfaction">Lesquels ?</label>
                               <div class="col-sm-8">
                                   <textarea class="form-control" rows="2" name="pourquoiSatisaction" id="inputPourquoiSatisfaction"></textarea>
                               </div>
@@ -346,17 +346,17 @@
             <div class="form-group">
               <div class="col-sm-2 col-xs-offset-1">
                 <label class="radio-inline" for="inputConclusionStageOui">
-                  <input type="radio" name="satisactionStagiaire" id="inputConclusionStageOui"  value="1" required> Oui
+                  <input type="radio" name="precautionStage" data-id-hide="inputPrecautionStageForm" id="inputConclusionStageOui"  value="1" required> Oui
                 </label>
               </div>
               <div class="col-sm-2">
                 <label class="radio-inline" for="inputConclusionStageNon">
-                  <input type="radio" name="satisactionStagiaire" id="inputConclusionStageNon" value="0" required> Non
+                  <input type="radio" name="precautionStage" data-id-hide="inputPrecautionStageForm" id="inputConclusionStageNon"  value="0" required> Non
                 </label>
               </div>
               <div class="col-sm-7">
                 <label class="radio-inline" for="inputConclusionStagePrecaution">
-                  <input type="radio" name="satisactionStagiaire" id="inputConclusionStagePrecaution" value="0" required> Oui, mais en prenant quelques précautions
+                  <input type="radio" name="precautionStage" data-id-display="inputPrecautionStageForm" id="inputConclusionStagePrecaution" value="2" required> Oui, mais en prenant quelques précautions
                 </label>
               </div>
             </div>
@@ -387,3 +387,6 @@
     </div>
   </div>
 </form>
+
+<link type="text/css" rel="stylesheet" href="{{asset('style/ficheTuteurEns.css')}}">
+<script src="{{asset('js/hideDisplayForm.js')}}"></script>

@@ -418,4 +418,4 @@
   </div>
 </form>
 
-<script src="{{asset('js/avisEtudiant.js')}}"></script>
+<script src="{{asset('js/hideDisplayForm.js')}}"></script>
