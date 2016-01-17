@@ -7,37 +7,37 @@
 </div>
 <div class="col-lg-6">
     <div class="row">
-      <div class="col-lg-10">
+        <div class="col-lg-10">
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            Choix de l'étudiant
-          </div>
-          <div class="panel-body">
-
-            <div class="form-horizontal col-xs-12">
-              <div class="form-group">
-                <label class="col-xs-2 control-label" for="inputNomStagiaire">Nom: </label>
-
-                <div class="col-xs-7">
-                  <select class="form-control" name="nomStagiaire" id="inputNomStagiaire">
-                      <!-- ajouter le nom du tuteur en entreprise avec le nom de l'etudiant ?-->
-                      <option value="0">Selectionnez un etudiant</option>
-                      <option value="1">Bassin Laurent</option>
-                      <option value="2">Jean-Baptiste Pinouf</option>
-                  </select>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Choix de l'étudiant
                 </div>
+                <div class="panel-body">
 
-                <div class="col-xs-3">
-                  <input type="button" class="form-control btn btn-default" id="submitStagiaireList" value="Valider">
+                    <div class="form-horizontal col-xs-12">
+                        <div class="form-group">
+                            <label class="col-xs-2 control-label" for="inputNomStagiaire">Nom: </label>
+
+                            <div class="col-xs-7">
+                                <select class="form-control" name="nomStagiaire" id="inputNomStagiaire">
+                                    <!-- ajouter le nom du tuteur en entreprise avec le nom de l'etudiant ?-->
+                                    <option value="0">Sélectionnez un étudiant</option>
+                                    <option value="1">Bassin Laurent</option>
+                                    <option value="2">Jean-Baptiste Pinouf</option>
+                                </select>
+                            </div>
+
+                            <div class="col-xs-3">
+                              <input type="button" class="form-control btn btn-default" id="submitStagiaireList" value="Valider">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
-     </div>
-     <!-- A faire apparaitre quand l'etudiant est choisi -->
+    </div>
+    <!-- A faire apparaitre quand l'etudiant est choisi -->
     <div class="" style="margin:1%;"> </div>
     <h3>Entreprise (Ne modifiez que les informations incorrectes)</h3>
     <div class="form-decalage-group">
@@ -75,18 +75,18 @@
         </div>
         <div class="row">
             <div class="col-sm-2">
-              <label class="radio-inline" for="inputRencontreNon">
-                <input type="radio" name="inputRencontre" id="inputRencontreNon" value="0" required> Non
-              </label>
+                <label class="radio-inline" for="inputRencontreNon">
+                    <input type="radio" name="inputRencontre" id="inputRencontreNon" value="0" required> Non
+                </label>
             </div>
             <div class="col-sm-2">
-              <label class="radio-inline"  for="inputRencontreOui">
-                <input type="radio" name="inputRencontre" id="inputRencontreOui" value="1" required> Oui
-              </label>
+                <label class="radio-inline"  for="inputRencontreOui">
+                    <input type="radio" name="inputRencontre" id="inputRencontreOui" value="1" required> Oui
+                </label>
             </div>
             <div class="col-sm-3 dontshow">
                 <div class="input-group">
-                  <input type="text" class="form-control" name="dateRencontre" id="inputDateRencontre" placeholder="Quand ?">
+                    <input type="text" class="form-control" name="dateRencontre" id="inputDateRencontre" placeholder="Quand ?">
                 </div>
             </div>
         </div>
@@ -105,24 +105,24 @@
         <h3>Contact RH/Taxe d'apprentissage</h3>
         <div class="form-horizontal">
             <div class="form-group col-lg-12">
-              <label class="control-label col-xs-2" for="inputNomRH">Nom:</label>
-              <div class="col-xs-5">
-                <input type="text" class="form-control" name="nomRH" id="inputNomRH" placeholder="Ex : Mr Dupond" required>
-              </div>
+                <label class="control-label col-xs-2" for="inputNomRH">Nom:</label>
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" name="nomRH" id="inputNomRH" placeholder="Ex : Mr Dupond" required>
+                </div>
             </div>
             <!--  -->
             <div class="form-group col-lg-12">
-              <label class="control-label col-xs-2" for="inputEmailRH">Email:</label>
-              <div class="col-xs-5">
-                <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : dupond@orange.fr" required>
-              </div>
+                <label class="control-label col-xs-2" for="inputEmailRH">Email:</label>
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : dupond@orange.fr" required>
+                </div>
             </div>
             <!--  -->
             <div class="form-group col-lg-12">
-              <label class="control-label col-xs-2" for="inputTelRH">Téléphone:</label>
-              <div class="col-xs-5">
-                <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 01 02 03 04 05" required>
-              </div>
+                <label class="control-label col-xs-2" for="inputTelRH">Téléphone:</label>
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 01 02 03 04 05" required>
+                </div>
             </div>
         </div>
     </div>
@@ -243,7 +243,7 @@
                             </div>
                             <div class="col-sm-4">
                                 <label class="sr-only" for="inputAutreSysteme">Autre systeme</label>
-                                <input type="text" name="autreObjet" id="inputObjetStageAutreDetails" class="form-control" placeholder="Ex : Gestion de projet" >
+                                <input type="text" name="autreObjet" id="inputObjetStageAutreDetails" class="form-control" placeholder="Ex : Gestion de projet">
                             </div>
                         </div>
                     </div>
@@ -252,7 +252,7 @@
         </div>
     </div>
 
-    <h3>Avis de l'entreprise sur le travail et le comportement de l'etudiant</h3>
+    <h3>Avis de l'entreprise sur le travail et le comportement de l'étudiant</h3>
     <div class="row">
         <div class="form-decalage-group">
                 <div class="col-xs-2 text-center">
@@ -277,7 +277,7 @@
                 </div>
         </div>
     </div>
-    <h3>Avis de l'entreprise sur la formation recue à l'IUT</h3>
+    <h3>Avis de l'entreprise sur la formation reçue à l'IUT</h3>
 
     <div class="row">
         <div class="col-lg-12">
@@ -288,12 +288,12 @@
                         <label class="col-sm-7 control-label">Dans la formation telle que vous l'avez perçue lors de la présence du stagiaire dans votre entreprise, avez-vous constaté des manques handicapants pour un futur informaticien ?</label>
                         <div class="col-sm-2">
                             <label class="radio-inline">
-                                <input type="radio" name="satisactionStagiaire" id="inputSatisfactionStagiaireNon" data-id-hide="avisConditionPourquoiForm" value="0" required> Non
+                                <input type="radio" name="satisactionStagiaire" id="inputSatisfactionStagiaireNon" data-id-hide="avisSatisfactionPourquoiForm" value="0" required> Non
                             </label>
                         </div>
                         <div class="col-sm-2">
                             <label class="radio-inline">
-                                <input type="radio" name="satisactionStagiaire" id="inputSatisfactionStagiaireOui" data-id-display="avisConditionPourquoiForm"  value="1" required> Oui
+                                <input type="radio" name="satisactionStagiaire" id="inputSatisfactionStagiaireOui" data-id-display="avisSatisfactionPourquoiForm"  value="1" required> Oui
                             </label>
                         </div>
                     </div>
@@ -365,9 +365,9 @@
         <div class="" style="margin:3%;"> </div>
         <div class="row">
           <div class="col-xs-6 col-xs-offset-2">
-            <input type="submit" class="btn btn-primary form-control" name="submitAvisStagiaire" value="Valider">
+            <input type="submit" class="btn btn-primary form-control" name="submitCompteRendu" value="Valider">
           </div>
         </div>
-        
+
     </div>
 </div>
