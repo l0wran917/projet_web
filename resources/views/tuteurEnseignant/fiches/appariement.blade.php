@@ -49,12 +49,24 @@
       <div class="panel-heading">
         Mes demandes
       </div>
-      <div class="panel-body">
-        <p>
-          <div class="alert alert-danger" role="alert">
-            Vous n'avez aucune demande
-          </div>
-        </p>
+      <div class="panel-body mesDemandes">
+      @if (count($data['demandes']) == 0)
+
+      @else
+
+        <table class="table table-strsiped text-center">
+          @foreach($data['demandes'] as $demande)
+            <tr class="{{ App\DemandeAppariement::getClassCssStatus($demande->status) }}">
+              <td>{{ucfirst($demande->nom)}}</td>
+              <td>{{ucfirst($demande->prenom)}}</td>
+              <td>{{ App\DemandeAppariement::getLabelStatus($demande->status) }}</td>
+            </tr>
+          @endforeach
+        </table>
+
+        @endif
+=======
+>>>>>>> master
       </div>
     </div>
   </div>
@@ -127,8 +139,25 @@
 
       </div>
     </div> <!-- panel -->
+
+<<<<<<< HEAD
+    @if(session()->has('registred'))
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel-alert-success transparent">
+              <div class="alert alert-success" role="alert">
+                 <div><strong>Succès.</strong> Votre demande est bien enregistrée</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    @endif
+
   </div>
 </div>
 
+=======
+>>>>>>> master
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <script src="{{asset('js/demandeAppariement.js')}}"></script>
+<link type="text/css" rel="stylesheet" href="{{asset('style/appariement.css')}}">
