@@ -23,7 +23,7 @@
  
 ##Tuteur IUT
  - [ ] 1 - Fiche compte rendu visite  
- - [ ] 1 - Demande appariement  
+ - [X] 1 - Demande appariement  
  - [ ] 1 - Fiche soutenance (Saisir dispo)  
    
 ##Secretariat
