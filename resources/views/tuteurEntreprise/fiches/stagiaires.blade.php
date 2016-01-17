@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-xs-3">
-              <input type="button" class="form-control btn btn-default" id="submitGetDetailsEtudiant" value="Valider" data-route-details="{{ route('detailEtudiant') }}">
+              <input type="button" class="form-control btn btn-default" id="submitGetDetailsEtudiant" value="Valider" data-route-details="{{ route('detailsEtudiantByTuteurEntr') }}">
             </div>
           </div>
         </div>

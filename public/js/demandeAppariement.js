@@ -8,7 +8,7 @@ $(document).ready(function(){
 
   afficherDetailsEtudiant();
 
-  $("#submitGetDetailsEtudiant").on('change', function(){
+  $("#inputIdEtudiant").on('change', function(){
       afficherDetailsEtudiant();
   });
 
@@ -30,33 +30,30 @@ function afficherDetailsEtudiant(){
     type: "post",
     url: $("#submitGetDetailsEtudiant").attr('data-route-details'),
     data: {
-      id: $("#inputIdEtudiant").val(),
+      idEtudiant: $("#inputIdEtudiant").val(),
       date: Date().now
     }
   }).done(function(data){
-
+    
     $("#panelEtudiantDetails").css({'display':'block'});
 
     // Affiche les details
-    $("#idStage").val(data[0].idStage);
-    $(".nomEtudiantDetails").text(ucfirst(data[0].nomEtudiant) + " " + ucfirst(data[0].prenomEtudiant));
-    $(".emailEtudiantDetails").text(data[0].emailEtudiant);
-    $(".sujetEtudiantDetails").text(data[0].sujet);
-
-    // Gestion du status du stage
-    if(data[0].tuteurValide == 0){
-      $("#formValiderStage").css({'display':'block'});
-      $("#statusStageDetails").removeClass('label-success');
-      $("#statusStageDetails").addClass('label-warning');
-      $("#statusStageDetails").text("En attente");
-    }else{
-      $("#formValiderStage").css({'display':'none'});
-      $("#statusStageDetails").removeClass('label-warning');
-      $("#statusStageDetails").addClass('label-success');
-      $("#statusStageDetails").text("Validé");
-    }
+    $("#idEtudiant").val(data.etudiant.idEtudiant);
+    $(".nomEtudiantDetails").text(ucfirst(data.etudiant.nom)+ " " + ucfirst(data.etudiant.prenom));
+    $(".emailEtudiantDetails").text(data.etudiant.email);
+    $(".sujetEtudiantDetails").text(data.stage.sujet);
+    $(".tuteurEntrepriseDetails").text(ucfirst(data.tuteur.nomTuteur)+ " " + ucfirst(data.tuteur.prenomTuteur));
+    $(".entrepriseEtudiantDetails").text(data.entreprise.nom);
 
   }).fail(function(){
     alert('Error');
   });
+}
+
+function ucfirst(texte){
+  if(texte != null){
+    texte = texte.charAt(0).toUpperCase() + texte.substr(1).toLowerCase();
+  }
+
+  return texte
 }

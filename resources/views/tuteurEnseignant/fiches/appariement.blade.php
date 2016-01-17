@@ -52,12 +52,6 @@
       <div class="panel-body mesDemandes">
       @if (count($data['demandes']) == 0)
 
-        <p>
-          <div class="alert alert-danger" role="alert">
-            Vous n'avez aucune demande
-          </div>
-        </p>
-
       @else
 
         <table class="table table-strsiped text-center">
@@ -71,6 +65,8 @@
         </table>
 
         @endif
+=======
+>>>>>>> master
       </div>
     </div>
   </div>
@@ -144,6 +140,7 @@
       </div>
     </div> <!-- panel -->
 
+<<<<<<< HEAD
     @if(session()->has('registred'))
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
@@ -159,6 +156,8 @@
   </div>
 </div>
 
+=======
+>>>>>>> master
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <script src="{{asset('js/demandeAppariement.js')}}"></script>
 <link type="text/css" rel="stylesheet" href="{{asset('style/appariement.css')}}">

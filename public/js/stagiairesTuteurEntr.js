@@ -8,7 +8,7 @@ $(document).ready(function(){
 
   afficherDetailsEtudiant();
 
-  $("#submitGetDetailsEtudiant").on('change', function(){
+  $("#inputIdEtudiant").on('change', function(){
       afficherDetailsEtudiant();
   });
 

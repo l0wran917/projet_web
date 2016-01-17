@@ -22,6 +22,7 @@ class Stage extends Model
     return $stage;
   }
 
+
   public static function appreciationStagiaire($idEtudiant){
     $appreciation = DB::table('avis_stagiaire_v')->where('idEtudiant', $idEtudiant)->first();
 

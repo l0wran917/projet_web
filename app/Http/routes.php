@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function(){
 
   });
 
-  Route::post('/infos/detailEtudiant', ['as' => 'detailEtudiant', 'uses' => 'AjaxController@detailsEtudiant']);
+  Route::post('/infos/detailsEtudiantByTuteurEntr', ['as' => 'detailsEtudiantByTuteurEntr', 'uses' => 'AjaxController@detailsEtudiantByTuteurEntr']);
+  Route::post('/infos/detailsEtudiantByEtudiant', ['as' => 'detailsEtudiantByEtudiant', 'uses' => 'AjaxController@detailsEtudiantByEtudiant']);
 
 });
