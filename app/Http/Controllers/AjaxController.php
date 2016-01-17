@@ -47,6 +47,9 @@ class AjaxController extends Controller
           $stage->sujet = "-";
         }else{
           $tuteur = Tuteur::infos($stage->idTuteur);
+          if(count($tuteur) == 0){
+              $tuteur = new Tuteur;
+          }
           $entreprise = Entreprise::where('id', $tuteur->idEntreprise)->select('nom')->first();
         }
 

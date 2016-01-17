@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Stage;
 use App\Etudiant;
+use App\Utilisateur;
 use App\DemandeAppariement;
 
 class FicheTuteurEnsController extends Controller
@@ -25,8 +26,8 @@ class FicheTuteurEnsController extends Controller
 
         $data['etudiants'] = $etudiants;
 
-        // $demandes = DemandeAppariement::infos(session('uid'));
-        // $data['demandes'] = $demandes;
+        $demandes = DemandeAppariement::infos(session('uid'));
+        $data['demandes'] = $demandes;
       }
 
       return view('tuteurEnseignant.fiche')->with(['id'=>$id, 'data'=>$data]);
@@ -42,22 +43,8 @@ class FicheTuteurEnsController extends Controller
 
     public function traitementSubmitAppariement($id, $request){
       $this->validate($request, ['idEtudiant' => 'required']);
-      //
-      // $etudiant = Etudiant::where('idUtilisateur', $request->idEtudiant)->select('idUtilisateur')->first();
-      //
-      // if(count($etudiant) == 0){
-      //   return "Error. Cet etudiant n'existe pas";
-      // }
-      //
-      // $demande = DemandeAppariement::where('idEnseignant', session('uid'))->where('idEtudiant', $request->idEtudiant)->first();
-      // if(count($demande) == 0){
-      //   $demande = new DemandeAppariement;
-      //   $demande->idEnseignant = session('uid');
-      //   $demande->idEtudiant = $request->idEtudiant;
-      //   $demande->save();
-      // }
 
-      $stage = Stage::where('idEtudiant', $request->idEtudiant)->select('idEtudiant')->first();
+      $stage = Stage::where('idEtudiant', $request->idEtudiant)->select('id', 'idEtudiant')->first();
 
       if(count($stage) == 0){
         $stage = new Stage;
@@ -65,12 +52,16 @@ class FicheTuteurEnsController extends Controller
         $stage->save();
       }
 
-      echo $stage->idEtudiant;
-      dd($stage);
+      $demande = DemandeAppariement::where('idEnseignant', session('uid'))->where('idStage', $stage->id)->first();
+      if(count($demande) == 0){
+        $demande = new DemandeAppariement;
+        $demande->idEnseignant = session('uid');
+        $demande->idStage = $stage->id;
+        $demande->save();
+      }
 
-      die();
+      session()->flash('registred', true);
       return redirect()->route('ficheTuteurEns', ['id' => $id]);
-
     }
 
     // Encore utilisé quelque part ?

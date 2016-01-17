@@ -52,6 +52,12 @@
       <div class="panel-body mesDemandes">
       @if (count($data['demandes']) == 0)
 
+        <p>
+          <div class="alert alert-danger" role="alert">
+            Vous n'avez aucune demande
+          </div>
+        </p>
+
       @else
 
         <table class="table table-strsiped text-center">
