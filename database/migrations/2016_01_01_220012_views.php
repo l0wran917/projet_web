@@ -34,6 +34,7 @@ class Views extends Migration
       DB::statement("CREATE VIEW stage_v AS
                       SELECT  st.idEtudiant as idEtudiant,
                               st.id as idStage,
+                              st.idEnseignant as idEnseignant,
                               t.idUtilisateur as idTuteurEntr,
                               ue.nom as nomEtudiant,
                               ue.prenom as prenomEtudiant,

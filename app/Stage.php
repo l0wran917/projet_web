@@ -16,8 +16,26 @@ class Stage extends Model
     return $stage;
   }
 
-  public static function infosByTuteur($id){
-    $stage = DB::table('stage_v')->where('idTuteurEntr', $id);
+  public static function infosByTuteur($idTuteur){
+    $stage = DB::table('stage_v')->where('idTuteurEntr', $idTuteur);
+
+    return $stage;
+  }
+
+  public static function infosByEnseignant($idEnseignant){
+    $stage = Stage::where('idEnseignant', $idEnseignant)
+                    ->join('utilisateur', 'utilisateur.id', '=', 'stage.idEtudiant')
+                    ->select('nom as nomEtudiant', 'prenom as prenomEtudiant', 'stage.idEtudiant as idEtudiant')
+                    ->get();
+
+
+    /*
+    $demandes = DB::table('demandeAppariement')
+                    ->join('stage', 'stage.id', '=', 'demandeAppariement.idStage')
+                    ->join('utilisateur', 'utilisateur.id', '=', 'stage.idEtudiant')
+                    ->select('demandeAppariement.status', 'utilisateur.nom', 'utilisateur.prenom')
+                    ->get();
+    */
 
     return $stage;
   }

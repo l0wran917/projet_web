@@ -127,8 +127,8 @@ class Tables extends Migration
 
         $table->boolean('tuteurValide')->default(0);
 
-        $table->integer('deplacementEnseignantVisite')->default(-1);
-        $table->date('dateDeplacementEnseignantVisite')->nullable();
+        $table->integer('deplacementEnseignant')->default(-1);
+        $table->date('dateDeplacementEnseignant')->nullable();
 
         $table->string('nomResponsableVisite');
         $table->string('prenomResponsableVisite');
@@ -137,8 +137,8 @@ class Tables extends Migration
         // Dupliqué : 1 pour fiche bilan stage et 1 pour visite
           $table->integer('encadrageInformaticienVisite')->default(-1);
           $table->integer('appelInformaticienVisite')->default(-1);
-          $table->integer('travailSeulVisite')->default(-1);
-          $table->integer('tailleEquipeVisite')->default(-1);
+          $table->integer('travailSeul')->default(-1);
+          $table->integer('tailleEquipe')->default(-1);
 
           $table->integer('objetPrincipalVisite')->default(-1);
           $table->string('objetPrincipalAutreVisite');
@@ -146,11 +146,11 @@ class Tables extends Migration
           $table->integer('avisTravailComportementVisite')->default(-1);
 
           $table->integer('formationManquanteVisite')->default(-1);
-          $table->string('formationManquanteDetailsVisite');
+          $table->integer('formationManquanteDetailsVisite')->default(-1);
 
           $table->string('avisStageVisite');
           $table->integer('accueilNouveauxEtudiantVisite')->default(-1);
-          $table->string('precautionAcceuilNouveauxVisite');
+          $tables->string('precautionAcceuilNouveauxVisite');
         //
 
         $table->timestamps();

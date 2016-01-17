@@ -65,7 +65,7 @@ class FicheTuteurEntrController extends Controller
         }
 
       }else{
-          return view('outils.fiche')->with(['id' => $id]);
+          return view('tuteurEntreprise.fiche')->with(['id' => $id]);
       }
 
       return "Error.";
