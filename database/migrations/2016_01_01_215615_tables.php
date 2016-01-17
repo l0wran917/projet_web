@@ -83,8 +83,8 @@ class Tables extends Migration
       Schema::create('stage', function (Blueprint $table) {
         $table->increments('id');
         $table->integer('idEtudiant')->unsigned();
-        $table->integer('idTuteur')->unsigned();
-        $table->integer('idEnseignant')->unsigned();
+        $table->integer('idTuteur')->unsigned()->nullable();
+        $table->integer('idEnseignant')->unsigned()->nullable();
         $table->string('sujet');
         $table->string('planAcces');
         $table->integer('remunerationStage')->default(-1);

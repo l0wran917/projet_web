@@ -23,6 +23,9 @@ class FicheTuteurEnsController extends Controller
         $etudiants = Etudiant::infos()->orderBy('nom')->orderBy('prenom')->select('idEtudiant', 'nom', 'prenom')->get();
 
         $data['etudiants'] = $etudiants;
+
+        $demandes = DemandeAppariement::infos(session('uid'));
+        $data['demandes'] = $demandes;
       }
 
       return view('tuteurEnseignant.fiche')->with(['id'=>$id, 'data'=>$data]);
