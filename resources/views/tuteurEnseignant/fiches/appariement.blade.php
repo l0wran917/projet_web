@@ -65,8 +65,7 @@
         </table>
 
         @endif
-=======
->>>>>>> master
+
       </div>
     </div>
   </div>
@@ -140,7 +139,6 @@
       </div>
     </div> <!-- panel -->
 
-<<<<<<< HEAD
     @if(session()->has('registred'))
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2">
@@ -156,8 +154,6 @@
   </div>
 </div>
 
-=======
->>>>>>> master
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <script src="{{asset('js/demandeAppariement.js')}}"></script>
 <link type="text/css" rel="stylesheet" href="{{asset('style/appariement.css')}}">
