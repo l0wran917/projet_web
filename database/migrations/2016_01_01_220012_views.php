@@ -30,6 +30,7 @@ class Views extends Migration
                      FROM etudiant et, utilisateur u
                      WHERE et.idUtilisateur = u.id ");
 
+      // Change tuteur with left join
       DB::statement("CREATE VIEW stage_v AS
                       SELECT  st.idEtudiant as idEtudiant,
                               st.id as idStage,

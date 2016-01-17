@@ -136,13 +136,13 @@ class Tables extends Migration
 
       Schema::create('demandeAppariement', function (Blueprint $table) {
         $table->integer('idEnseignant')->unsigned();
-        $table->integer('idEtudiant')->unsigned();
+        $table->integer('idStage')->unsigned();
         $table->integer('status')->default(-1);
         $table->timestamps();
 
-        $table->primary(['idEnseignant', 'idEtudiant']);
+        $table->primary(['idEnseignant', 'idStage']);
         $table->foreign('idEnseignant')->references('idUtilisateur')->on('tuteurEnseignant');
-        $table->foreign('idEtudiant')->references('idUtilisateur')->on('etudiant');
+        $table->foreign('idStage')->references('id')->on('stage');
       });
   }
 
