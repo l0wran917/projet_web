@@ -22,7 +22,8 @@
  - [ ] 1 - Fiche soutenance (Saisir dispo)  
  
 ##Tuteur IUT
- - [ ] 1 - Fiche compte rendu visite  
+ - [X] 1 - Fiche compte rendu visite  
+ - [ ] 1 - Backend fiche compte rendu
  - [X] 1 - Demande appariement  
  - [ ] 1 - Fiche soutenance (Saisir dispo)  
    
