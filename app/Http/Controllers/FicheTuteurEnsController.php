@@ -14,8 +14,10 @@ use App\Contact;
 use App\Etudiant;
 use App\Entreprise;
 use App\Utilisateur;
+use App\Disponibilite;
 use App\DemandeAppariement;
 
+use App\Http\Requests\SoutenanceRequest;
 use App\Http\Requests\compteRenduVisiteRequest;
 
 class FicheTuteurEnsController extends Controller
@@ -57,8 +59,15 @@ class FicheTuteurEnsController extends Controller
 
         $data['test'] = '3';
       }else if($id == FicheTuteurEnsController::$ID_FICHE_SOUTENANCE){
+        $data['dureeCreneau'] = Disponibilite::getDureeMinute();
+        $data['heureDebut'] = Disponibilite::getDebutMinute();
+        $data['heureFin'] = Disponibilite::getFinMinute();
+        $data['date'] = Disponibilite::getDate();
 
-        return view('tuteurEnseignant.fiche')->with(['id' => $id, 'data' => $data]);
+        $data['dispo'][0] = Disponibilite::heureDispoToArray(0);
+        $data['dispo'][1] = Disponibilite::heureDispoToArray(1);
+
+        return view('commun.dispoSoutenance')->with(['id' => $id, 'data' => $data]);
       }
 
       return view('tuteurEnseignant.fiche')->with(['id'=>$id, 'data'=>$data]);
@@ -69,9 +78,37 @@ class FicheTuteurEnsController extends Controller
         return $this->traitementSubmitAppariement($id, $request);
       }else if($id == FicheTuteurEnsController::$ID_FICHE_VISITE){
         return $this->traitementSubmitCRVisite($id, $request);
+      }else if($id == FicheTuteurEnsController::$ID_FICHE_SOUTENANCE){
+        return $this->traitementSubmitSoutenance($id, $request);
       }
 
       return "Error.";
+    }
+
+    private function traitementSubmitSoutenance($id, $request){
+      $this->validate($request, SoutenanceRequest::rules());
+
+      Disponibilite::deleteDispoByUser(session('uid'));
+
+      foreach ($request->creneaux0 as $heure) {
+        $dispo = new Disponibilite;
+        $dispo->idUtilisateur = session('uid');
+        $dispo->debutMinute = $heure;
+        $dispo->numJour = 0;
+        $dispo->save();
+      }
+
+      foreach ($request->creneaux1 as $heure) {
+        $dispo = new Disponibilite;
+        $dispo->idUtilisateur = session('uid');
+        $dispo->debutMinute = $heure;
+        $dispo->numJour = 1;
+        $dispo->save();
+      }
+
+      session()->flash('registred', true);
+
+      return redirect()->route('ficheTuteurEns', ['id' => $id]);
     }
 
     public function traitementSubmitCRVisite($id, $request){
