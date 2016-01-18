@@ -44,7 +44,7 @@ class FicheTuteurEntrController extends Controller
 
           return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
         }else{
-          return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
+          return view('outils.aucunStagiaire')->with(['id' => $id]);
         }
 
       // Si vue "Fiche d'appreciation du stagiaire"
@@ -62,11 +62,11 @@ class FicheTuteurEntrController extends Controller
 
           return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $this->dataToAvisStagiaire()]);
         }else if($nbStagiaires == 0){ // S'il n'y a aucun stagiaire => Erreur
-          return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
+          return view('outils.aucunStagiaire')->with(['id' => $id]);
         }
 
       }else if($id == FicheTuteurEntrController::$ID_FICHE_SOUTENANCE){
-        return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);  
+        return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
       }
 
       return "Error.";
