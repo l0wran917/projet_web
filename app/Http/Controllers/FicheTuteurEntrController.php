@@ -10,8 +10,12 @@ use App\Contact;
 use App\Tuteur;
 use App\Entreprise;
 
+use App\Disponibilite;
+
 use Request;
 use Input;
+
+use App\Http\Requests\SoutenanceRequest;
 
 
 /*
@@ -66,7 +70,15 @@ class FicheTuteurEntrController extends Controller
         }
 
       }else if($id == FicheTuteurEntrController::$ID_FICHE_SOUTENANCE){
-        return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);
+        $data['dureeCreneau'] = Disponibilite::getDureeMinute();
+        $data['heureDebut'] = Disponibilite::getDebutMinute();
+        $data['heureFin'] = Disponibilite::getFinMinute();
+        $data['date'] = Disponibilite::getDate();
+
+        $data['dispo'][0] = Disponibilite::heureDispoToArray(0);
+        $data['dispo'][1] = Disponibilite::heureDispoToArray(1);
+
+        return view('commun.dispoSoutenance')->with(['id' => $id, 'data' => $data]);
       }
 
       return "Error.";
@@ -76,7 +88,34 @@ class FicheTuteurEntrController extends Controller
     // Si fiche avis sur le stagiaire
     if($id == FicheTuteurEntrController::$ID_FICHE_AVIS_STAGIAIRE){
       return $this->traitementSubmitAvisEtudiant($id);
+    }else if($id == FicheTuteurEntrController::$ID_FICHE_SOUTENANCE){
+      return $this->traitementSubmitSoutenance($id);
     }
+  }
+
+  private function traitementSubmitSoutenance($id){
+
+    Disponibilite::deleteDispoByUser(session('uid'));
+
+    foreach (Request::get('creneaux0') as $heure) {
+      $dispo = new Disponibilite;
+      $dispo->idUtilisateur = session('uid');
+      $dispo->debutMinute = $heure;
+      $dispo->numJour = 0;
+      $dispo->save();
+    }
+
+    foreach (Request::get('creneaux1') as $heure) {
+      $dispo = new Disponibilite;
+      $dispo->idUtilisateur = session('uid');
+      $dispo->debutMinute = $heure;
+      $dispo->numJour = 1;
+      $dispo->save();
+    }
+
+    session()->flash('registred', true);
+
+    return redirect()->route('ficheTuteurEntre', ['id' => $id]);
   }
 
   public function traitementSubmitAvisEtudiant($id){
