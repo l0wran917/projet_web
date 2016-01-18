@@ -1,0 +1,30 @@
+#panel{
+  padding-top: 2%;
+  color: #000;
+}
+
+.panel{
+  color: #000;
+}
+
+.input-group-addon{
+  border: 1px solid #CCC !important;
+  border-radius: 4px !important;
+}
+
+.panel label{
+  font-weight: normal;
+}
+
+.form-control-static{
+  padding-left: 1%;
+}
+
+.page-header{
+  margin: 0;
+  margin-bottom: 1%;
+}
+
+.panel input[type='submit']{
+  margin-top: 2%;
+}

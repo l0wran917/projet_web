@@ -170,6 +170,15 @@ class Tables extends Migration
         $table->foreign('idEnseignant')->references('idUtilisateur')->on('tuteurEnseignant');
         $table->foreign('idStage')->references('id')->on('stage');
       });
+
+      Schema::create('disponibilite', function (Blueprint $table) {
+        $table->integer('idUtilisateur')->unsigned();
+        $table->integer('debutMinute')->unsigned();
+        $table->integer('numJour')->unsigned();
+
+        $table->primary(['idUtilisateur', 'debutMinute', 'numJour']);
+        $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
+      });
   }
 
     /**
@@ -179,6 +188,7 @@ class Tables extends Migration
      */
     public function down()
     {
+      Schema::drop('disponibilite');
       Schema::drop('demandeAppariement');
       Schema::drop('stage');
       Schema::drop('tuteurEnseignant');

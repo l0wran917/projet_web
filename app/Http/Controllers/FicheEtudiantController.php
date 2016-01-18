@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\LocalisationRequest;
 use App\Http\Requests\CorrespondanteRequest;
 use App\Http\Requests\AvisEtudiantRequest;
+use App\Http\Requests\SoutenanceRequest;
 use App\Http\Controllers\Controller;
 
 use App\Entreprise;
@@ -15,6 +16,8 @@ use App\Tuteur;
 use App\Etudiant;
 use App\Utilisateur;
 use App\Stage;
+
+use App\Disponibilite;
 
 use Route;
 
@@ -45,8 +48,16 @@ class FicheEtudiantController extends Controller
 
           $data['stage'] = $stage;
         }else if($id == FicheEtudiantController::$ID_FICHE_SOUTENANCE){
-          
-          return view('etudiant.fiche')->with(['id' => $id, 'data' => $data]);
+
+          $data['dureeCreneau'] = Disponibilite::getDureeMinute();
+          $data['heureDebut'] = Disponibilite::getDebutMinute();
+          $data['heureFin'] = Disponibilite::getFinMinute();
+          $data['date'] = Disponibilite::getDate();
+
+          $data['dispo'][0] = Disponibilite::heureDispoToArray(0);
+          $data['dispo'][1] = Disponibilite::heureDispoToArray(1);
+
+          return view('commun.dispoSoutenance')->with(['id' => $id, 'data' => $data]);
         }
 
         return view('etudiant.fiche')->with(['id' => $id, 'data' => $data]);
@@ -56,13 +67,40 @@ class FicheEtudiantController extends Controller
     public function submitFiche($id = 0, Request $request)
     {
         if($id == FicheEtudiantController::$ID_FICHE_LOCALISATION){
-          return $this->traitementSubmitLocalisation(FicheEtudiantController::$ID_FICHE_LOCALISATION, $request);
-        }
-        else if($id == FicheEtudiantController::$ID_FICHE_AVIS_STAGE){
-          return $this->traitementSubmitAvis(FicheEtudiantController::$ID_FICHE_AVIS_STAGE, $request);
+          return $this->traitementSubmitLocalisation($id, $request);
+        }else if($id == FicheEtudiantController::$ID_FICHE_AVIS_STAGE){
+          return $this->traitementSubmitAvis($id, $request);
+        }else if($id == FicheEtudiantController::$ID_FICHE_SOUTENANCE){
+          return $this->traitementSubmitSoutenance($id, $request);
         }
 
         return 'Error.';
+    }
+
+    private function traitementSubmitSoutenance($id, $request){
+      $this->validate($request, SoutenanceRequest::rules());
+
+      Disponibilite::deleteDispoByUser(session('uid'));
+
+      foreach ($request->creneaux0 as $heure) {
+        $dispo = new Disponibilite;
+        $dispo->idUtilisateur = session('uid');
+        $dispo->debutMinute = $heure;
+        $dispo->numJour = 0;
+        $dispo->save();
+      }
+
+      foreach ($request->creneaux1 as $heure) {
+        $dispo = new Disponibilite;
+        $dispo->idUtilisateur = session('uid');
+        $dispo->debutMinute = $heure;
+        $dispo->numJour = 1;
+        $dispo->save();
+      }
+
+      session()->flash('registred', true);
+
+      return redirect()->route('ficheEtudiant', ['id' => $id]);
     }
 
     private function traitementSubmitLocalisation($id, $request){
