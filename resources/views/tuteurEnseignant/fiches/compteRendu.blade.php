@@ -64,7 +64,7 @@
                   <div class="form-group">
                     <label class="control-label col-xs-2" for"inputDateRencontre">Date:</label>
                     <div class="col-xs-4">
-                      <input type="date" class="form-control" name="dateDeplacementEnseignant" id="inputDateRencontre" placeholder="JJ/MM/AAAA" value="{{ $data['stage']->dateDeplacementEnseignantVisite != '' ? $data['stage']->dateDeplacementEnseignantVisite : date('d/m/Y') }}" required>
+                      <input type="date" class="form-control" name="dateDeplacementEnseignant" id="inputDateRencontre" placeholder="JJ/MM/AAAA" value="{{ $data['stage']->dateDeplacementEnseignantVisite != '' ? date_format(new DateTime($data['stage']->dateDeplacementEnseignantVisite), 'd/m/Y') : date('d/m/Y') }}" required>
                     </div>
                   </div>
                 </div>
@@ -206,22 +206,22 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageSysteme" value="1"> Système
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageSysteme" value="1" {{ $data['stage']->objetPrincipalVisite % 2 == 1 ? 'checked' : '' }} > Système
                                 </label>
                             </div>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageMultimedia" value="2"> Multimédia
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageMultimedia" value="2" {{ ($data['stage']->objetPrincipalVisite / 2 ) % 2 == 1 ? 'checked' : '' }} > Multimédia
                                 </label>
                             </div>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageReseau" value="4"> Réseaux
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageReseau" value="4" {{ ($data['stage']->objetPrincipalVisite / 4 ) % 2 == 1 ? 'checked' : '' }} > Réseaux
                                 </label>
                             </div>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageDevWeb" value="8"> Dév Web
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageDevWeb" value="8" {{ ($data['stage']->objetPrincipalVisite / 8 ) % 2 == 1 ? 'checked' : '' }} > Dév Web
                                 </label>
                             </div>
                         </div>
@@ -229,19 +229,19 @@
                         <div class="row">
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageAutreDev" value="16"> Autres dév
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageAutreDev" value="16" {{ ($data['stage']->objetPrincipalVisite / 16 ) % 2 == 1 ? 'checked' : '' }} > Autres dév
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageBdd" value="32"> Bases de données
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageBdd" value="32" {{ ($data['stage']->objetPrincipalVisite / 32 ) % 2 == 1 ? 'checked' : '' }} > Bases de données
                                 </label>
                             </div>
                         </div>
                         <div class="row" style="margin-top:1%;">
                             <div class="col-sm-2">
                                 <label class="radio-inline">
-                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageAutre" value="64"> Autres:
+                                    <input type="checkbox" name="objetStage[]" id="inputObjetStageAutre" value="64" {{ ($data['stage']->objetPrincipalVisite / 64 ) % 2 == 1 ? 'checked' : '' }} > Autres:
                                 </label>
                             </div>
                             <div class="col-sm-4">

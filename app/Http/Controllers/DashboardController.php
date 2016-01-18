@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\TuteurEnseignant;
 use App\Utilisateur;
 use App\Etudiant;
 use App\Tuteur;
@@ -39,6 +40,15 @@ class DashboardController extends Controller
 
       $stage = Stage::infos(session('uid'));
       $stage = Stage::checkStageExiste($stage);
+
+      $tuteur = Utilisateur::where('id', $stage->idEnseignant)->select('nom', 'prenom')->first();
+      if(count($tuteur) == 0){
+        $tuteur = new Utilisateur;
+        $tuteur->nom = "-";
+        $tuteur->prenom = "";
+      }
+
+      $dashboardInfos['tuteur'] = $tuteur;
 
       $dashboardInfos['stage'] = $stage;
 

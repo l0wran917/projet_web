@@ -25,7 +25,7 @@
   </div>
 </a>
 
-<a href="{{ route('ficheTuteurEns', ['id' => 5]) }}">
+<a href="{{ route('ficheTuteurEns', ['id' => 3]) }}">
   <div class="row btn-menu {{{ $id == 3 ? 'active' : ''}}}">
     <div class="col-xs-12">
       <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>Soutenance

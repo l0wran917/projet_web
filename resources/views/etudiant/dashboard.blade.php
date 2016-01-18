@@ -42,6 +42,13 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <label class="col-sm-5 control-label">Tuteur :</label>
+            <div class="col-sm-7">
+              <p class="form-control-static">{{ ucfirst($dashboardInfos['tuteur']->nom)}} {{ ucfirst($dashboardInfos['tuteur']->prenom)}}</p>
+            </div>
+          </div>
+
         </form>
       </div>
     </div>
@@ -61,7 +68,7 @@
           <div class="form-group">
             <label class="col-sm-5 control-label">Responsable :</label>
             <div class="col-sm-7">
-              <p class="form-control-static">{{ $dashboardInfos['stage']->nomTuteur }} {{ $dashboardInfos['stage']->prenomTuteur }} </p>
+              <p class="form-control-static">{{ ucfirst($dashboardInfos['stage']->nomTuteur) }} {{ ucfirst($dashboardInfos['stage']->prenomTuteur) }} </p>
             </div>
           </div>
 

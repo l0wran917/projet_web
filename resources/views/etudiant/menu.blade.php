@@ -24,7 +24,7 @@
     </div>
   </div>
 </a>
-
+<!--
 <a href="{{ route('ficheEtudiant', ['id' => 3]) }}">
   <div class="row btn-menu {{{ $id == 3 ? 'active' : ''}}}">
     <div class="col-xs-12">
@@ -40,7 +40,7 @@
     </div>
   </div>
 </a>
-
+-->
 <a href="{{ route('ficheEtudiant', ['id' => 5]) }}">
   <div class="row btn-menu {{{ $id == 5 ? 'active' : ''}}}">
     <div class="col-xs-12">

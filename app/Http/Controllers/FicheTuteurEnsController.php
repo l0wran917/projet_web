@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Carbon;
 use App\Stage;
 use App\Tuteur;
 use App\Contact;
@@ -22,6 +23,7 @@ class FicheTuteurEnsController extends Controller
 
     public static $ID_FICHE_VISITE = 1;
     public static $ID_FICHE_APPARIEMENT = 2;
+    public static $ID_FICHE_SOUTENANCE = 3;
 
     public function index($id)
     {
@@ -38,7 +40,10 @@ class FicheTuteurEnsController extends Controller
       }else if($id == FicheTuteurEnsController::$ID_FICHE_VISITE){
 
         $stages = Stage::infosByEnseignant(session('uid'));
-        if(count($stages) > 1){
+        if(session()->has('registred')){
+
+          return view('tuteurEnseignant.fiche')->with(['id' => $id, 'data' => $this->dataToCompteRenduVisite()]);
+        }else if(count($stages) > 1 && !session()->has('registred')){
 
           return view('outils.choixStagiaire')->with(['id' => $id, 'stages' => $stages]);
         }else if(count($stages) == 1){
@@ -51,6 +56,9 @@ class FicheTuteurEnsController extends Controller
         }
 
         $data['test'] = '3';
+      }else if($id == FicheTuteurEnsController::$ID_FICHE_SOUTENANCE){
+
+        return view('tuteurEnseignant.fiche')->with(['id' => $id, 'data' => $data]);
       }
 
       return view('tuteurEnseignant.fiche')->with(['id'=>$id, 'data'=>$data]);
@@ -79,7 +87,8 @@ class FicheTuteurEnsController extends Controller
         $contact = Contact::where('idEntreprise', $tuteur->idEntreprise)->where('type', 1)->first();
 
         $stage->deplacementEnseignantVisite = $request->deplacementEnseignant;
-        $stage->dateDeplacementEnseignantVisite = $request->dateDeplacementEnseignant;
+        $dateDeplacementEnseignant = Carbon\Carbon::createFromFormat('d/m/Y', $request->dateDeplacementEnseignant);
+        $stage->dateDeplacementEnseignantVisite = $dateDeplacementEnseignant;
 
         $stage->nomResponsableVisite = $request->nomResponsable;
         $stage->prenomResponsableVisite = $request->prenomResponsable;
@@ -117,11 +126,12 @@ class FicheTuteurEnsController extends Controller
         $contact->email = $request->emailRH;
         $contact->telephone = $request->telRH;
 
+
         $stage->save();
         $contact->save();
 
 
-        session()->forget('idEtudiantFocus');
+        // session()->forget('idEtudiantFocus');
         session()->flash('registred', true);
 
         return redirect()->route('ficheTuteurEns', ['id' => $id]);

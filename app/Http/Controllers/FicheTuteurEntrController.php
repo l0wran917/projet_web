@@ -27,6 +27,7 @@ class FicheTuteurEntrController extends Controller
   public static $ID_STAGIAIRES = 1;
   public static $ID_FICHE_AVIS_STAGIAIRE = 2;
   public static $ID_FICHE_VISITE = 3;
+  public static $ID_FICHE_SOUTENANCE = 4;
 
   // Point entrée GET des étudiants
   public function index($id = 0)
@@ -64,8 +65,8 @@ class FicheTuteurEntrController extends Controller
           return view('tuteurEntreprise.aucunStagiaire')->with(['id' => $id]);
         }
 
-      }else{
-          return view('outils.fiche')->with(['id' => $id]);
+      }else if($id == FicheTuteurEntrController::$ID_FICHE_SOUTENANCE){
+        return view('tuteurEntreprise.fiche')->with(['id' => $id, 'data' => $data]);  
       }
 
       return "Error.";
