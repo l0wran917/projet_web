@@ -61,7 +61,7 @@ class Tables extends Migration
 
       Schema::create('tuteur', function (Blueprint $table) {
         $table->integer('idUtilisateur')->unsigned();
-        $table->integer('idEntreprise')->unsigned();
+        $table->integer('idEntreprise')->unsigned()->nullable();
         $table->integer('joursDispoRencontre');
         $table->timestamps();
 
@@ -179,6 +179,13 @@ class Tables extends Migration
         $table->primary(['idUtilisateur', 'debutMinute', 'numJour']);
         $table->foreign('idUtilisateur')->references('id')->on('utilisateur');
       });
+
+
+      Schema::create('constante', function (Blueprint $table) {
+        $table->integer('id')->unsigned();
+        $table->string('valeur');
+        $table->timestamps();
+      });
   }
 
     /**
@@ -188,6 +195,7 @@ class Tables extends Migration
      */
     public function down()
     {
+      Schema::drop('constante');
       Schema::drop('disponibilite');
       Schema::drop('demandeAppariement');
       Schema::drop('stage');

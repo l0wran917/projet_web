@@ -12,6 +12,24 @@ class Data extends Migration
      */
     public function up()
     {
+      DB::table('constante')->insert(
+        [
+          'id' => 1,
+          'valeur' => Hash::make('etudiant')
+        ]
+      );
+      DB::table('constante')->insert(
+        [
+          'id' => 2,
+          'valeur' => Hash::make('prof')
+        ]
+      );
+      DB::table('constante')->insert(
+        [
+          'id' => 3,
+          'valeur' => Hash::make('entreprise')
+        ]
+      );
       //
       // DB::table('utilisateur')->insert(
       //   [

@@ -9,7 +9,12 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\LoginRequest;
 
+use App\Etudiant;
+use App\Constante;
 use App\Utilisateur;
+use App\TuteurEnseignant;
+use App\Tuteur;
+
 use Hash;
 use Redirect;
 
@@ -50,9 +55,71 @@ class LoginController extends Controller
       return "Error.";
     }
 
-    public function submitSignup($etape)
+    public function submitSignup(Request $request, $id)
     {
-        return 'ok';
+      // Valide la clé + Affiche form suivant
+      if($id == 1){
+        if(Hash::check($request->CleSecrete, Constante::getPwdSignupEtudiant())){
+          session(['cleSignUp' => 'etudiant']);
+
+          return view('signup.signup')->with('etape', 2);
+        }else if(Hash::check($request->CleSecrete, Constante::getPwdSignupEnseignant())){
+          session(['cleSignUp' => 'enseignant']);
+
+          return view('signup.signup')->with('etape', 3);
+        }else if(Hash::check($request->CleSecrete, Constante::getPwdSignupEntreprise())){
+          session(['cleSignUp' => 'entreprise']);
+
+          return view('signup.signup')->with('etape', 4);
+        }else{
+          session()->flash('cleError', 'Clé fausse');
+
+          return redirect()->route('signup');
+        }
+      // Valide le form
+      }else if($id == 2){
+        if(session()->has('cleSignUp')){
+
+          $utilisateur = Utilisateur::make($request->all(), Utilisateur::$ETUDIANT);
+          $etudiant = Etudiant::make($utilisateur, $request->all());
+
+          session()->flash('signup', 'done');
+          session()->forget('cleSignUp');
+
+          return redirect()->route('login');
+        }else{
+          return "Error.";
+        }
+      }else if($id == 3){
+        if(session()->has('cleSignUp')){
+
+          $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENSEIGNANT);
+          $enseignant = TuteurEnseignant::make($utilisateur, $request->all());
+
+          session()->flash('signup', 'done');
+          session()->forget('cleSignUp');
+
+
+          return redirect()->route('login');
+        }else{
+          return "Error.";
+        }
+      }else if($id == 4){
+        if(session()->has('cleSignUp')){
+
+          $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
+          $tuteurEntre = Tuteur::make($utilisateur, $request->all());
+
+          session()->flash('signup', 'done');
+          session()->forget('cleSignUp');
+
+
+          return redirect()->route('login');
+        }else{
+          return "Error.";
+        }
+      }
+
     }
 
 }

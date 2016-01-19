@@ -57,6 +57,7 @@
                             </div>
                           </div>
                         </div>
+
                         <div class="row">
                           <div class="col-xs-8 col-xs-offset-2">
                             <input type="button" class="form-control btn btn-primary btn-block" id="nextLogin" value="Suivant" >

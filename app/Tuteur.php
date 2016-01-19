@@ -37,4 +37,12 @@ class Tuteur extends Model
 
       return $tuteursIdentique;
     }
+
+    public static function make($user, $attributes){
+      $tuteur = new Tuteur;
+      $tuteur->idUtilisateur = $user->id;
+      $tuteur->save();
+
+      return $tuteur;
+    }
 }

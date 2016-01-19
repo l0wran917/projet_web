@@ -1,4 +1,4 @@
-<form class="{{ route('signupPost', ['etape' => 2] )}}" action="index.html" method="post">
+<form action="{{ route('signupPost', ['etape' => 1] )}}" method="post">
   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 
   <div class="row">
@@ -13,7 +13,7 @@
   </div>
   <div class="row">
     <div class="col-xs-6 col-xs-offset-3">
-      <input type="submit" class="form-control btn btn-primary" name="suivantSignup" value="Suivant">
+      <input type="submit" class="form-control btn btn-primary suivant" name="suivantSignup" value="Suivant">
     </div>
   </div>
 </form>

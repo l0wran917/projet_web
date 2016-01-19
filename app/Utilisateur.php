@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Hash;
+
 class Utilisateur extends Model
 {
   public static $ETUDIANT = '1';
@@ -12,5 +14,26 @@ class Utilisateur extends Model
 
   protected $table = 'utilisateur';
   public $timestamps = true;
+
+  public static function make($attributes, $type){
+    $user = new Utilisateur;
+    $user->nom = $attributes['nom'];
+    $user->prenom = $attributes['prenom'];
+    $user->email = $attributes['email'];
+    if(isset($attributes['tel'])){
+      $user->tel = $attributes['tel'];
+    }
+    if(isset($attributes['telPort'])){
+      $user->telPortable = $attributes['telPort'];
+    }
+    $user->civilite = $attributes['civilite'];
+    $user->password = Hash::make($attributes['pwd']);
+
+    $user->type = $type;
+
+    $user->save();
+
+    return $user;
+  }
 
 }

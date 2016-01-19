@@ -99,6 +99,9 @@ h3{
   margin-top: 0px;
 }
 
-.signup input[type=submit]{
+.signup input[type=submit].suivant{
   margin-top: 8%;
+}
+.signup input[type=submit].valider{
+  margin-top: 4%;
 }

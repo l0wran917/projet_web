@@ -26,6 +26,15 @@ class Etudiant extends Model
       }else{
         return DB::table('etudiant_v')->where('idEtudiant', $id)->first();
       }
+    }
 
+    public static function make($user, $attributes){
+      $etudiant = new Etudiant;
+      $etudiant->idUtilisateur = $user->id;
+      $etudiant->tp = $attributes['tp'];
+
+      $etudiant->save();
+
+      return $etudiant;
     }
 }

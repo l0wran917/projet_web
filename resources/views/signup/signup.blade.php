@@ -12,7 +12,6 @@
     </head>
     <body>
 
-
           <div class="container">
             <div class="row">
               <div class="col-xs-10 col-xs-offset-1 text-center">
@@ -30,6 +29,12 @@
                   <div class="panel-body">
                     @if($etape == 1)
                       @include('signup.demandeCle')
+                    @elseif($etape == 2)
+                      @include('signup.etudiant')
+                    @elseif($etape == 3)
+                      @include('signup.enseignant')
+                    @elseif($etape == 4)
+                      @include('signup.entreprise')
                     @else
                       Error.
                     @endif
