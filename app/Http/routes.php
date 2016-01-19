@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', ['as' => 'login', 'uses' => 'LoginController@index']);
-Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@index']);
-Route::post('/login', ['as' => 'loginPost', 'uses' => 'LoginController@login']);
+Route::get('/', ['as' => 'login', 'uses' => 'LoginController@login']);
 
+Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
+Route::post('/login', ['as' => 'loginPost', 'uses' => 'LoginController@submitLogin']);
+
+Route::get('/signup', ['as' => 'signup', 'uses' => 'LoginController@signup']);
+Route::post('/signup', ['as' => 'signup', 'uses' => 'LoginController@submitSignup']);
 
 Route::group(['middleware' => ['auth']], function(){
   Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);

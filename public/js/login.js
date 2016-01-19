@@ -54,7 +54,7 @@ function nextSubmit(){
       'display' : 'block'
     });
 
-    $("#inputPassword").focus();
+    // $("#inputPassword").focus();
     $("#inputPassword").val("");
 
     $(".personalPicture img").attr("src", lienImg)
@@ -69,6 +69,10 @@ function nextSubmit(){
       'max-height':'500px',
       'padding-top':'10px'
     })
+
+    $(".panel").css({
+      'height':'475px'
+    });
   }
 }
 

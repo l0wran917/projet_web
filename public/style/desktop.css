@@ -4,24 +4,34 @@ html{
   font-family: 'Raleway', sans-serif;
 }
 
+body{
+  background-color: #F6F6F6;
+}
+
 .navbar{
   border-radius: 0px !important;
   background-color: #878787;
   border-color: #878787;
 }
 
-.login{
-  background-color: #F7F7F7;
-  border-radius: 5px;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  padding-bottom: 30px;
-  overflow: hidden;
-  min-height: 350px;
-  margin-top: 20px;
+.panel{
+  margin-top: 5%;
+  height: 400px;
 }
 
+.login{
+  /*background-color: #F7F7F7;*/
+  /*border-radius: 5px;*/
+  /*box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);*/
+  /*padding-bottom: 30px;*/
+  overflow: hidden;
+  /*min-height: 350px;*/
+  /*margin-top: 20px;*/
+}
+
+
 .login input{
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .personalPicture{
@@ -59,8 +69,8 @@ h3{
 
 .iconPrevious{
   position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 25px;
+  top: 80px;
   font-size: 2em;
   cursor: pointer;
   display: none;
@@ -80,4 +90,8 @@ h3{
 
 .alert{
   margin-top: -10px;
+}
+
+.labelInscription{
+  margin-top: 0px;
 }

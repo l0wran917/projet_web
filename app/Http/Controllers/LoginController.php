@@ -15,17 +15,17 @@ use Redirect;
 
 class LoginController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function login()
     {
         return view('login');
     }
 
-    public function login(LoginRequest $request){
+    public function signup()
+    {
+        return view('signup');
+    }
+
+    public function submitLogin(LoginRequest $request){
 
       $user = Utilisateur::where('email', $request->input('inputEmail'))->first();
 
@@ -49,9 +49,9 @@ class LoginController extends Controller
       return "Error.";
     }
 
-    public function test()
+    public function submitSignup()
     {
-        return view('login');
+        return 'ok';
     }
 
 }
