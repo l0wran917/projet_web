@@ -22,7 +22,7 @@ class LoginController extends Controller
 
     public function signup()
     {
-        return view('signup');
+        return view('signup.signup')->with('etape', 1);
     }
 
     public function submitLogin(LoginRequest $request){
@@ -42,14 +42,15 @@ class LoginController extends Controller
         }else{
           session()->flush();
 
-          return "Nope little boy";
+          session()->flash('wrongPwd', 'Mot de passe érroné.');
+          return redirect()->route('login');
         }
       }
 
       return "Error.";
     }
 
-    public function submitSignup()
+    public function submitSignup($etape)
     {
         return 'ok';
     }

@@ -87,5 +87,11 @@
               </div>
             </div>
           </div>
+
+          @if(session()->has('wrongPwd'))
+            <script type="text/javascript">
+                alertWrongPassword()
+            </script>
+          @endif
     </body>
 </html>

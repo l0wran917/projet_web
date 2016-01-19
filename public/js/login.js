@@ -101,3 +101,15 @@ function previousSubmit(){
   $('.login .nom').text("");
 
 }
+
+function alertWrongPassword(){
+  $(".panel-alert.transparent").css({
+    'display':'block',
+    'max-height':'500px',
+    'padding-top':'10px'
+  })
+
+  $(".panel").css({
+    'height':'475px'
+  });
+}

@@ -16,6 +16,9 @@ body{
 
 .panel{
   margin-top: 5%;
+}
+
+.login .panel{
   height: 400px;
 }
 
@@ -94,4 +97,8 @@ h3{
 
 .labelInscription{
   margin-top: 0px;
+}
+
+.signup input[type=submit]{
+  margin-top: 8%;
 }
