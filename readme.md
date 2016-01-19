@@ -1,7 +1,8 @@
 #TO DO
 ## Login
- - [ ] 1 - Cas où le mdp est erroné / Utilisateur n'exite pas  
- - [ ] 3 - Refaire le design ? (Respect de la charte graphique)  
+ - [X] 1 - Cas où le mdp est erroné
+ - [ ] 1 - Utilisateur n'exite pas  
+ - [X] 3 - Refaire le design ? (Respect de la charte graphique)  
   
 ##Etudiant
  - [X] D - Backend de la fiche avis sur stage
