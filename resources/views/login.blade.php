@@ -47,12 +47,23 @@
                     <form class="" action="{{ route('loginPost') }}" method="post">
                       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                       <div class="first-panel">
+
                         <div class="row">
                           <div class="col-xs-10 col-xs-offset-1">
                             <input type="text" class="form-control input-lg" name="inputEmail" id="inputEmail" value="" placeholder="prenom.nom@u-psud.fr" autofocus>
                             <div class="panel-alert transparent">
                               <div class="alert alert-danger" role="alert">
                                 Humm, there is something wrong
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col-xs-10 col-xs-offset-1">
+                            <div class="panel-success transparent">
+                              <div class="alert alert-success" role="alert">
+                                Inscription validée !
                               </div>
                             </div>
                           </div>
@@ -92,6 +103,12 @@
           @if(session()->has('wrongPwd'))
             <script type="text/javascript">
                 alertWrongPassword()
+            </script>
+          @endif
+
+          @if(session()->has('signup'))
+            <script type="text/javascript">
+                alertSignupCompleted()
             </script>
           @endif
     </body>

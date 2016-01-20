@@ -65,6 +65,12 @@ function nextSubmit(){
 
   }else{
 
+    $(".panel-success.transparent").css({
+      'display':'none',
+      'max-height':'0px',
+      'padding-top':'0px'
+    })
+
     $(".panel-alert.transparent").css({
       'display':'block',
       'max-height':'500px',
@@ -104,7 +110,20 @@ function previousSubmit(){
 }
 
 function alertWrongPassword(){
+
   $(".panel-alert.transparent").css({
+    'display':'block',
+    'max-height':'500px',
+    'padding-top':'10px'
+  })
+
+  $(".panel").css({
+    'height':'475px'
+  });
+}
+
+function alertSignupCompleted(){
+  $(".panel-success.transparent").css({
     'display':'block',
     'max-height':'500px',
     'padding-top':'10px'
