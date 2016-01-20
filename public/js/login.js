@@ -55,6 +55,7 @@ function nextSubmit(){
     });
 
     // $("#inputPassword").focus();
+    $("#inputEmail").blur();
     $("#inputPassword").val("");
 
     $(".personalPicture img").attr("src", lienImg)
