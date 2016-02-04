@@ -28,6 +28,7 @@ function nextSubmit(){
   var mail = $("#inputEmail").val();
   var prenomDotNom = mail.split("@")[0];
 
+//  if (mail.split("@")[1]=="u-psud.fr" && prenomDotNom.indexOf(".")!=-1){
   if (mail.split("@")[1]=="u-psud.fr" && prenomDotNom.indexOf(".")!=-1){
     var prenom = prenomDotNom.split(".")[0];
     var nom = prenomDotNom.split(".")[1];
