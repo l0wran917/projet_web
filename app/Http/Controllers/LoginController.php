@@ -50,6 +50,12 @@ class LoginController extends Controller
           session()->flash('wrongPwd', 'Mot de passe érroné.');
           return redirect()->route('login');
         }
+      } else {
+        // L'utilisateur n'existe pas
+        session()->flush();
+
+        session()->flash('wrongPwd', 'Mot de passe érroné.');
+        return redirect()->route('login');
       }
 
       return "Error.";

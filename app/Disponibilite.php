@@ -22,7 +22,7 @@ class Disponibilite extends Model
   }
 
   public static function getDate(){
-    return ["Mardi 05 Juin", "Mardi 06 Juin"];
+    return ["Mardi 05 Juin", "Mercredi 07 Juin"];
   }
 
   public static function deleteDispoByUser($idUtilisateur){
