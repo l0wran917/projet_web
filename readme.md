@@ -1,7 +1,7 @@
 #TO DO
 ## Login
  - [X] 1 - Cas où le mdp est erroné
- - [ ] 1 - Utilisateur n'exite pas  
+ - [X] 1 - Utilisateur n'exite pas  
  - [X] 3 - Refaire le design ? (Respect de la charte graphique)  
   
 ##Etudiant
