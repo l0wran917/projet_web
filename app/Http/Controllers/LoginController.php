@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\SignupEntrepriseRequest;
 
 use App\Etudiant;
 use App\Constante;
@@ -27,7 +28,11 @@ class LoginController extends Controller
 
     public function signup()
     {
-        return view('signup.signup')->with('etape', 1);
+        if(!session()->has('etape')){
+          return view('signup.signup')->with('etape', 1);
+        }else{
+          return $this->displaySignUpPanel(session('cleSignUp'));
+        }
     }
 
     public function submitLogin(LoginRequest $request){
@@ -63,25 +68,12 @@ class LoginController extends Controller
 
     public function submitSignup(Request $request, $id)
     {
+      session()->flash('etape', $id);
+
       // Valide la clé + Affiche form suivant
       if($id == 1){
-        if(Hash::check($request->CleSecrete, Constante::getPwdSignupEtudiant())){
-          session(['cleSignUp' => 'etudiant']);
+        return $this->displaySignUpPanel($request->CleSecrete);
 
-          return view('signup.signup')->with('etape', 2);
-        }else if(Hash::check($request->CleSecrete, Constante::getPwdSignupEnseignant())){
-          session(['cleSignUp' => 'enseignant']);
-
-          return view('signup.signup')->with('etape', 3);
-        }else if(Hash::check($request->CleSecrete, Constante::getPwdSignupEntreprise())){
-          session(['cleSignUp' => 'entreprise']);
-
-          return view('signup.signup')->with('etape', 4);
-        }else{
-          session()->flash('cleError', 'Clé fausse');
-
-          return redirect()->route('signup');
-        }
       // Valide le form
       }else if($id == 2){
         if(session()->has('cleSignUp')){
@@ -113,12 +105,14 @@ class LoginController extends Controller
       }else if($id == 4){
         if(session()->has('cleSignUp')){
 
+          // dd($request->all());
+          $this->validate($request, SignupEntrepriseRequest::rules());
+
           $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
           $tuteurEntre = Tuteur::make($utilisateur, $request->all());
 
           session()->flash('signup', 'done');
           session()->forget('cleSignUp');
-
 
           return redirect()->route('login');
         }else{
@@ -126,6 +120,26 @@ class LoginController extends Controller
         }
       }
 
+    }
+
+    public function displaySignUpPanel($cleSecrete){
+      if(Hash::check($cleSecrete, Constante::getPwdSignupEtudiant())){
+        session(['cleSignUp' => 'etudiant']);
+
+        return view('signup.signup')->with('etape', 2);
+      }else if(Hash::check($cleSecrete, Constante::getPwdSignupEnseignant())){
+        session(['cleSignUp' => 'enseignant']);
+
+        return view('signup.signup')->with('etape', 3);
+      }else if(Hash::check($cleSecrete, Constante::getPwdSignupEntreprise())){
+        session(['cleSignUp' => 'entreprise']);
+
+        return view('signup.signup')->with('etape', 4);
+      }else{
+        session()->flash('cleError', 'Clé fausse');
+
+        return redirect()->route('signup');
+      }
     }
 
 }

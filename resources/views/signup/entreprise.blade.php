@@ -17,20 +17,19 @@
       <div class="form-group">
         <label for="inputNom" class="col-sm-2 control-label">Nom :</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" name="nom" id="inputNom" value="">
+          <input type="text" class="form-control" name="nom" id="inputNom" value="" required>
         </div>
         <label for="inputPrenom" class="col-sm-2 control-label">Prenom :</label>
         <div class="col-sm-4">
-          <input type="text" class="form-control" name="prenom" id="inputPrenom" value="">
+          <input type="text" class="form-control" name="prenom" id="inputPrenom" value="" required>
         </div>
       </div>
 
       <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label">Email :</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" name="email" id="inputEmail" value="">
+          <input type="email" class="form-control" name="email" id="inputEmail" value="" required>
         </div>
-        <label class="control-label col-xs-4" style="text-align:left !important;"><small>(u-psud uniquement)</small></label>
       </div>
 
       <div class="form-group">
@@ -40,13 +39,15 @@
         </div>
         <label for="inputPrenom" class="col-sm-2 control-label">Confirm:</label>
         <div class="col-sm-4">
-          <input type="password" class="form-control" name="pwd" id="inputPrenom" value="">
+          <input type="password" class="form-control" name="pwd_confirmation" id="inputPrenom" value="">
         </div>
       </div>
 
       <div class="col-xs-10 col-xs-offset-1">
         <input type="submit" class="form-control btn btn-primary" name="submitEtudiantSignup" value="Valider">
       </div>
+
+      Afficher erreurs ici
 
     </div>
   </form>
