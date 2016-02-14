@@ -39,13 +39,15 @@
         </div>
         <label for="inputPrenom" class="col-sm-2 control-label">Confirm:</label>
         <div class="col-sm-4">
-          <input type="password" class="form-control" name="pwd" id="inputPasswordConfirm" value="" required>
+          <input type="password" class="form-control" name="pwd_confirmation" id="inputPasswordConfirm" value="" required>
         </div>
       </div>
 
       <div class="col-xs-10 col-xs-offset-1">
         <input type="submit" class="form-control btn btn-primary" name="submitEtudiantSignup" value="Valider">
       </div>
+
+      Afficher erreurs ici
 
     </div>
   </form>

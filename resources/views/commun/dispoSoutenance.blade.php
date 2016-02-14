@@ -16,7 +16,7 @@
 
       <div class="panel panel-default">
         <div class="panel-heading text-center">
-          {{$data['date'][1]}}
+          {{$data['date'][0]}}
         </div>
         <div class="panel-body">
 

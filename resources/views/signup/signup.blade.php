@@ -24,7 +24,17 @@
 
                 <div class="panel panel-default">
                   <div class="panel-heading text-center">
-                    DUT Informatique
+                    @if($etape == 1)
+                      Inscription
+                    @elseif($etape == 2)
+                      Etudiant
+                    @elseif($etape == 3)
+                      Enseignant
+                    @elseif($etape == 4)
+                      Tuteur
+                    @else
+                      Error.
+                    @endif
                   </div>
                   <div class="panel-body">
                     @if($etape == 1)

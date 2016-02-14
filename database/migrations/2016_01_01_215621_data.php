@@ -30,6 +30,18 @@ class Data extends Migration
           'valeur' => Hash::make('entreprise')
         ]
       );
+      DB::table('constante')->insert(
+        [
+          'id' => 90,
+          'valeur' => "Mardi 06 Juin"
+        ]
+      );
+      DB::table('constante')->insert(
+        [
+          'id' => 91,
+          'valeur' => "Mercredi 07 Juin"
+        ]
+      );
       //
       // DB::table('utilisateur')->insert(
       //   [
