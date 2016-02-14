@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SignupEntrepriseRequest;
+use App\Http\Requests\SignupEtudiantRequest;
 
 use App\Etudiant;
 use App\Constante;
@@ -75,6 +76,16 @@ class LoginController extends Controller
     {
         if($id == 1){ // Validation cle
           return $this->validationCle($request->CleSecrete);
+        }else if($id == 2){
+          if(session('cleSignUp') == 2){
+            $this->validate($request, SignupEtudiantRequest::rules());
+
+            $utilisateur = Utilisateur::make($request->all(), Utilisateur::$ETUDIANT);
+            $etudiant = Etudiant::make($utilisateur, $request->all());
+
+          }else {
+            echo 'Erreur, request non autorisé';
+          }
         }else if($id == 4){
           if(session('cleSignUp') == 4){
             $this->validate($request, SignupEntrepriseRequest::rules());
@@ -83,21 +94,14 @@ class LoginController extends Controller
           }
         }else{
            echo "Erreur de numero d'etape";
+
+           return '.';
         }
 
-    //   }else if($id == 2){
-    //     if(session()->has('cleSignUp')){
-    //
-    //       $utilisateur = Utilisateur::make($request->all(), Utilisateur::$ETUDIANT);
-    //       $etudiant = Etudiant::make($utilisateur, $request->all());
-    //
-    //       session()->flash('signup', 'done');
-    //       session()->forget('cleSignUp');
-    //
-    //       return redirect()->route('login');
-    //     }else{
-    //       return "Error signup.";
-    //     }
+        session()->flash('signup', 'done');
+        session()->forget('cleSignUp');
+        return redirect()->route('login');
+
     //   }else if($id == 3){
     //     if(session()->has('cleSignUp')){
     //

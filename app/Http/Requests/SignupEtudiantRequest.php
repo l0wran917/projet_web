@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class SignupEntrepriseRequest extends Request
+class SignupEtudiantRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class SignupEntrepriseRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,11 +24,13 @@ class SignupEntrepriseRequest extends Request
     static public function rules()
     {
         return [
+            'civilite' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
             'email' => 'required|email',
+            'telPort' => 'required',
             'pwd' => 'required|confirmed',
-            'pwd_confirmation' => 'required'
+            'tp' => 'required'
         ];
     }
 }

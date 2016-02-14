@@ -24,7 +24,7 @@
 @if (session('erreurCle'))
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-        <div class="alert alert-danger" id="alertSignUpCleFausse">
+        <div class="alert alert-danger" id="alertSignUp">
             <ul>
                 <li>Mauvaise clé d'inscription</li>
             </ul>

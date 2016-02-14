@@ -210,7 +210,7 @@
             @elseif( isset($data['stage']) )
               value="{{ $data['etudiant']->telEntrepriseEtudiant }}"
             @endif
-            class="form-control" required pattern="^0[1-8]([-. ]?[0-9]{2}){4}$">
+            class="form-control" required pattern="^0[1-9]([-. ]?[0-9]{2}){4}$">
           </div>
         </div>
 
