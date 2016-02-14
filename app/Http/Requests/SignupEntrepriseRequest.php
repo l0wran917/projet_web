@@ -24,11 +24,15 @@ class SignupEntrepriseRequest extends Request
     static public function rules()
     {
         return [
+            'civilite' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|unique:utilisateur,email',
             'pwd' => 'required|confirmed',
-            'pwd_confirmation' => 'required'
+            'nomEtablissement' => 'required',
+            'rueEtablissement' => 'required',
+            'villeEtablissement' => 'required',
+            'codePostalEtablissement' => 'required'
         ];
     }
 }

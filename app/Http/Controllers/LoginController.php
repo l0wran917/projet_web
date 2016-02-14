@@ -17,6 +17,7 @@ use App\Constante;
 use App\Utilisateur;
 use App\TuteurEnseignant;
 use App\Tuteur;
+use App\Entreprise;
 
 use Hash;
 use Redirect;
@@ -24,22 +25,30 @@ use Validator;
 
 class LoginController extends Controller
 {
-    public function login()
-    {
-        return view('login');
+    public function login(){
+      return view('login');
     }
 
-    public function signup()
-    {
-        return view('signup.signup')->with('etape', 1);
+    public function signup(){
+      return view('signup.signup')->with('etape', 1);
+    }
+
+    public function signupEtapeCorrespondant($id, $correspondant){
+      if(session()->has('entreprises')){
+        return view('signup.entrepriseCorrespondante');
+      }else if(session()->has('tuteurs')){
+        return view('signup.tuteurCorrespondant');
+      }else{
+        return redirect()->route('signup');
+      }
     }
 
     public function signupEtape($id){
-        if(session()->has('cleSignUp')){
-          return view('signup.signup')->with('etape', $id);
-        }else{
-          return redirect()->route('signup');
-        }
+      if(session()->has('cleSignUp')){
+        return view('signup.signup')->with('etape', $id);
+      }else{
+        return redirect()->route('signup');
+      }
     }
 
     public function submitLogin(LoginRequest $request){
@@ -105,8 +114,16 @@ class LoginController extends Controller
         // Inscription tuteurEntreprise
         }else if($id == 4){
           if(session('cleSignUp') == 4){
-            dd($request->all());
             $this->validate($request, SignupEntrepriseRequest::rules());
+
+            $retour = $this->checkEntrepriseInDB($request);
+            if($retour){
+              // S'il existe une entreprise => Continue le traitement
+              return $retour;
+            }else{
+              // Si aucune entreprise identique => Finalise l'inscription (on a toute les infos)
+              return $this->endSignupEntreprise();
+            }
           }else {
             return 'Erreur, request non autorisé';
           }
@@ -120,37 +137,61 @@ class LoginController extends Controller
         session()->forget('cleSignUp');
         return redirect()->route('login');
 
-    //   }else if($id == 3){
-    //     if(session()->has('cleSignUp')){
-    //
-    //       $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENSEIGNANT);
-    //       $enseignant = TuteurEnseignant::make($utilisateur, $request->all());
-    //
-    //       session()->flash('signup', 'done');
-    //       session()->forget('cleSignUp');
-    //
-    //
-    //       return redirect()->route('login');
-    //     }else{
-    //       return "Error.";
-    //     }
-    //   }else if($id == 4){
-    //     if(session()->has('cleSignUp')){
-    //
-    //       $this->validate($request, SignupEntrepriseRequest::rules());
-    //
-    //       $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
-    //       $tuteurEntre = Tuteur::make($utilisateur, $request->all());
-    //
-    //       session()->flash('signup', 'done');
-    //       session()->forget('cleSignUp');
-    //
-    //       return redirect()->route('login');
-    //     }else{
-    //       return "Error signup entreprise.";
-    //     }
-    //   }
 
+        // $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
+        // $tuteurEntre = Tuteur::make($utilisateur, $request->all());
+    }
+
+    public function checkEntrepriseInDB($request){
+      $entreprises = Entreprise::existeInDBByCP($request->nomEtablissement, $request->codePostalEtablissement);
+
+      if(count($entreprises) > 0){
+        session(['requestSignUp' => $request->all()]);
+        session(['entreprises' => $entreprises]);
+        return redirect()->route('signupEtapeCorrespondant', ['etape' => '4', 'correspondant' => 'entreprise']);
+      }else{
+        return null;
+      }
+    }
+
+    public function checkTuteurInDB(){
+      $tuteurs = Tuteur::existeInDBByEntreprise(session('requestSignUp')['nom'], session('idEntreprise'));
+
+      if(count($tuteurs) > 0){
+        session(['tuteurs' => $tuteurs]);
+        return redirect()->route('signupEtapeCorrespondant', ['etape' => '4', 'correspondant' => 'tuteur']);
+      }else{
+        return $this->endSignupEntreprise();
+      }
+    }
+
+    public function postSignupEtapeCorrespondant(Request $request, $id, $correspondant){
+      if($correspondant == 'entreprise'){
+        // Entreprise deja existante
+        if($request->inputCorrespondante != 0){
+          session(['idEntreprise' => session('entreprises')[$request->inputCorrespondante-1]->id]);
+          session()->forget('entreprises');
+
+          return $this->checkTuteurInDB();
+        }else{
+          return $this->endSignupEntreprise();
+        }
+      }else if($correspondant == 'tuteur'){
+        if($request->inputCorrespondante != 0){
+          session(['idTuteur' => session('tuteurs')[$request->inputCorrespondante - 1]->idUtilisateur]);
+
+          return $this->endSignupEntreprise();
+        }else{
+          return $this->endSignupEntreprise();
+        }
+      }else{
+        return "Error.";
+      }
+    }
+
+    // Called when all the data needed to register the company employee are collected
+    public function endSignupEntreprise(){
+      echo "Entreprise : " . session('idEntreprise') . " | Tuteur : " . session('idTuteur');
     }
 
     public function validationCle($cleSecrete){

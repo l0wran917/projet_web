@@ -30,7 +30,7 @@
       <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label">Email :</label>
         <div class="col-sm-6">
-          <input type="email" class="form-control" name="email" id="inputEmail" value="{{ old('email') }}"  required><!--pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" -->
+          <input type="email" class="form-control" name="email" id="inputEmail" value="{{ old('email') }}" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
         </div>
       </div>
 
