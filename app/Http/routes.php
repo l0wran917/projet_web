@@ -17,9 +17,10 @@ Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
 Route::post('/login', ['as' => 'loginPost', 'uses' => 'LoginController@submitLogin']);
 
 Route::get('/signup', ['as' => 'signup', 'uses' => 'LoginController@signup']);
-Route::get('/signup/{etape}', ['as' => 'signupPost', 'uses' => 'LoginController@signup'])->where(['id' => '[0-9]+']);
 Route::post('/signup/{etape}', ['as' => 'signupPost', 'uses' => 'LoginController@submitSignup'])->where(['id' => '[0-9]+']);
-Route::get('/signup/{etape}', ['as' => 'signupStep', 'uses' => 'LoginController@submitSignup'])->where(['id' => '[0-9]+']);
+//
+// Route::get('/signup/{etape}', ['as' => 'signupPostEtape', 'uses' => 'LoginController@signup'])->where(['id' => '[0-9]+']);
+// Route::get('/signup/{etape}', ['as' => 'signupStep', 'uses' => 'LoginController@submitSignup'])->where(['id' => '[0-9]+']);
 
 Route::group(['middleware' => ['auth']], function(){
   Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);

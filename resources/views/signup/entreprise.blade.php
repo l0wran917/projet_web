@@ -28,7 +28,7 @@
       <div class="form-group">
         <label for="inputEmail" class="col-sm-2 control-label">Email :</label>
         <div class="col-sm-6">
-          <input type="email" class="form-control" name="email" id="inputEmail" value="" required>
+          <input type="email" class="form-control" name="email" id="inputEmail" value=""><!-- required> -->
         </div>
       </div>
 
@@ -48,9 +48,18 @@
       </div>
 
       Afficher erreurs ici
+      @if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
 
     </div>
   </form>
 </div>
 
-<script src="{{asset('js/signup.js')}}"></script>
+<!-- <script src="{{asset('js/signup.js')}}"></script> -->

@@ -18,6 +18,7 @@ use App\Tuteur;
 
 use Hash;
 use Redirect;
+use Validator;
 
 class LoginController extends Controller
 {
@@ -86,7 +87,7 @@ class LoginController extends Controller
 
           return redirect()->route('login');
         }else{
-          return "Error.";
+          return "Error signup.";
         }
       }else if($id == 3){
         if(session()->has('cleSignUp')){
@@ -105,7 +106,6 @@ class LoginController extends Controller
       }else if($id == 4){
         if(session()->has('cleSignUp')){
 
-          // dd($request->all());
           $this->validate($request, SignupEntrepriseRequest::rules());
 
           $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
@@ -116,7 +116,7 @@ class LoginController extends Controller
 
           return redirect()->route('login');
         }else{
-          return "Error.";
+          return "Error signup entreprise.";
         }
       }
 
