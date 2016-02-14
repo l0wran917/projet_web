@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class SignupEtudiantRequest extends Request
+class SignupEnseignantRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,9 +28,7 @@ class SignupEtudiantRequest extends Request
             'nom' => 'required',
             'prenom' => 'required',
             'email' => 'required|email|unique:utilisateur,email',
-            'telPort' => 'required',
-            'pwd' => 'required|confirmed',
-            'tp' => 'required'
+            'pwd' => 'required|confirmed'
         ];
     }
 }

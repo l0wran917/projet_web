@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\SignupEntrepriseRequest;
 use App\Http\Requests\SignupEtudiantRequest;
+use App\Http\Requests\SignupEnseignantRequest;
 
 use App\Etudiant;
 use App\Constante;
@@ -74,8 +75,11 @@ class LoginController extends Controller
 
     public function submitSignup(Request $request, $id)
     {
-        if($id == 1){ // Validation cle
+        // Validation cle
+        if($id == 1){
           return $this->validationCle($request->CleSecrete);
+
+        // Inscription etudiant
         }else if($id == 2){
           if(session('cleSignUp') == 2){
             $this->validate($request, SignupEtudiantRequest::rules());
@@ -84,18 +88,32 @@ class LoginController extends Controller
             $etudiant = Etudiant::make($utilisateur, $request->all());
 
           }else {
-            echo 'Erreur, request non autorisé';
+            return 'Erreur, request non autorisé';
           }
+
+        // Inscription enseignant
+        }else if($id == 3){
+          if(session('cleSignUp') == 3){
+            $this->validate($request, SignupEnseignantRequest::rules());
+
+            $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENSEIGNANT);
+            $enseignant = TuteurEnseignant::make($utilisateur, $request->all());
+          }else {
+            return 'Erreur, request non autorisé';
+          }
+
+        // Inscription tuteurEntreprise
         }else if($id == 4){
           if(session('cleSignUp') == 4){
+            dd($request->all());
             $this->validate($request, SignupEntrepriseRequest::rules());
           }else {
-            echo 'Erreur, request non autorisé';
+            return 'Erreur, request non autorisé';
           }
-        }else{
-           echo "Erreur de numero d'etape";
 
-           return '.';
+        // ID Url inconnu
+        }else{
+           return "Erreur de numero d'etape";
         }
 
         session()->flash('signup', 'done');
