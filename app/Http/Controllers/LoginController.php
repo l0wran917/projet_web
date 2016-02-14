@@ -34,9 +34,9 @@ class LoginController extends Controller
     }
 
     public function signupEtapeCorrespondant($id, $correspondant){
-      if(session()->has('entreprises')){
+      if(session()->has('entreprises') && !session()->has('idEntreprise')){
         return view('signup.entrepriseCorrespondante');
-      }else if(session()->has('tuteurs')){
+      }else if(session()->has('tuteurs') && !session()->has('idTuteur')){
         return view('signup.tuteurCorrespondant');
       }else{
         return redirect()->route('signup');
@@ -133,13 +133,7 @@ class LoginController extends Controller
            return "Erreur de numero d'etape";
         }
 
-        session()->flash('signup', 'done');
-        session()->forget('cleSignUp');
-        return redirect()->route('login');
-
-
-        // $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
-        // $tuteurEntre = Tuteur::make($utilisateur, $request->all());
+        $this->signupSucceed();
     }
 
     public function checkEntrepriseInDB($request){
@@ -170,7 +164,6 @@ class LoginController extends Controller
         // Entreprise deja existante
         if($request->inputCorrespondante != 0){
           session(['idEntreprise' => session('entreprises')[$request->inputCorrespondante-1]->id]);
-          session()->forget('entreprises');
 
           return $this->checkTuteurInDB();
         }else{
@@ -191,7 +184,21 @@ class LoginController extends Controller
 
     // Called when all the data needed to register the company employee are collected
     public function endSignupEntreprise(){
+      session()->forget('entreprises');
+      session()->forget('tuteurs');
+
       echo "Entreprise : " . session('idEntreprise') . " | Tuteur : " . session('idTuteur');
+      dd(session('requestSignUp'));
+
+      // Si tuteur existe mais possede un mdp => Refuse inscription
+      // Si tuteur existe mais ne possede pas de mdp => Update l'utilisateur (Entreprise existe deja et lien est fait)
+      // Si tuteur n'existe pas => Insert
+      // Si entreprise n'existe pas => Insert entreprise + tuteur + utilisateur
+
+      // $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
+      // $tuteurEntre = Tuteur::make($utilisateur, $request->all());
+
+      $this->signupSucceed();
     }
 
     public function validationCle($cleSecrete){
@@ -207,6 +214,12 @@ class LoginController extends Controller
         }else{
           return redirect()->route('signup')->with('erreurCle', 'erreur cle');
         }
+    }
+
+    public function signupSucceed(){
+      session()->flash('signup', 'done');
+      session()->forget('cleSignUp');
+      return redirect()->route('login');
     }
 
 }
