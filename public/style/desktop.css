@@ -102,6 +102,11 @@ h3{
   margin-top: -10px;
 }
 
+.alert[id=alertSignUpCleFausse]{
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 .labelInscription{
   margin-top: 0px;
 }

@@ -7,4 +7,5 @@
       </ul>
   </div>
 @endif
-t
+
+{{session()->flush()}}

@@ -43,18 +43,21 @@
         </div>
       </div>
 
-      <div class="col-xs-10 col-xs-offset-1">
-        <input type="submit" class="form-control btn btn-primary" name="submitEtudiantSignup" value="Valider">
+      <div class="form-group">
+        <div class="col-xs-10 col-xs-offset-1">
+          <input type="submit" class="form-control btn btn-primary" name="submitEtudiantSignup" value="Valider">
+        </div>
       </div>
 
-      Afficher erreurs ici
       @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="alert alert-danger">
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
         </div>
       @endif
 
