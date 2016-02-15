@@ -41,8 +41,14 @@ class Tuteur extends Model
     public static function make($user, $attributes){
       $tuteur = new Tuteur;
       $tuteur->idUtilisateur = $user->id;
+      $tuteur->idEntreprise = $attributes['idEntreprise'];
       $tuteur->save();
 
       return $tuteur;
     }
+
+    public static function getByID($id){
+      return Tuteur::where('idUtilisateur', $id)->first();
+    }
+
 }

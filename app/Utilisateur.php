@@ -36,4 +36,19 @@ class Utilisateur extends Model
     return $user;
   }
 
+  public static function getByID($id){
+    return Utilisateur::where('id', $id)->first();
+  }
+
+  public function isActive(){
+    return $this->password != "";
+  }
+
+  public function setPassword($pwd){
+    $this->password = Hash::make($pwd);
+    $this->save();
+
+    return true;
+  }
+
 }

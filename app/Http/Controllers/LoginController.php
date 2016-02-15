@@ -34,9 +34,9 @@ class LoginController extends Controller
     }
 
     public function signupEtapeCorrespondant($id, $correspondant){
-      if(session()->has('entreprises') && !session()->has('idEntreprise')){
+      if(!session()->has('idEntreprise')){
         return view('signup.entrepriseCorrespondante');
-      }else if(session()->has('tuteurs') && !session()->has('idTuteur')){
+      }else if(session()->has('idEntreprise') && !session()->has('idTuteur')){
         return view('signup.tuteurCorrespondant');
       }else{
         return redirect()->route('signup');
@@ -133,7 +133,7 @@ class LoginController extends Controller
            return "Erreur de numero d'etape";
         }
 
-        $this->signupSucceed();
+      return $this->signupSucceed();
     }
 
     public function checkEntrepriseInDB($request){
@@ -188,17 +188,38 @@ class LoginController extends Controller
       session()->forget('tuteurs');
 
       echo "Entreprise : " . session('idEntreprise') . " | Tuteur : " . session('idTuteur');
-      dd(session('requestSignUp'));
 
-      // Si tuteur existe mais possede un mdp => Refuse inscription
-      // Si tuteur existe mais ne possede pas de mdp => Update l'utilisateur (Entreprise existe deja et lien est fait)
-      // Si tuteur n'existe pas => Insert
-      // Si entreprise n'existe pas => Insert entreprise + tuteur + utilisateur
+      $entreprise = Entreprise::getByID(session('idEntreprise'));
+      $utilisateur = Utilisateur::getByID(session('idTuteur'));
+      $tuteur = Tuteur::getByID(session('idTuteur'));
 
-      // $utilisateur = Utilisateur::make($request->all(), Utilisateur::$TUTEUR_ENTREPRISE);
-      // $tuteurEntre = Tuteur::make($utilisateur, $request->all());
+      if($entreprise == null){
+        $entreprise = Entreprise::make(session('requestSignUp'));
+        session(['idEntreprise' => $entreprise->id]);
+      }
 
-      $this->signupSucceed();
+      if($utilisateur != null){
+        if($utilisateur->isActive()){ // Utilisateur deja inscrit
+          // Signup forbidden
+          session()->flash('userActive', 'utilisateur deja inscrit');
+          return redirect()->route('signup');
+        }else{
+          // Signup allowed
+          $utilisateur->setPassword(session('requestSignUp'));
+        }
+      }else{
+        $utilisateur = Utilisateur::make(session('requestSignUp'), Utilisateur::$TUTEUR_ENTREPRISE);
+        $tuteur = Tuteur::make($utilisateur, ['idEntreprise' => session('idEntreprise')]);
+      }
+
+      // dd([$entreprise, $utilisateur, $tuteur]);
+
+      //// Si entreprise n'existe pas => Insert entreprise
+      //// Si tuteur existe mais possede un mdp => Refuse inscription
+      //// Si tuteur existe mais ne possede pas de mdp => Update l'utilisateur (Entreprise existe deja et lien est fait)
+      //// Si tuteur n'existe pas => Insert tuteur + utilisateur
+
+      return $this->signupSucceed();
     }
 
     public function validationCle($cleSecrete){

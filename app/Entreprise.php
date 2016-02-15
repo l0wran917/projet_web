@@ -33,4 +33,21 @@ class Entreprise extends Model
       return $contact;
     }
 
+    public static function getByID($id){
+      return Entreprise::where('id', $id)->first();
+    }
+
+    public static function make($attributes){
+      $entreprise = new Entreprise;
+
+      $entreprise->nom = $attributes['nomEtablissement'];
+      $entreprise->rue = $attributes['rueEtablissement'];
+      $entreprise->cp = $attributes['codePostalEtablissement'];
+      $entreprise->ville = $attributes['villeEtablissement'];
+
+      $entreprise->save();
+
+      return $entreprise;
+    }
+
 }

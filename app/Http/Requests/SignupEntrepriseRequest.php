@@ -27,7 +27,7 @@ class SignupEntrepriseRequest extends Request
             'civilite' => 'required',
             'nom' => 'required',
             'prenom' => 'required',
-            'email' => 'required|email|unique:utilisateur,email',
+            'email' => 'required|email', //|unique:utilisateur,email
             'pwd' => 'required|confirmed',
             'nomEtablissement' => 'required',
             'rueEtablissement' => 'required',
