@@ -34,7 +34,7 @@ function afficherDetailsEtudiant(){
       date: Date().now
     }
   }).done(function(data){
-    
+
     $("#panelEtudiantDetails").css({'display':'block'});
 
     // Affiche les details
@@ -42,7 +42,9 @@ function afficherDetailsEtudiant(){
     $(".nomEtudiantDetails").text(ucfirst(data.etudiant.nom)+ " " + ucfirst(data.etudiant.prenom));
     $(".emailEtudiantDetails").text(data.etudiant.email);
     $(".sujetEtudiantDetails").text(data.stage.sujet);
-    $(".tuteurEntrepriseDetails").text(ucfirst(data.tuteur.nomTuteur)+ " " + ucfirst(data.tuteur.prenomTuteur));
+    if(data.tuteur.nomTuteur !== undefined){
+      $(".tuteurEntrepriseDetails").text(ucfirst(data.tuteur.nomTuteur)+ " " + ucfirst(data.tuteur.prenomTuteur));
+    }
     $(".entrepriseEtudiantDetails").text(data.entreprise.nom);
 
   }).fail(function(){
