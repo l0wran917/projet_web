@@ -41,4 +41,12 @@ class Disponibilite extends Model
     return $data;
   }
 
+  public static function make($uid, $heure, $numjour){
+    $dispo = new Disponibilite;
+    $dispo->idUtilisateur = $uid;
+    $dispo->debutMinute = $heure;
+    $dispo->numJour = $numjour;
+    $dispo->save();
+  }
+
 }

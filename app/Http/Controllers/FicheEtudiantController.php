@@ -85,21 +85,13 @@ class FicheEtudiantController extends Controller
 
       if($request->creneaux0 != null){
         foreach ($request->creneaux0 as $heure) {
-          $dispo = new Disponibilite;
-          $dispo->idUtilisateur = session('uid');
-          $dispo->debutMinute = $heure;
-          $dispo->numJour = 0;
-          $dispo->save();
+          Disponibilite::make(session('uid'), $heure, 0);
         }
       }
 
       if($request->creneaux1 != null){
         foreach ($request->creneaux1 as $heure) {
-          $dispo = new Disponibilite;
-          $dispo->idUtilisateur = session('uid');
-          $dispo->debutMinute = $heure;
-          $dispo->numJour = 1;
-          $dispo->save();
+          Disponibilite::make(session('uid'), $heure, 1);
         }
       }
 

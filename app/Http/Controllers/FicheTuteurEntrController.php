@@ -99,21 +99,13 @@ class FicheTuteurEntrController extends Controller
 
     if(Request::get('creneaux0') != null){
       foreach (Request::get('creneaux0') as $heure) {
-        $dispo = new Disponibilite;
-        $dispo->idUtilisateur = session('uid');
-        $dispo->debutMinute = $heure;
-        $dispo->numJour = 0;
-        $dispo->save();
+        Disponibilite::make(session('uid'), $heure, 0);
       }
     }
 
     if(Request::get('creneaux1') != null){
       foreach (Request::get('creneaux1') as $heure) {
-        $dispo = new Disponibilite;
-        $dispo->idUtilisateur = session('uid');
-        $dispo->debutMinute = $heure;
-        $dispo->numJour = 1;
-        $dispo->save();
+        Disponibilite::make(session('uid'), $heure, 1);
       }
     }
 
