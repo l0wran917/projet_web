@@ -28,7 +28,47 @@ function nextSubmit(){
   var mail = $("#inputEmail").val();
   var prenomDotNom = mail.split("@")[0];
 
-//  if (mail.split("@")[1]=="u-psud.fr" && prenomDotNom.indexOf(".")!=-1){
+  // Adresse mail upsud
+  if (mail.split("@")[1]=="u-psud.fr" && prenomDotNom.indexOf(".")!=-1){
+    var prenom = prenomDotNom.split(".")[0];
+    var nom = prenomDotNom.split(".")[1];
+    prenom = prenom[0].toUpperCase() + prenom.slice(1).toLowerCase();
+    nom = nom[0].toUpperCase() + nom.slice(1).toLowerCase();
+    lienImg = "img/etudiants/" + prenom.toLowerCase() + "." + nom.toLowerCase() + ".jpg";
+  } else {
+    prenom = mail;
+    nom = "";
+    lienImg = "img/testImg.png";
+  }
+
+  $(".panel-alert").css({
+    'max-height':'0px',
+    'display':'none'
+  })
+
+  $(".login .first-panel").css({
+    'transition': '100ms linear',
+    'transform': 'translate(-150%, 0)'
+  });
+
+  $(".login .second-panel").css({
+    'transition': '100ms linear',
+    'transform': 'translate(0%, -100%)'
+  });
+
+  $(".login .iconPrevious").css({
+    'display' : 'block'
+  });
+
+  // $("#inputPassword").focus();
+  $("#inputEmail").blur();
+  $("#inputPassword").val("");
+
+  $(".personalPicture img").attr("src", lienImg)
+
+  $('.login .prenom').text(prenom);
+  $('.login .nom').text(nom);
+/*
   if (mail.split("@")[1]=="u-psud.fr" && prenomDotNom.indexOf(".")!=-1){
     var prenom = prenomDotNom.split(".")[0];
     var nom = prenomDotNom.split(".")[1];
@@ -82,6 +122,7 @@ function nextSubmit(){
       'height':'475px'
     });
   }
+  */
 }
 
 function previousSubmit(){

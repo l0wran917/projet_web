@@ -97,20 +97,24 @@ class FicheTuteurEntrController extends Controller
 
     Disponibilite::deleteDispoByUser(session('uid'));
 
-    foreach (Request::get('creneaux0') as $heure) {
-      $dispo = new Disponibilite;
-      $dispo->idUtilisateur = session('uid');
-      $dispo->debutMinute = $heure;
-      $dispo->numJour = 0;
-      $dispo->save();
+    if(Request::get('creneaux0') != null){
+      foreach (Request::get('creneaux0') as $heure) {
+        $dispo = new Disponibilite;
+        $dispo->idUtilisateur = session('uid');
+        $dispo->debutMinute = $heure;
+        $dispo->numJour = 0;
+        $dispo->save();
+      }
     }
 
-    foreach (Request::get('creneaux1') as $heure) {
-      $dispo = new Disponibilite;
-      $dispo->idUtilisateur = session('uid');
-      $dispo->debutMinute = $heure;
-      $dispo->numJour = 1;
-      $dispo->save();
+    if(Request::get('creneaux1') != null){
+      foreach (Request::get('creneaux1') as $heure) {
+        $dispo = new Disponibilite;
+        $dispo->idUtilisateur = session('uid');
+        $dispo->debutMinute = $heure;
+        $dispo->numJour = 1;
+        $dispo->save();
+      }
     }
 
     session()->flash('registred', true);

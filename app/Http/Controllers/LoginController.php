@@ -115,7 +115,7 @@ class LoginController extends Controller
         }else if($id == 4){
           if(session('cleSignUp') == 4){
             $this->validate($request, SignupEntrepriseRequest::rules());
-            
+
             session(['requestSignUp' => $request->all()]);
 
             $retour = $this->checkEntrepriseInDB($request);
@@ -206,7 +206,7 @@ class LoginController extends Controller
           return redirect()->route('signup');
         }else{
           // Signup allowed
-          $utilisateur->setPassword(session('requestSignUp'));
+          $utilisateur->setPassword(session('requestSignUp')['pwd']);
         }
       }else{
         $utilisateur = Utilisateur::make(session('requestSignUp'), Utilisateur::$TUTEUR_ENTREPRISE);

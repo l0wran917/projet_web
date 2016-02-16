@@ -78,24 +78,29 @@ class FicheEtudiantController extends Controller
     }
 
     private function traitementSubmitSoutenance($id, $request){
-      $this->validate($request, SoutenanceRequest::rules());
+      // $this->validate($request, SoutenanceRequest::rules());
+
 
       Disponibilite::deleteDispoByUser(session('uid'));
 
-      foreach ($request->creneaux0 as $heure) {
-        $dispo = new Disponibilite;
-        $dispo->idUtilisateur = session('uid');
-        $dispo->debutMinute = $heure;
-        $dispo->numJour = 0;
-        $dispo->save();
+      if($request->creneaux0 != null){
+        foreach ($request->creneaux0 as $heure) {
+          $dispo = new Disponibilite;
+          $dispo->idUtilisateur = session('uid');
+          $dispo->debutMinute = $heure;
+          $dispo->numJour = 0;
+          $dispo->save();
+        }
       }
 
-      foreach ($request->creneaux1 as $heure) {
-        $dispo = new Disponibilite;
-        $dispo->idUtilisateur = session('uid');
-        $dispo->debutMinute = $heure;
-        $dispo->numJour = 1;
-        $dispo->save();
+      if($request->creneaux1 != null){
+        foreach ($request->creneaux1 as $heure) {
+          $dispo = new Disponibilite;
+          $dispo->idUtilisateur = session('uid');
+          $dispo->debutMinute = $heure;
+          $dispo->numJour = 1;
+          $dispo->save();
+        }
       }
 
       session()->flash('registred', true);
