@@ -181,6 +181,8 @@ class FicheTuteurEntrController extends Controller
 
       session()->forget('idEtudiantFocus');
 
+      session()->flash('success', 'success');
+
       return redirect()->route('ficheTuteurEntre', ['id' => $id]);
     }
 

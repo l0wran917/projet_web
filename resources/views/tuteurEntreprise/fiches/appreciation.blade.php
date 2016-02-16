@@ -442,14 +442,14 @@
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputEmailRH">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : dupond@orange.fr" value="{{ $data['contact'][0]->email ? $data['contact'][0]->email : ''}}" required>
+                      <input type="text" class="form-control" name="emailRH" id="inputEmailRH" placeholder="Ex : dupond@orange.fr" value="{{ $data['contact'][0]->email ? $data['contact'][0]->email : ''}}" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputTelRH">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 01 02 03 04 05" value="{{ $data['contact'][0]->telephone ? $data['contact'][0]->telephone : ''}}" required>
+                      <input type="text" class="form-control" name="telRH" id="inputTelRH" placeholder="Ex : 01 02 03 04 05" value="{{ $data['contact'][0]->telephone ? $data['contact'][0]->telephone : ''}}" pattern="^0[1-8]([-. ]?[0-9]{2}){4}$" required>
                     </div>
                   </div>
                 </div>
@@ -472,14 +472,14 @@
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputEmailTA">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailTA" id="inputEmailTA" placeholder="Ex : delarue@gmail.com" value="{{ $data['contact'][1]->email ? $data['contact'][1]->email : ''}}" required>
+                      <input type="text" class="form-control" name="emailTA" id="inputEmailTA" placeholder="Ex : delarue@gmail.com" value="{{ $data['contact'][1]->email ? $data['contact'][1]->email : ''}}" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputTelTA">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telTA" id="inputTelTA" placeholder="Ex : 02 03 04 05 06" value="{{ $data['contact'][1]->telephone ? $data['contact'][1]->telephone : ''}}" required>
+                      <input type="text" class="form-control" name="telTA" id="inputTelTA" placeholder="Ex : 02 03 04 05 06" value="{{ $data['contact'][1]->telephone ? $data['contact'][1]->telephone : ''}}" pattern="^0[1-8]([-. ]?[0-9]{2}){4}$" required>
                     </div>
                   </div>
                 </div>
@@ -502,14 +502,14 @@
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputEmailCE">Email:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="emailRE" id="inputEmailCE" placeholder="Ex : nemit@regza.com" value="{{ $data['contact'][2]->email ? $data['contact'][2]->email : ''}}" required>
+                      <input type="text" class="form-control" name="emailRE" id="inputEmailCE" placeholder="Ex : nemit@regza.com" value="{{ $data['contact'][2]->email ? $data['contact'][2]->email : ''}}" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                     </div>
                   </div>
                   <!--  -->
                   <div class="form-group">
                     <label class="control-label col-xs-2" for="inputTelCE">Téléphone:</label>
                     <div class="col-xs-5">
-                      <input type="text" class="form-control" name="telRE" id="inputTelCE" placeholder="Ex : 03 04 05 06 07" value="{{ $data['contact'][2]->telephone ? $data['contact'][2]->telephone : ''}}" required>
+                      <input type="text" class="form-control" name="telRE" id="inputTelCE" placeholder="Ex : 03 04 05 06 07" value="{{ $data['contact'][2]->telephone ? $data['contact'][2]->telephone : ''}}" pattern="^0[1-8]([-. ]?[0-9]{2}){4}$" required>
                     </div>
                   </div>
                 </div>
@@ -531,6 +531,18 @@
       </div>
 
     </div> <!-- col-lg-6 -->
+
+    @if(session()->has('success'))
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="panel-alert-success transparent">
+              <div class="alert alert-success" role="alert">
+                 <div><strong>Succès.</strong> Votre fiche est bien enregistrée</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    @endif
 
 
   </div> <!-- row -->
