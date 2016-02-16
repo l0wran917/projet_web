@@ -13,12 +13,12 @@
 
 Route::get('/test', function(){return view('test');});
 
-Route::get('/', ['as' => 'login', 'uses' => 'LoginController@login']);
+Route::group(['middleware' => ['notLogin']], function(){
+  Route::get('/', ['as' => 'login', 'uses' => 'LoginController@login']);
 
-Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
-Route::post('/login', ['as' => 'loginPost', 'uses' => 'LoginController@submitLogin']);
-
-Route::get('/logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
+  Route::get('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
+  Route::post('/login', ['as' => 'loginPost', 'uses' => 'LoginController@submitLogin']);
+});
 
 Route::get('/signup', ['as' => 'signup', 'uses' => 'LoginController@signup']);
 
@@ -28,6 +28,7 @@ Route::get('/signup/{etape}', ['as' => 'signupEtape', 'uses' => 'LoginController
 Route::post('/signup/{etape}/{correspondant}', ['as' => 'signupEtapeCorrespondantPost', 'uses' => 'LoginController@postSignupEtapeCorrespondant'])->where(['id' => '4', 'correspondant' => 'entreprise|tuteur']);
 Route::get('/signup/{etape}/{correspondant}', ['as' => 'signupEtapeCorrespondant', 'uses' => 'LoginController@signupEtapeCorrespondant'])->where(['id' => '4', 'correspondant' => 'entreprise|tuteur']);
 
+Route::get('/logout', ['as' => 'logout', 'uses' => 'LoginController@logout']);
 
 Route::group(['middleware' => ['auth']], function(){
   Route::get('/dashboard', ['as' => 'dashboard', 'uses' => 'DashboardController@index']);

@@ -199,6 +199,7 @@ return [
         'etudiant'      => App\Http\Middleware\Etudiant::class,
         'tuteurEntreprise'      => App\Http\Middleware\TuteurEntreprise::class,
         'tuteurEnseignant'      => App\Http\Middleware\TuteurEnseignant::class,
+        'notLogin'      => App\Http\Middleware\notLogin::class,
     ],
 
 ];
