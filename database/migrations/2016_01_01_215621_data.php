@@ -21,7 +21,7 @@ class Data extends Migration
       DB::table('constante')->insert(
         [
           'id' => 2,
-          'valeur' => Hash::make('prof')
+          'valeur' => Hash::make('enseignant')
         ]
       );
       DB::table('constante')->insert(
