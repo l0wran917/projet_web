@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Gestion Stage IUT Orsay</title>
 
         <link type="text/css" rel="stylesheet" href="{{asset('style/bootstrap.min.css')}}">
         <link type="text/css" rel="stylesheet" href="{{asset('style/desktop.css')}}">
