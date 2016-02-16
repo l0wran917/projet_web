@@ -60,7 +60,7 @@ function nextSubmit(){
     'display' : 'block'
   });
 
-  // $("#inputPassword").focus();
+  $(".personalPicture img").focus();
   $("#inputEmail").blur();
   $("#inputPassword").val("");
 

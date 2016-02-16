@@ -12,7 +12,7 @@
 <a href="{{ route('ficheTuteurEntre', ['id' => 1]) }}">
   <div class="row btn-menu {{{ $id == 1 ? 'active' : ''}}}">
     <div class="col-xs-12">
-      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Mes stagiaires <span class="badge">2</span>
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>Mes stagiaires <!-- <span class="badge">2</span> -->
     </div>
   </div>
 </a>
