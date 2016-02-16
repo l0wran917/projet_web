@@ -29,6 +29,13 @@ class LoginController extends Controller
       return view('login');
     }
 
+    public function logout(){
+
+      session()->flush();
+
+      return view('logout');
+    }
+
     public function signup(){
       return view('signup.signup')->with('etape', 1);
     }

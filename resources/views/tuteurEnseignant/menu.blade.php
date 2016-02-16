@@ -32,3 +32,11 @@
     </div>
   </div>
 </a>
+
+<a href="{{ route('logout') }}">
+  <div class="row btn-menu">
+    <div class="col-xs-12">
+      <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>Deconnexion
+    </div>
+  </div>
+</a>

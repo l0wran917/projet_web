@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Inscription</title>
 
         <link type="text/css" rel="stylesheet" href="{{asset('style/bootstrap.min.css')}}">
         <link type="text/css" rel="stylesheet" href="{{asset('style/desktop.css')}}">
@@ -50,7 +50,7 @@
                     @endif
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>
