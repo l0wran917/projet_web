@@ -115,6 +115,8 @@ class LoginController extends Controller
         }else if($id == 4){
           if(session('cleSignUp') == 4){
             $this->validate($request, SignupEntrepriseRequest::rules());
+            
+            session(['requestSignUp' => $request->all()]);
 
             $retour = $this->checkEntrepriseInDB($request);
             if($retour){
@@ -140,7 +142,6 @@ class LoginController extends Controller
       $entreprises = Entreprise::existeInDBByCP($request->nomEtablissement, $request->codePostalEtablissement);
 
       if(count($entreprises) > 0){
-        session(['requestSignUp' => $request->all()]);
         session(['entreprises' => $entreprises]);
         return redirect()->route('signupEtapeCorrespondant', ['etape' => '4', 'correspondant' => 'entreprise']);
       }else{
@@ -187,7 +188,7 @@ class LoginController extends Controller
       session()->forget('entreprises');
       session()->forget('tuteurs');
 
-      echo "Entreprise : " . session('idEntreprise') . " | Tuteur : " . session('idTuteur');
+      // echo "Entreprise : " . session('idEntreprise') . " | Tuteur : " . session('idTuteur');
 
       $entreprise = Entreprise::getByID(session('idEntreprise'));
       $utilisateur = Utilisateur::getByID(session('idTuteur'));

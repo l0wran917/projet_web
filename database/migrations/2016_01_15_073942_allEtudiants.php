@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
@@ -8,14 +7,14 @@ class AllEtudiants extends Migration
 {
     public function up()
     {
-
+/*
       DB::table('utilisateur')->insert(
         [
           'id' => 1,
           'nom' =>  'bette-gadioux',
           'prenom' => 'adrien',
           'email' => 'adrien.bette-gadioux@u-psud.fr',
-          'dateNaissance' => '1996-01-20',
+          'dateNaissance' => '1996-01-20'
           'adresse' => '18 Rue des templiers',
           'telPortable' => '0650403020',
           'password' => Hash::make('password'),
@@ -29,7 +28,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -51,7 +50,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -73,7 +72,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -95,7 +94,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -117,7 +116,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -139,7 +138,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -161,7 +160,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -183,7 +182,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -205,7 +204,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -227,7 +226,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -249,7 +248,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -271,7 +270,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -293,7 +292,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -315,7 +314,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -337,7 +336,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -359,7 +358,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -381,7 +380,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -403,7 +402,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -425,7 +424,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -447,7 +446,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -469,7 +468,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -491,7 +490,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -513,7 +512,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -535,7 +534,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -557,7 +556,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -579,7 +578,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -601,7 +600,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -623,7 +622,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -645,7 +644,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -667,7 +666,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -689,7 +688,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -711,7 +710,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -733,7 +732,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -755,7 +754,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -777,7 +776,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -799,7 +798,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -821,7 +820,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -843,7 +842,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -865,7 +864,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -887,7 +886,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -909,7 +908,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -931,7 +930,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -953,7 +952,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -975,7 +974,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -997,7 +996,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1019,7 +1018,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1041,7 +1040,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1063,7 +1062,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1085,7 +1084,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1107,7 +1106,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1129,7 +1128,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1151,7 +1150,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1173,7 +1172,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1195,7 +1194,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1217,7 +1216,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1239,7 +1238,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1261,7 +1260,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1283,7 +1282,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1305,7 +1304,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1327,7 +1326,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1349,7 +1348,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1371,7 +1370,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1393,7 +1392,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1415,7 +1414,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1437,7 +1436,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1459,7 +1458,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1481,7 +1480,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1503,7 +1502,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1525,7 +1524,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1547,7 +1546,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1569,7 +1568,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1591,7 +1590,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1613,7 +1612,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1635,7 +1634,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1657,7 +1656,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1679,7 +1678,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1701,7 +1700,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1723,7 +1722,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1745,7 +1744,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1767,7 +1766,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1789,7 +1788,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1811,7 +1810,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1833,7 +1832,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1855,7 +1854,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1877,7 +1876,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1899,7 +1898,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1921,7 +1920,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1943,7 +1942,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1965,7 +1964,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -1987,7 +1986,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2009,7 +2008,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2031,7 +2030,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2053,7 +2052,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2075,7 +2074,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2097,7 +2096,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2119,7 +2118,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2141,7 +2140,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2163,7 +2162,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2185,7 +2184,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2207,7 +2206,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2229,7 +2228,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2251,7 +2250,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2273,7 +2272,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2295,7 +2294,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2317,7 +2316,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2339,7 +2338,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2361,7 +2360,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2383,7 +2382,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2405,7 +2404,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2427,7 +2426,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2449,7 +2448,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2471,7 +2470,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2493,7 +2492,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2515,7 +2514,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2537,7 +2536,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2559,7 +2558,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2581,7 +2580,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2603,7 +2602,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2625,7 +2624,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2647,7 +2646,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2669,7 +2668,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2691,7 +2690,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2713,7 +2712,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2735,7 +2734,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2757,7 +2756,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2779,7 +2778,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2801,7 +2800,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2823,7 +2822,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2845,7 +2844,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2867,7 +2866,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2889,7 +2888,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2911,7 +2910,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2933,7 +2932,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2955,7 +2954,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2977,7 +2976,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -2999,7 +2998,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3021,7 +3020,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3043,7 +3042,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3065,7 +3064,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3087,7 +3086,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3109,7 +3108,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3131,7 +3130,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3153,7 +3152,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3175,7 +3174,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3197,7 +3196,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3219,7 +3218,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3241,7 +3240,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3263,7 +3262,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3285,7 +3284,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3307,7 +3306,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3329,7 +3328,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3351,7 +3350,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3373,7 +3372,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3395,7 +3394,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3417,7 +3416,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3439,7 +3438,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3461,7 +3460,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3483,7 +3482,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3505,7 +3504,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3527,7 +3526,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3549,7 +3548,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3571,7 +3570,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3593,7 +3592,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3615,7 +3614,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3637,7 +3636,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3659,7 +3658,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3681,7 +3680,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3703,7 +3702,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3725,7 +3724,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3747,7 +3746,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3769,7 +3768,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3791,7 +3790,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3813,7 +3812,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3835,7 +3834,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3857,7 +3856,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3879,7 +3878,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3901,7 +3900,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3923,7 +3922,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3945,7 +3944,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3967,7 +3966,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -3989,7 +3988,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4011,7 +4010,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4033,7 +4032,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4055,7 +4054,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4077,7 +4076,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4099,7 +4098,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4121,7 +4120,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4143,7 +4142,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4165,7 +4164,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4187,7 +4186,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4209,7 +4208,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4231,7 +4230,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4253,7 +4252,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4275,7 +4274,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4297,7 +4296,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4319,7 +4318,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4341,7 +4340,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4363,7 +4362,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4385,7 +4384,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4407,7 +4406,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4429,7 +4428,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
       DB::table('utilisateur')->insert(
         [
@@ -4451,7 +4450,7 @@ class AllEtudiants extends Migration
           'tp' => '1K'
         ]
       );
-    
+
 
   DB::table('utilisateur')->insert(
     [
@@ -4504,9 +4503,11 @@ class AllEtudiants extends Migration
         'idUtilisateur' => 205
     ]
   );
-
+*/
     }
 
     public function down()
     {    }
 }
+
+?>
